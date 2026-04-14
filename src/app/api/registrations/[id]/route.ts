@@ -49,7 +49,7 @@ export async function PATCH(request: Request, context: RouteContext) {
 
     const { supabaseUrl, serviceRoleKey } = getSupabaseAdminConfig();
     const response = await fetch(
-      `${supabaseUrl}/rest/v1/registrations?id=eq.${encodeURIComponent(id)}&select=id,name,organization,title,phone_raw,email,created_at,updated_at`,
+      `${supabaseUrl}/rest/v1/registrations?id=eq.${encodeURIComponent(id)}&select=id,name,organization,title,phone_raw,email,selected_session_ids,created_at,updated_at`,
       {
         method: "PATCH",
         headers: {
@@ -84,6 +84,7 @@ export async function PATCH(request: Request, context: RouteContext) {
       title: string;
       phone_raw: string;
       email: string;
+      selected_session_ids?: string[];
       created_at: string;
       updated_at: string;
     }>;

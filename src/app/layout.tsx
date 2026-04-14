@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Marcellus, Noto_Sans_KR, Geist } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
 
 import "./globals.css";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const bodyFont = Noto_Sans_KR({
   variable: "--font-body",
@@ -14,15 +11,15 @@ const bodyFont = Noto_Sans_KR({
   weight: ["400", "500", "700"],
 });
 
-const displayFont = Marcellus({
+const displayFont = Noto_Sans_KR({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["700"],
 });
 
 export const metadata: Metadata = {
   title: "2026 해양주간",
-  description: "2026 해양주간 홈페이지",
+  description: "2026 해양주간 Ocean Week 공식 홈페이지",
 };
 
 export default function RootLayout({
@@ -31,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={cn("font-sans", geist.variable)}>
-      <body className={`${bodyFont.variable} ${displayFont.variable} antialiased`}>
-        <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <html lang="ko">
+      <body className={`${bodyFont.variable} ${displayFont.variable} antialiased`} suppressHydrationWarning>
+        <div className="min-h-screen bg-background text-foreground">
           <SiteHeader />
           <main>{children}</main>
         </div>

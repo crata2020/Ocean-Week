@@ -12,6 +12,8 @@ type Database = {
           phone_raw: string;
           phone_normalized: string;
           email: string;
+          role: string;
+          selected_session_ids: string[];
           created_at: string;
           updated_at: string;
         };
@@ -23,6 +25,8 @@ type Database = {
           phone_raw: string;
           phone_normalized: string;
           email: string;
+          role?: string;
+          selected_session_ids?: string[];
           created_at?: string;
           updated_at?: string;
         };
@@ -34,6 +38,8 @@ type Database = {
           phone_raw: string;
           phone_normalized: string;
           email: string;
+          role: string;
+          selected_session_ids: string[];
           created_at: string;
           updated_at: string;
         }>;

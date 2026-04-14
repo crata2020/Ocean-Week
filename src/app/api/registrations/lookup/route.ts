@@ -16,7 +16,9 @@ export async function POST(request: Request) {
 
     const { data, error } = await supabase
       .from("registrations")
-      .select("id, name, organization, title, phone_raw, email, created_at, updated_at")
+      .select(
+        "id, name, organization, title, phone_raw, email, role, selected_session_ids, created_at, updated_at",
+      )
       .eq("name", values.name.trim())
       .eq("phone_normalized", normalizePhone(values.phone))
       .maybeSingle();

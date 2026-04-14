@@ -8,6 +8,7 @@ create table if not exists public.registrations (
   phone_raw text not null,
   phone_normalized text not null unique,
   email text not null,
+  selected_session_ids text[] not null default '{}'::text[],
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now())
 );

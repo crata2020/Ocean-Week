@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const { registration } = createRegistrationSchema.parse(body);
     const { supabaseUrl, serviceRoleKey } = getSupabaseAdminConfig();
     const response = await fetch(
-      `${supabaseUrl}/rest/v1/registrations?select=id,name,organization,title,phone_raw,email,created_at,updated_at`,
+      `${supabaseUrl}/rest/v1/registrations?select=id,name,organization,title,phone_raw,email,selected_session_ids,created_at,updated_at`,
       {
         method: "POST",
         headers: {
@@ -49,6 +49,7 @@ export async function POST(request: Request) {
       title: string;
       phone_raw: string;
       email: string;
+      selected_session_ids?: string[];
       created_at: string;
       updated_at: string;
     }>;
