@@ -38,7 +38,7 @@ export default function HomePage() {
               {heroContent.eyebrow}
             </Badge>
           </div>
-          <h1 className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-6 max-w-4xl font-heading text-5xl font-bold tracking-tight text-white drop-shadow-xl delay-150 duration-700 ease-out sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-6 max-w-5xl font-heading text-5xl font-bold tracking-tight text-white drop-shadow-xl delay-150 duration-700 ease-out sm:text-6xl md:text-7xl lg:text-8xl whitespace-pre-line">
             {heroContent.title}
           </h1>
           <div className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-20 flex flex-col items-center gap-4 text-sky-100/90 delay-300 duration-700 ease-out sm:flex-row sm:gap-8">
