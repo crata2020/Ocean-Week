@@ -419,13 +419,13 @@ export default function ContentPage() {
                           {/* Render Speakers grouped by role - Balanced Layout with tight horizontal columns */}
                           {(session as any).speakers && (session as any).speakers.length > 0 && (
                             <div className="flex flex-col gap-6 pt-2">
-                              {Object.entries(
+                              {(Object.entries(
                                 (session as any).speakers.reduce((acc: any, sp: any) => {
                                   if (!acc[sp.role]) acc[sp.role] = [];
                                   acc[sp.role].push(sp);
                                   return acc;
                                 }, {} as Record<string, any[]>)
-                              ).map(([role, speakers]: [string, any[]], idx) => (
+                              ) as [string, any[]][]).map(([role, speakers], idx) => (
                                 <div key={idx} className="flex flex-col gap-2.5">
                                   <div className="inline-flex w-fit rounded bg-slate-100 dark:bg-slate-800 px-2.5 py-1 text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                                     {role}
