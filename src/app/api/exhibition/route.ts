@@ -1,6 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 
+export const dynamic = "force-dynamic";
+
 const getEnv = (key: string, fallback: string) => {
   const val = process.env[key];
   if (!val || val === '' || val === 'undefined') return fallback;
