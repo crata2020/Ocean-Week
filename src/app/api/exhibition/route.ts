@@ -3,17 +3,11 @@ import { NextResponse } from 'next/server';
 
 export const dynamic = "force-dynamic";
 
-const getEnv = (key: string, fallback: string) => {
-  const val = process.env[key];
-  if (!val || val === '' || val === 'undefined') return fallback;
-  return val;
-};
+const SUPABASE_URL = 'https://pjxuvjcwlhcevwrecvof.supabase.co';
+// Force use this key which we just verified works locally
+const SUPABASE_SERVICE_ROLE_KEY = 'sb_secret_xx2YcnOEHFG6-4VyuYh2mQ_X8krD89z';
+const SUPABASE_ANON_KEY = 'sb_publishable_2Gc23VwTylXPrYUgYUA51A_N0VSiftX';
 
-const SUPABASE_URL = getEnv('SUPABASE_URL', 'https://pjxuvjcwlhcevwrecvof.supabase.co');
-const SUPABASE_SERVICE_ROLE_KEY = getEnv('SUPABASE_SERVICE_ROLE_KEY', 'sb_secret_xx2YcnOEHFG6-4VyuYh2mQ_X8krD89z');
-const SUPABASE_ANON_KEY = getEnv('NEXT_PUBLIC_SUPABASE_ANON_KEY', 'sb_publishable_2Gc23VwTylXPrYUgYUA51A_N0VSiftX');
-
-// We will try service role first, but have an anon client ready as fallback
 const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 const supabaseAnon = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
