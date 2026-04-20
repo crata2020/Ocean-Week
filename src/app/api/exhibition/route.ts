@@ -21,10 +21,27 @@ export async function GET(request: Request) {
 
     const images = (listData || [])
       .filter(f => !f.name.startsWith('.'))
-      .map(f => ({
-        name: f.name,
-        url: `https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/${folder}/${f.name}`
-      }));
+      .map(f => {
+        const ext = f.name.substring(f.name.lastIndexOf('.'));
+        const baseName = f.name.substring(0, f.name.lastIndexOf('.'));
+        
+        let displayName = baseName;
+        try {
+          // Try to decode from URL-safe Base64
+          const decoded = Buffer.from(baseName.replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString('utf8');
+          // Simple check for readable Korean/English characters to avoid false positives
+          if (/[\u3131-\uD79D\w\s]/.test(decoded)) {
+            displayName = decoded;
+          }
+        } catch (e) {
+          // Keep original baseName if decoding fails
+        }
+
+        return {
+          name: displayName + ext,
+          url: `https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/${folder}/${f.name}`
+        };
+      });
 
     return NextResponse.json({ images });
   } catch (err: any) {
