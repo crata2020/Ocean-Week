@@ -11,8 +11,11 @@ const getEnv = (key: string, fallback: string) => {
 
 const SUPABASE_URL = getEnv('SUPABASE_URL', 'https://pjxuvjcwlhcevwrecvof.supabase.co');
 const SUPABASE_SERVICE_ROLE_KEY = getEnv('SUPABASE_SERVICE_ROLE_KEY', 'sb_secret_xx2YcnOEHFG6-4VyuYh2mQ_X8krD89z');
+const SUPABASE_ANON_KEY = getEnv('NEXT_PUBLIC_SUPABASE_ANON_KEY', 'sb_publishable_2Gc23VwTylXPrYUgYUA51A_N0VSiftX');
 
+// We will try service role first, but have an anon client ready as fallback
 const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+const supabaseAnon = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 export async function GET(request: Request) {
   try {
@@ -23,14 +26,31 @@ export async function GET(request: Request) {
 
     console.log(`Fetching exhibition images for folder: ${folder}`);
 
-    // Try to list the requested folder
-    const { data: listData, error: listError } = await supabaseAdmin.storage
+    // Strategy: Try Service Role first, if it returns empty, try Anon role
+    let { data: listData, error: listError } = await supabaseAdmin.storage
       .from('exhibitions')
       .list(folder, {
         limit: 100,
         offset: 0,
         sortBy: { column: 'name', order: 'asc' },
       });
+
+    // If Service Role failed to see anything, try Anon Role (works if storage is public)
+    if (listError || !listData || listData.length === 0) {
+      console.log('Service role returned empty or error, trying Anon role...');
+      const { data: anonData, error: anonError } = await supabaseAnon.storage
+        .from('exhibitions')
+        .list(folder, {
+          limit: 100,
+          offset: 0,
+          sortBy: { column: 'name', order: 'asc' },
+        });
+      
+      if (!anonError && anonData && anonData.length > 0) {
+        listData = anonData;
+        listError = null;
+      }
+    }
 
     if (listError) {
       console.error('Supabase list error:', listError);
