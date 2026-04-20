@@ -60,9 +60,15 @@ export async function GET(request: Request) {
       }, { status: 500 });
     }
 
-    // DEBUG: If empty, try to list ROOT to see available folders
+    // DEBUG: Discovery session
     let availableFolders: any[] = [];
+    let availableBuckets: any[] = [];
     if (!listData || listData.length === 0) {
+      // List all buckets to verify names
+      const { data: bucketList } = await supabaseAdmin.storage.listBuckets();
+      availableBuckets = (bucketList || []).map(b => b.name);
+
+      // List root of our targeted bucket
       const { data: rootData } = await supabaseAdmin.storage.from('exhibitions').list();
       availableFolders = (rootData || []).filter(item => !item.id).map(item => item.name);
     }
@@ -73,7 +79,8 @@ export async function GET(request: Request) {
         message: 'No images found in this folder',
         requestedFolder: folder,
         availableFolders,
-        debug_info: 'This suggest either folder name mismatch or permission issue'
+        availableBuckets,
+        debug_info: `Found ${availableBuckets.length} buckets. Target: 'exhibitions'`
       });
     }
 
