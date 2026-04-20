@@ -1,8 +1,14 @@
 import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 
-const SUPABASE_URL = process.env.SUPABASE_URL || 'https://pjxuvjcwlhcevwrecvof.supabase.co';
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || 'sb_secret_xx2YcnOEHFG6-4VyuYh2mQ_X8krD89z';
+const getEnv = (key: string, fallback: string) => {
+  const val = process.env[key];
+  if (!val || val === '' || val === 'undefined') return fallback;
+  return val;
+};
+
+const SUPABASE_URL = getEnv('SUPABASE_URL', 'https://pjxuvjcwlhcevwrecvof.supabase.co');
+const SUPABASE_SERVICE_ROLE_KEY = getEnv('SUPABASE_SERVICE_ROLE_KEY', 'sb_secret_xx2YcnOEHFG6-4VyuYh2mQ_X8krD89z');
 
 const supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
