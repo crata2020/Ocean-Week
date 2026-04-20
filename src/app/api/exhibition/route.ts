@@ -23,6 +23,7 @@ export async function GET(request: Request) {
 
     console.log(`Fetching exhibition images for folder: ${folder}`);
 
+    // Try to list the requested folder
     const { data: listData, error: listError } = await supabaseAdmin.storage
       .from('exhibitions')
       .list(folder, {
@@ -33,11 +34,27 @@ export async function GET(request: Request) {
 
     if (listError) {
       console.error('Supabase list error:', listError);
-      return NextResponse.json({ error: listError.message }, { status: 500 });
+      return NextResponse.json({ 
+        error: listError.message,
+        details: listError
+      }, { status: 500 });
+    }
+
+    // DEBUG: If empty, try to list ROOT to see available folders
+    let availableFolders: any[] = [];
+    if (!listData || listData.length === 0) {
+      const { data: rootData } = await supabaseAdmin.storage.from('exhibitions').list();
+      availableFolders = (rootData || []).filter(item => !item.id).map(item => item.name);
     }
 
     if (!listData || listData.length === 0) {
-      return NextResponse.json({ images: [], message: 'No images found in this folder' });
+      return NextResponse.json({ 
+        images: [], 
+        message: 'No images found in this folder',
+        requestedFolder: folder,
+        availableFolders,
+        debug_info: 'This suggest either folder name mismatch or permission issue'
+      });
     }
 
     const images = listData
