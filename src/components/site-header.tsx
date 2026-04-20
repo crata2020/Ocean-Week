@@ -5,25 +5,38 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { navigationLinks, utilityLinks } from "@/lib/site-content";
 
+import Image from "next/image";
+
 function OceanWeekMark() {
   return (
     <Link
       href="/"
-      className="inline-flex flex-col items-center gap-1.5 text-center"
+      className="inline-flex flex-col items-center transition-opacity hover:opacity-80"
       aria-label="2026 해양주간 홈"
     >
-      <div className="relative h-8 w-40">
-        <span className="absolute left-12 top-0 size-3 rounded-full bg-[var(--sunlight)]" />
-        <span className="absolute left-2 top-4 h-[3px] w-16 -rotate-[7deg] rounded-full bg-[var(--seafoam)]" />
-        <span className="absolute left-14 top-[15px] h-[3px] w-16 rotate-[4deg] rounded-full bg-primary" />
-        <span className="absolute left-8 top-[10px] h-[3px] w-20 rounded-full bg-[var(--harbor)]" />
+      <div className="relative h-[36px] w-[156px] mb-2">
+        <Image
+          src="/images/logos/해양주간 로고만.svg"
+          alt="2026 해양주간"
+          fill
+          className="object-contain"
+          priority
+        />
       </div>
-      <span className="font-heading text-[1.1rem] uppercase tracking-[0.35em] text-primary">
-        Ocean Week
-      </span>
-      <span className="text-[1.75rem] font-semibold tracking-tight text-foreground sm:text-[1.95rem]">
-        2026 해양주간
-      </span>
+      <div className="flex flex-col items-center gap-1.5">
+        <span
+          style={{ fontFamily: "var(--font-ssurround)" }}
+          className="text-[22px] font-bold leading-none tracking-tight text-primary"
+        >
+          2026 해양주간
+        </span>
+        <span
+          style={{ fontFamily: "var(--font-pretendard)" }}
+          className="text-[14px] font-bold tracking-[0.05em] leading-none mt-1 text-muted-foreground"
+        >
+          OCEAN WEEK
+        </span>
+      </div>
     </Link>
   );
 }

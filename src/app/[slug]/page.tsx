@@ -5,11 +5,13 @@ import { notFound, useParams } from "next/navigation";
 import { CalendarDays, MapPin, ExternalLink } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { contentPages, type ContentSlug } from "@/lib/site-content";
 import { oceanScheduleTimeline } from "@/lib/ocean-data";
 import { SessionDetailModal } from "@/components/session-detail-modal";
 import { DynamicScheduleModal } from "@/components/dynamic-schedule-modal";
 import { scheduleModalData } from "@/lib/modal-data";
+import { PhotoGallery } from "@/components/photo-gallery";
 
 export default function ContentPage() {
   const params = useParams();
@@ -23,6 +25,18 @@ export default function ContentPage() {
   }
 
   const page = contentPages[slug as ContentSlug];
+  
+  // Prevent background scroll when modal is open
+  React.useEffect(() => {
+    if (isLeaderModalOpen || selectedSessionId) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isLeaderModalOpen, selectedSessionId]);
 
   return (
     <div className="flex min-h-screen flex-col font-sans bg-slate-50 dark:bg-slate-950 pb-24">
@@ -31,29 +45,70 @@ export default function ContentPage() {
         isOpen={!!selectedSessionId} 
         content={selectedSessionId ? scheduleModalData[selectedSessionId] : null}
         onClose={() => setSelectedSessionId(null)} 
+        key={selectedSessionId || 'none'}
       />
 
-      {/* Soft Header Section */}
-      <section className="relative w-full bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div className="mx-auto max-w-5xl px-6 py-8 sm:py-10 md:py-12">
+      {/* Specialized Exhibition Header */}
+      <section className={cn(
+        "relative w-full border-b py-4 sm:py-6 transition-colors duration-500",
+        slug === "underwater" 
+          ? "bg-gradient-to-b from-blue-100/80 to-blue-50 border-blue-300 dark:from-blue-900/40 dark:to-blue-950/20" 
+          : slug === "polar"
+            ? "bg-slate-50/80 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800"
+            : "bg-slate-100 dark:bg-slate-900 border-slate-200 dark:border-slate-800 py-12 sm:py-16"
+      )}>
+        <div className={cn(
+          "relative z-10 mx-auto max-w-5xl px-6",
+          (slug === "underwater" || slug === "polar") && "text-center"
+        )}>
+          {/* Category / Badge Style */}
           <Badge
             variant="outline"
-            className="mb-6 rounded-full border-sky-300 dark:border-sky-700 bg-sky-100/50 dark:bg-sky-900/30 px-4 py-1.5 text-sm font-semibold text-sky-700 dark:text-sky-300"
+            className={cn(
+              "mb-2 rounded-full px-3 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] transition-all",
+              slug === "underwater"
+                ? "border-blue-400 bg-blue-600 text-white dark:bg-blue-500 shadow-sm"
+                : slug === "polar"
+                  ? "border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                  : "border-sky-300 dark:border-sky-700 bg-sky-100/50 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300"
+            )}
           >
             {page.eyebrow}
           </Badge>
-          <h1 className="mb-6 font-heading text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl md:text-6xl">
+
+          {/* Title */}
+          <h1 className={cn(
+            "font-heading font-black tracking-tight break-keep leading-tight transition-colors",
+            slug === "underwater" 
+              ? "text-3xl sm:text-4xl md:text-5xl mb-2 text-blue-900 dark:text-blue-50" 
+              : "text-3xl sm:text-4xl md:text-5xl mb-2 text-slate-900 dark:text-slate-50",
+            !(slug === "underwater" || slug === "polar") && "text-4xl sm:text-5xl md:text-6xl mb-8"
+          )}>
             {page.title}
           </h1>
-          <p className="max-w-3xl text-lg sm:text-xl font-medium leading-relaxed text-slate-600 dark:text-slate-400">
+          
+          {/* Summary */}
+          <p className={cn(
+            "font-medium leading-relaxed whitespace-pre-line break-keep transition-colors",
+            slug === "underwater" 
+              ? "max-w-4xl mx-auto text-sm sm:text-base text-blue-800/80 dark:text-blue-200/70" 
+              : slug === "polar"
+                ? "max-w-4xl mx-auto text-sm sm:text-base text-slate-500 dark:text-slate-400"
+                : "max-w-3xl text-lg sm:text-xl text-slate-600 dark:text-slate-400"
+          )}>
             {page.summary}
           </p>
         </div>
       </section>
 
       {/* Content Sections */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
-        {slug === "schedule" ? (
+      <section className={cn(
+        "mx-auto w-full px-6 py-16 sm:py-20",
+        slug === "underwater" || slug === "polar" ? "max-w-none" : "max-w-5xl"
+      )}>
+        {slug === "underwater" || slug === "polar" ? (
+           <PhotoGallery folder={slug} />
+        ) : slug === "schedule" ? (
           <div className="space-y-12">
             {/* --- Schedule At a Glance Table --- */}
             <div className="mb-12">
@@ -91,7 +146,7 @@ export default function ContentPage() {
                       <td className="p-5 align-top border-b border-r border-slate-200 dark:border-slate-800">
                         <div className="space-y-4">
                           <div>
-                            <div className="font-bold text-slate-800 dark:text-slate-200">개회식 및 공연</div>
+                            <div className="font-bold text-slate-800 dark:text-slate-200">개회식</div>
                             <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">10:00~11:00</div>
                           </div>
                           <div 
@@ -102,6 +157,7 @@ export default function ContentPage() {
                               기관장 토크 콘서트
                               <ExternalLink className="h-3 w-3 text-sky-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                             </div>
+                            <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">① 해양수산부 이전과 해양수도 부산</div>
                             <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">11:00~12:00</div>
                           </div>
                         </div>
@@ -109,19 +165,19 @@ export default function ContentPage() {
                       <td className="p-5 align-top border-b border-r border-slate-200 dark:border-slate-800 bg-amber-50/10">
                         <div className="space-y-4">
                           <div>
-                            <div className="font-bold text-slate-800 dark:text-slate-200">개회식 및 공연</div>
+                            <div className="font-bold text-slate-800 dark:text-slate-200">개회식</div>
                             <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">10:00~10:20</div>
                           </div>
                           <div 
                             className="group/item cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/10 -m-2 p-2 rounded-lg transition-colors"
-                            onClick={() => setSelectedSessionId("blue-carbon")}
+                            onClick={() => setSelectedSessionId("blue-carbon-am")}
                           >
                             <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-blue-300">
                               해양경제포럼
                               <ExternalLink className="h-3 w-3 text-blue-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                             </div>
                             <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">
-                              <span className="text-[11px] font-bold text-blue-600">①</span> 블루카본과 탄소마켓
+                              <span className="text-[11px] font-bold text-blue-600">①</span> 블루카본의 잠재력과 탄소시장화 전략
                             </div>
                             <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">10:20~12:00</div>
                           </div>
@@ -134,13 +190,20 @@ export default function ContentPage() {
                             onClick={() => setSelectedSessionId("ocean-awards")}
                           >
                             <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-teal-300">
-                              대한민국해양지도자대상 시상식
+                              제2회 대한민국해양지도자 대상<br />시상식
                               <ExternalLink className="h-3 w-3 text-teal-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                             </div>
-                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">10:00~11:00</div>
+                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-1">10:00~11:00</div>
                           </div>
-                          <div>
-                            <div className="font-bold text-slate-800 dark:text-slate-200">해양산업리더스서밋</div>
+                          <div
+                            className="group/item cursor-pointer hover:bg-teal-50 dark:hover:bg-teal-900/10 -m-2 p-2 rounded-lg transition-colors"
+                            onClick={() => setSelectedSessionId("summit")}
+                          >
+                            <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-teal-300">
+                              해양산업리더서밋
+                              <ExternalLink className="h-3 w-3 text-teal-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                            </div>
+                            <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">송상근 부산항만공사 사장 특강</div>
                             <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">11:00~12:00</div>
                           </div>
                         </div>
@@ -153,18 +216,36 @@ export default function ContentPage() {
                       </td>
                       <td className="p-5 align-top border-r border-slate-200 dark:border-slate-800">
                         <div className="space-y-4">
-                          <div 
-                            className="group/item cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/10 -m-2 p-2 rounded-lg transition-colors"
-                            onClick={() => setSelectedSessionId("arctic-route")}
-                          >
-                            <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-blue-300">
-                              해양경제포럼
-                              <ExternalLink className="h-3 w-3 text-blue-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                          <div className="space-y-4">
+                            <div>
+                              <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                                해양경제포럼
+                              </div>
+                              <div className="text-[13px] text-slate-500 dark:text-slate-500 mt-1 mb-2">북극항로 비연안국의 권리</div>
+                              
+                              <div className="space-y-3">
+                                <div 
+                                  className="group/sub cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/10 -m-2 p-2 rounded-lg transition-colors"
+                                  onClick={() => setSelectedSessionId("arctic-route-presentation")}
+                                >
+                                  <div className="text-[13px] text-slate-600 dark:text-slate-400 flex items-center gap-1 group-hover/sub:text-blue-600 transition-colors">
+                                    ① 한 ‧ 중 ‧ 일 ‧ 러 전문가 발표
+                                    <ExternalLink className="h-3 w-3 opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                                  </div>
+                                  <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">13:30~14:50</div>
+                                </div>
+                                <div 
+                                  className="group/sub cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/10 -m-2 p-2 rounded-lg transition-colors"
+                                  onClick={() => setSelectedSessionId("arctic-route-panel")}
+                                >
+                                  <div className="text-[13px] text-slate-600 dark:text-slate-400 flex items-center gap-1 group-hover/sub:text-blue-600 transition-colors">
+                                    ② 한 ‧ 중 ‧ 일 ‧ 러 발표자 + 패널 토론
+                                    <ExternalLink className="h-3 w-3 opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                                  </div>
+                                  <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">15:20~16:50</div>
+                                </div>
+                              </div>
                             </div>
-                            <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">
-                              <span className="text-[11px] font-bold text-blue-600">①</span> 북극항로 비연안국의 권리
-                            </div>
-                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">13:30~16:50</div>
                           </div>
                         </div>
                       </td>
@@ -172,41 +253,69 @@ export default function ContentPage() {
                         <div className="space-y-4">
                           <div 
                             className="group/item cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/10 -m-2 p-2 rounded-lg transition-colors"
-                            onClick={() => setSelectedSessionId("blue-carbon")}
+                            onClick={() => setSelectedSessionId("blue-carbon-pm")}
                           >
                             <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-blue-300">
                               해양경제포럼
                               <ExternalLink className="h-3 w-3 text-blue-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                             </div>
                             <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">
-                              <span className="text-[11px] font-bold text-blue-600">②</span> 패널토론 (블루카본)
+                              <span className="text-[11px] font-bold text-blue-600">②</span> 블루카본 탄소시장 반영방안
                             </div>
                             <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">13:30~15:00</div>
                           </div>
                           <div 
-                            className="group/item cursor-pointer hover:bg-amber-50 dark:hover:bg-amber-900/10 -m-2 p-2 rounded-lg transition-colors"
-                            onClick={() => setSelectedSessionId("polar-lecture")}
+                            className="group/item cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/10 -m-2 p-2 rounded-lg transition-colors"
+                            onClick={() => setSelectedSessionId("offshore-wind")}
                           >
-                            <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-amber-300">
-                              극지시민강좌
-                              <ExternalLink className="h-3 w-3 text-amber-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                            <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-blue-300">
+                              해양경제포럼
+                              <ExternalLink className="h-3 w-3 text-blue-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                             </div>
-                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">16:00~18:00</div>
+                            <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">
+                              <span className="text-[11px] font-bold text-blue-600">③</span> 해상풍력 특별법 시대 개막 - 기회와 도전, 미래전략
+                            </div>
+                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">15:30~17:00</div>
                           </div>
                         </div>
                       </td>
                       <td className="p-5 align-top border-slate-200 dark:border-slate-800 bg-teal-50/10">
-                        <div className="space-y-4">
+                        <div className="space-y-6">
                           <div>
-                            <div className="font-bold text-slate-800 dark:text-slate-200">온라인컨퍼런스</div>
-                            <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5"><span className="text-[11px]">①</span>해상풍력 특별법시대 개막</div>
-                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mb-1.5 mt-0.5">14:00~15:30</div>
-                            <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5"><span className="text-[11px]">②</span>북극항로 연관산업 발전방안</div>
-                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">16:00~17:30</div>
+                            <div className="font-bold text-slate-800 dark:text-slate-200 mb-1">온라인 컨퍼런스</div>
+                            <div className="space-y-3">
+                              <div 
+                                className="group/sub cursor-pointer hover:bg-sky-50 dark:hover:bg-sky-900/10 -m-2 p-2 rounded-lg transition-colors"
+                                onClick={() => setSelectedSessionId("arctic-industry")}
+                              >
+                                <div className="text-[13px] text-slate-600 dark:text-slate-400 flex items-center gap-1 group-hover/sub:text-sky-600 transition-colors">
+                                  ① 북극항로 연관산업 발전 방안
+                                  <ExternalLink className="h-3 w-3 opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                                </div>
+                                <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">14:00~15:30</div>
+                              </div>
+                              <div 
+                                className="group/sub cursor-pointer hover:bg-sky-50 dark:hover:bg-sky-900/10 -m-2 p-2 rounded-lg transition-colors"
+                                onClick={() => setSelectedSessionId("arctic-education")}
+                              >
+                                <div className="text-[13px] text-slate-600 dark:text-slate-400 flex items-center gap-1 group-hover/sub:text-sky-600 transition-colors">
+                                  ② 북극항로시대 극지교육의 방향성
+                                  <ExternalLink className="h-3 w-3 opacity-0 group-hover/sub:opacity-100 transition-opacity" />
+                                </div>
+                                <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">16:00~17:30</div>
+                              </div>
+                            </div>
                           </div>
-                          <div>
-                            <div className="font-bold text-slate-800 dark:text-slate-200">청소년 프레젠테이션 대회</div>
-                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">14:00~17:00</div>
+                          
+                          <div 
+                            className="group/item cursor-pointer hover:bg-teal-50 dark:hover:bg-teal-900/10 -m-2 p-2 rounded-lg transition-colors border-t border-dashed border-slate-200 dark:border-slate-800 pt-4"
+                            onClick={() => setSelectedSessionId("polar-lecture")}
+                          >
+                            <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-teal-300">
+                              극지시민강좌
+                              <ExternalLink className="h-3 w-3 text-teal-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                            </div>
+                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-1">14:00~17:00</div>
                           </div>
                         </div>
                       </td>
@@ -229,7 +338,7 @@ export default function ContentPage() {
                     <span className="mr-3 text-2xl font-black text-sky-600 dark:text-sky-400">
                       {dayPlan.day}
                     </span>
-                    <span className="text-xl font-bold text-slate-800 dark:text-slate-200">
+                    <span className="text-xl font-bold text-slate-800 dark:text-slate-200 break-keep">
                       {dayPlan.date}
                     </span>
                   </div>
@@ -238,18 +347,33 @@ export default function ContentPage() {
                     {/* Visual Vertical Line */}
                     <div className="absolute left-0 top-3 bottom-0 w-[2px] bg-slate-300 dark:bg-slate-700" />
                     {dayPlan.sessions.map((session, sIndex) => {
+                      {/* Advanced Modal Mapping Logic */}
                       const isLeaderSession = session.title.includes("기관장 토크 콘서트");
-                      const isArcticSession = session.title.includes("북극항로 비연안국");
-                      const isBlueCarbonSession = session.title.includes("블루카본");
+                      const isArcticPres = session.title.includes("비연안국의 권리") && !session.title.includes("패널 토론");
+                      const isArcticPanel = session.title.includes("패널 토론");
+                      const isBlueCarbonAM = session.title.includes("블루카본의 잠재력");
+                      const isBlueCarbonPM = session.title.includes("블루카본 탄소시장 반영방안");
+                      const isOffshoreWind = session.title.includes("해상풍력");
+                      const isAwardsSession = session.title.includes("해양지도자 대상") || session.title.includes("해양지도자대상");
+                      const isSummit = session.title.includes("해양산업리더스 서밋") || session.title.includes("해양산업리더서밋");
+                      const isArcticInd = session.title.includes("북극항로 연관산업");
+                      const isArcticEdu = session.title.includes("극지교육의 방향성");
                       const isPolarSession = session.title.includes("극지시민강좌");
-                      const isAwardsSession = session.title.includes("해양지도자대상 시상식");
+
+                      const clickable = isLeaderSession || isArcticPres || isArcticPanel || isBlueCarbonAM || isBlueCarbonPM || 
+                                        isOffshoreWind || isAwardsSession || isSummit || isArcticInd || isArcticEdu || isPolarSession;
                       
-                      const clickable = isLeaderSession || isArcticSession || isBlueCarbonSession || isPolarSession || isAwardsSession;
                       const modalType = isLeaderSession ? "leader" :
-                                        isArcticSession ? "arctic-route" :
-                                        isBlueCarbonSession ? "blue-carbon" :
-                                        isPolarSession ? "polar-lecture" :
-                                        isAwardsSession ? "ocean-awards" : null;
+                                        isArcticPres ? "arctic-route-presentation" :
+                                        isArcticPanel ? "arctic-route-panel" :
+                                        isBlueCarbonAM ? "blue-carbon-am" :
+                                        isBlueCarbonPM ? "blue-carbon-pm" :
+                                        isOffshoreWind ? "offshore-wind" :
+                                        isAwardsSession ? "ocean-awards" : 
+                                        isSummit ? "summit" :
+                                        isArcticInd ? "arctic-industry" :
+                                        isArcticEdu ? "arctic-education" :
+                                        isPolarSession ? "polar-lecture" : null;
 
                       return (
                         <div key={sIndex} className="relative group">
@@ -273,22 +397,14 @@ export default function ContentPage() {
                                 else if (modalType) setSelectedSessionId(modalType);
                               }}
                             >
-                              <span className={
-                                isLeaderSession ? "text-emerald-600" : 
-                                (isArcticSession || isBlueCarbonSession) ? "text-blue-600" :
-                                isPolarSession ? "text-amber-600" :
-                                isAwardsSession ? "text-teal-600" : ""
-                              }>
+                              <span className="text-slate-800 dark:text-slate-100">
                                 {session.title}
                               </span>
                               {clickable && (
                                 <Badge className={`${
-                                  isLeaderSession ? "bg-emerald-100 text-emerald-700" : 
-                                  (isArcticSession || isBlueCarbonSession) ? "bg-blue-100 text-blue-700" :
-                                  isPolarSession ? "bg-amber-100 text-amber-700" :
-                                  "bg-teal-100 text-teal-700"
-                                } border-none text-[10px] py-0 h-5 hover:bg-slate-100`}>
-                                  상세보기
+                                  isLeaderSession || isAwardsSession ? "bg-emerald-100 text-emerald-700" : "bg-sky-100 text-sky-700"
+                                } border-none text-[10px] py-0 h-5 hover:bg-slate-100 shadow-sm transition-all group-hover:scale-105`}>
+                                  {isAwardsSession ? "수상자 명단" : "상세보기"}
                                 </Badge>
                               )}
                             </h3>
@@ -300,21 +416,31 @@ export default function ContentPage() {
                             </p>
                           )}
 
-                          {/* Render Speakers if they exist using existing logic but cleaner */}
+                          {/* Render Speakers grouped by role - Balanced Layout with tight horizontal columns */}
                           {(session as any).speakers && (session as any).speakers.length > 0 && (
-                            <div className="grid gap-x-6 gap-y-4 pt-2 sm:grid-cols-2 lg:grid-cols-3">
-                              {(session as any).speakers.map((sp: any, idx: number) => (
-                                <div key={idx} className="flex items-start gap-3">
-                                  <div className="mt-1 min-w-[36px] shrink-0 rounded bg-slate-100 dark:bg-slate-800 px-2 py-1 text-center text-[10px] font-bold text-slate-500 dark:text-slate-400">
-                                    {sp.role}
+                            <div className="flex flex-col gap-6 pt-2">
+                              {Object.entries(
+                                (session as any).speakers.reduce((acc: any, sp: any) => {
+                                  if (!acc[sp.role]) acc[sp.role] = [];
+                                  acc[sp.role].push(sp);
+                                  return acc;
+                                }, {} as Record<string, any[]>)
+                              ).map(([role, speakers]: [string, any[]], idx) => (
+                                <div key={idx} className="flex flex-col gap-2.5">
+                                  <div className="inline-flex w-fit rounded bg-slate-100 dark:bg-slate-800 px-2.5 py-1 text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                    {role}
                                   </div>
-                                  <div className="flex flex-col">
-                                    <span className="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">
-                                      {sp.name}
-                                    </span>
-                                    <span className="text-xs text-slate-500 dark:text-slate-500 mt-0.5">
-                                      {sp.org}
-                                    </span>
+                                  <div className="flex flex-wrap gap-x-20 gap-y-4 pl-1">
+                                    {speakers.map((sp: any, sidx: number) => (
+                                      <div key={sidx} className="flex flex-col">
+                                        <span className="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">
+                                          {sp.name}
+                                        </span>
+                                        <span className="text-xs text-slate-500 dark:text-slate-500 mt-0.5">
+                                          {sp.org}
+                                        </span>
+                                      </div>
+                                    ))}
                                   </div>
                                 </div>
                               ))}
@@ -351,13 +477,13 @@ export default function ContentPage() {
               <div key={section.title} className="group">
                 <div className="mb-6 flex items-center gap-4">
                   <div className="h-1 w-12 rounded-full bg-gradient-to-r from-sky-400 to-teal-400" />
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-50">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-50 break-keep">
                     {section.title}
                   </h2>
                 </div>
                 <div className="space-y-6 text-lg tracking-wide leading-relaxed font-medium text-slate-600 dark:text-slate-300">
                   {section.body.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+                    <p key={index} className="break-keep">{paragraph}</p>
                   ))}
                 </div>
               </div>

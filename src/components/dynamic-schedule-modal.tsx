@@ -73,20 +73,34 @@ export function DynamicScheduleModal({ content, isOpen, onClose }: DynamicSchedu
                   key={index} 
                   className="flex flex-col md:flex-row border-b border-slate-100 dark:border-slate-800 last:border-0 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors duration-300"
                 >
-                  <div className="w-full md:w-[280px] p-6 sm:p-8 bg-slate-50/30 dark:bg-slate-900/50 border-r border-slate-100 dark:border-slate-800 flex flex-col items-start justify-center shrink-0">
-                    <div className="inline-flex items-center gap-2 mb-3">
-                      <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded ${colorStyles[content.themeColor]}`}>
-                        {speaker.role}
-                      </span>
-                    </div>
-                    <h4 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">
-                      {speaker.name}
-                    </h4>
-                    {speaker.affiliation.map((line, i) => (
-                      <div key={i} className="text-xs font-semibold text-slate-500 dark:text-slate-400 leading-snug">
-                        {line}
+                  <div className="w-full md:w-[340px] p-6 sm:p-7 bg-slate-50/30 dark:bg-slate-900/50 border-r border-slate-100 dark:border-slate-800 flex flex-row items-center justify-between gap-4 shrink-0">
+                    {/* Details Container */}
+                    <div className="flex flex-col items-start flex-1 min-w-0 pr-2">
+                      <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
+                        <span className={`text-[10px] md:text-xs font-black px-2 py-1 md:px-2.5 md:py-1 rounded-md ${colorStyles[content.themeColor]}`}>
+                          {speaker.role}
+                        </span>
                       </div>
-                    ))}
+                      <h4 className="text-lg md:text-xl font-black text-slate-800 dark:text-slate-100 mb-1.5 md:mb-2 w-full flex items-center gap-2 break-keep">
+                        {speaker.name}
+                      </h4>
+                      <div className="space-y-0.5">
+                        {speaker.affiliation.map((line, i) => (
+                          <div key={i} className="text-xs md:text-[13px] font-bold text-slate-500 dark:text-slate-400 leading-snug break-keep">
+                            {line}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Photo Container */}
+                    <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-full bg-white dark:bg-slate-800 border-[3px] border-white dark:border-slate-700 shadow-sm overflow-hidden flex items-center justify-center">
+                      {speaker.image ? (
+                        <img src={speaker.image} alt={speaker.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <User className="w-8 h-8 md:w-10 md:h-10 text-slate-300 dark:text-slate-500" />
+                      )}
+                    </div>
                   </div>
                   <div className="flex-1 p-6 sm:p-8">
                     <div className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-wrap">
@@ -115,19 +129,45 @@ export function DynamicScheduleModal({ content, isOpen, onClose }: DynamicSchedu
                       {section.title}
                     </h4>
                     <div className="space-y-2 pl-5">
-                      {section.content.map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className={`mt-2 h-1.5 w-1.5 rounded-full shrink-0 ${
-                            content.themeColor === 'blue' ? 'bg-blue-400' :
-                            content.themeColor === 'emerald' ? 'bg-emerald-400' :
-                            content.themeColor === 'amber' ? 'bg-amber-400' :
-                            'bg-teal-400'
-                          }`} />
-                          <p className="text-base font-medium text-slate-600 dark:text-slate-400">
-                            {item}
-                          </p>
+                      {section.isTable ? (
+                        <div className="mt-10 mb-12 overflow-x-auto rounded-2xl border-2 border-slate-200 dark:border-slate-800 shadow-sm">
+                          <table className="w-full text-left border-collapse">
+                            <thead>
+                              <tr className="bg-slate-50 dark:bg-slate-800/80">
+                                <th className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-r border-slate-200 dark:border-slate-800 w-1/5 text-center">부문</th>
+                                <th className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-r border-slate-200 dark:border-slate-800 w-1/4 text-center">수상자</th>
+                                <th className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800 text-center">주요 공적</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {section.content.map((row, i) => {
+                                const [col1, col2, col3] = row.split('|');
+                                return (
+                                  <tr key={i} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+                                    <td className="p-5 font-black text-lg text-emerald-600 dark:text-emerald-400 border-b border-r border-slate-100 dark:border-slate-800 text-center bg-emerald-50/20">{col1}</td>
+                                    <td className="p-5 font-black text-xl text-slate-900 dark:text-white border-b border-r border-slate-100 dark:border-slate-800 text-center">{col2}</td>
+                                    <td className="p-5 text-base font-bold text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 leading-relaxed">{col3}</td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
                         </div>
-                      ))}
+                      ) : (
+                        section.content.map((item, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <div className={`mt-2 h-1.5 w-1.5 rounded-full shrink-0 ${
+                              content.themeColor === 'blue' ? 'bg-blue-400' :
+                              content.themeColor === 'emerald' ? 'bg-emerald-400' :
+                              content.themeColor === 'amber' ? 'bg-amber-400' :
+                              'bg-teal-400'
+                            }`} />
+                            <p className="text-base font-medium text-slate-600 dark:text-slate-400">
+                              {item}
+                            </p>
+                          </div>
+                        ))
+                      )}
                     </div>
                   </div>
                 ))}

@@ -2,9 +2,39 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@font-face {
+  font-family: 'Cafe24Ssurround';
+  src: url('/fonts/Cafe24Ssurround-v2.0.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --font-ssurround: 'Cafe24Ssurround', sans-serif;
+  --font-pretendard: 'Pretendard', sans-serif;
   --background: oklch(0.998 0.003 210);
   --foreground: oklch(0.24 0.038 222);
   --card: oklch(1 0 0);
@@ -162,4 +192,27 @@ select {
     background: color-mix(in oklch, var(--primary) 22%, white);
     color: var(--foreground);
   }
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 180s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 180s linear infinite;
+}
+
+.pause-on-hover:hover .animate-marquee-left,
+.pause-on-hover:hover .animate-marquee-right {
+  animation-play-state: paused;
 }

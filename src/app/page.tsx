@@ -5,6 +5,7 @@ import { CalendarDays, MapPin, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { heroContent, partnerLogos } from "@/lib/site-content";
+import { cn } from "@/lib/utils";
 
 
 
@@ -38,8 +39,33 @@ export default function HomePage() {
               {heroContent.eyebrow}
             </Badge>
           </div>
-          <h1 className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-6 max-w-5xl font-heading text-5xl font-bold tracking-tight text-white drop-shadow-xl delay-150 duration-700 ease-out sm:text-6xl md:text-7xl lg:text-8xl whitespace-pre-line">
-            {heroContent.title}
+          <h1 className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-8">
+            <span className="sr-only">{heroContent.title}</span>
+            <div className="flex flex-col items-center">
+              <div className="relative h-[80px] w-[320px] md:h-[120px] md:w-[480px] mb-6">
+                <Image
+                  src="/images/logos/해양주간 로고만.svg"
+                  alt="2026 해양주간 Logo Graphic"
+                  fill
+                  className="object-contain brightness-0 invert"
+                  priority
+                />
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <span
+                  style={{ fontFamily: "var(--font-ssurround)" }}
+                  className="text-[44px] md:text-[72px] font-bold leading-none tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
+                >
+                  2026 해양주간
+                </span>
+                <span
+                  style={{ fontFamily: "var(--font-pretendard)" }}
+                  className="text-[20px] md:text-[32px] font-bold uppercase tracking-[0.05em] text-white opacity-90"
+                >
+                  OCEAN WEEK
+                </span>
+              </div>
+            </div>
           </h1>
           <div className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-20 flex flex-col items-center gap-4 text-sky-100/90 delay-300 duration-700 ease-out sm:flex-row sm:gap-8">
             <div className="flex items-center gap-2">
@@ -79,9 +105,8 @@ export default function HomePage() {
         <div className="absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-white via-white/40 to-transparent dark:from-slate-950" />
       </section>
 
-      {/* Partners Section with refined spacing and background */}
-      <section className="relative z-20 -mt-8 bg-white dark:bg-slate-950 px-4 pb-24 pt-8">
-        <div className="mx-auto max-w-5xl space-y-12 text-center">
+      <section className="relative z-20 -mt-8 bg-white dark:bg-slate-950 px-4 pb-20 pt-8">
+        <div className="mx-auto max-w-[1400px] space-y-10 text-center">
           <div className="flex flex-col items-center gap-3">
             <Badge
               variant="outline"
@@ -91,13 +116,32 @@ export default function HomePage() {
             </Badge>
             <h3 className="text-xl font-bold text-slate-400/80 tracking-tight">함께하는 기관</h3>
           </div>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 tracking-widest text-slate-400 opacity-60 transition-all duration-700 pt-4 grayscale hover:grayscale-0 dark:text-slate-500 dark:opacity-80">
-            {partnerLogos.map((name) => (
+          <div className="grid grid-cols-3 items-center justify-center gap-x-4 gap-y-2 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 lg:gap-x-6 lg:gap-y-3">
+            {partnerLogos.map((partner) => (
               <div
-                key={name}
-                className="flex items-center justify-center text-lg font-bold transition-colors hover:text-sky-600 hover:opacity-100 dark:hover:text-sky-400"
+                key={partner.name}
+                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-105"
               >
-                {name}
+                <div className={cn(
+                  "relative flex items-center justify-center overflow-hidden rounded-md px-1 h-12 w-full md:h-14 lg:h-16",
+                  !partner.logo && "bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
+                )}>
+                  {partner.logo ? (
+                    <Image
+                      src={`/images/logos/${partner.logo}`}
+                      alt={partner.name}
+                      fill
+                      className="object-contain transition-all duration-300"
+                      style={{
+                        transform: `scale(${partner.scale || 1}) translate(${partner.xOffset || '0'}, ${partner.yOffset || '0'})`,
+                      }}
+                    />
+                  ) : (
+                    <span className="text-[10px] md:text-xs font-bold text-slate-400 dark:text-slate-500 text-center leading-tight break-keep">
+                      {partner.name}
+                    </span>
+                  )}
+                </div>
               </div>
             ))}
           </div>
