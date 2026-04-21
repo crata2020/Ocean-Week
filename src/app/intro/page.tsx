@@ -28,7 +28,7 @@ export default function IntroPage() {
               해양인의 열정과 힘을 모아 갑니다.
             </h2>
             <p className="leading-loose text-slate-700 dark:text-slate-300 break-keep">
-              2019년 <strong>&apos;해양컨퍼런스&apos;</strong>로 출발한 본 행사는 2023년부터 <strong>&apos;해양주간-OCEAN WEEK&apos;</strong>로 확대되어,<br />해양 분야를 아우르는 종합적인 교류의 장으로 발전해왔습니다.<br /><br />정부부처, 부산광역시, 해양수산 관련 공기업, 연구기관, 협회 및 기업 등 다양한 주체가 한자리에 모여 정보 교류와 비즈니스 네트워킹을 진행하고,<br />이를 통해 해양산업의 미래를 함께 논의하며, 해양산업의 경쟁력 강화와 대한민국 발전에 기여하는 것을 목적으로 하고 있습니다.
+              2019년 <strong>&apos;해양컨퍼런스&apos;</strong>로 출발한 본 행사는 2023년부터 <strong>&apos;해양주간-OCEAN WEEK&apos;</strong>로 확대되어, 해양 분야를 아우르는 종합적인 교류의 장으로 발전해왔습니다.<br /><br />정부부처, 부산광역시, 해양수산 관련 공기업, 연구기관, 협회 및 기업 등 다양한 주체가 한자리에 모여 정보 교류와 비즈니스 네트워킹을 진행하고, 이를 통해 해양산업의 미래를 함께 논의하며, 해양산업의 경쟁력 강화와 대한민국 발전에 기여하는 것을 목적으로 하고 있습니다.
             </p>
             <p className="leading-loose text-slate-700 dark:text-slate-300">
               대한민국이 세계적 해양산업 선도국으로 자리매김하기 위해 마련한 <strong>&apos;해양주간-OCEAN WEEK&apos;</strong>을 통해 해양인들의 열정과 힘을 모아갈 수 있기를 응원합니다.
@@ -41,9 +41,9 @@ export default function IntroPage() {
               우리에게 던져진 과제는 많습니다.
             </h2>
             <p className="leading-loose text-slate-700 dark:text-slate-300 break-keep text-lg">
-              북극항로시대를 맞은 비연안국의 항행에 대한 권리, 북극항로 연관산업 발전방안, K-조선기자재산업의 방향성 모색,<br />
-              블루카본의 탄소마켓 시장, 항만산업의 세계화 전략, 해운산업 발전을 위한 선박금융의 역할, 미래세대를 위한 해양교육,<br />
-              해양수산업에서 빅데이터의 가치, 글로벌 물류대란 대응방안, <br />
+              북극항로시대를 맞은 비연안국의 항행에 대한 권리, 북극항로 연관산업 발전방안, K-조선기자재산업의 방향성 모색,
+              블루카본의 탄소마켓 시장, 항만산업의 세계화 전략, 해운산업 발전을 위한 선박금융의 역할, 미래세대를 위한 해양교육,
+              해양수산업에서 빅데이터의 가치, 글로벌 물류대란 대응방안, 해상풍력 특별법시대 개막-기회와 도전, 미래전략, 
               크루즈관광산업 현황과 미래, 해양바이오산업의 신 성장 동력 등이 그것입니다.
             </p>
             <p className="leading-loose text-slate-700 dark:text-slate-300 font-semibold bg-sky-50 dark:bg-sky-900/20 p-6 rounded-2xl border border-sky-100 dark:border-sky-800/50">
@@ -104,8 +104,8 @@ export default function IntroPage() {
                     <span className="font-bold text-blue-700 dark:text-blue-400">&lt;제2회 대한민국해양지도자 대상 시상식&gt;</span>
                   </p>
                   <p className="break-keep leading-relaxed">
-                    <span className="font-bold text-blue-700 dark:text-blue-400">&lt;해양산업리더서밋&gt;</span><br />
-                    해양산업관련 산·학·연 리더를 초빙하여 &apos;해양산업리더서밋&apos;을 개최합니다.<br />
+                    <span className="font-bold text-blue-700 dark:text-blue-400">&lt;해양산업리더스 서밋&gt;</span><br />
+                    해양산업관련 산·학·연 리더를 초빙하여 &apos;해양산업리더스 서밋&apos;을 개최합니다.<br />
                     올해도 100여명의 리더들을 초빙해 네트워크를 강화할 뿐 아니라, 전문가 초청 강연을 진행합니다.<br /><br />
                     강연에 앞서 &lt;2025년 해양주간&gt;에 제정한 <strong>&apos;대한민국해양지도자 대상&apos;</strong> 시상식을 개최합니다.<br />
                     &apos;대한민국해양지도자 대상&apos;은 해양관련 우수한 업적을 남긴 분을 대상으로<br />
@@ -113,11 +113,11 @@ export default function IntroPage() {
                   </p>
                   <p className="break-keep">
                     <span className="font-bold text-blue-700 dark:text-blue-400">&lt;온라인 해양컨퍼런스&gt;</span><br />
-                    올해로 8회째를 맞는 &apos;온라인 해양콘퍼런스&apos;는 <strong>&ldquo;해양풍력 특별법 시대 개막 : 기회와 도전, 그리고 미래전략&rdquo;</strong>, <br /><strong>&ldquo;북극항로 연관산업발전방안&rdquo;</strong>을 주제로 세션을 마련합니다.
+                    올해로 8회째를 맞는 &apos;온라인 해양콘퍼런스&apos;는 <strong>&ldquo;북극항로 연관산업발전방안&rdquo;</strong>, <br /><strong>&ldquo;북극항로시대 극지교육의 방향성&rdquo;</strong>을 주제로 세션을 마련합니다.
                   </p>
                   <p className="break-keep">
                     <span className="font-bold text-blue-700 dark:text-blue-400">&lt;극지시민강좌&gt;</span><br />
-                    북극항로 전문가를 초빙 시민들에게 북극항로가 부산 경제에 어떤 긍정적 영향을 주는지에 대해 이야기를 전달하는<br />&apos;극지시민강좌&apos;를 마련하고자 합니다.
+                    북극항로 전문가를 초빙 시민들에게 북극항로가 부산 경제에 어떤 긍정적 영향을 주는지에 대해 이야기를 전달하는<br />&apos;극지시민강좌&apos;를 마련합니다.
                   </p>
                 </div>
               </div>

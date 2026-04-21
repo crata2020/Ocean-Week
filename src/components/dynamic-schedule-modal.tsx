@@ -96,7 +96,12 @@ export function DynamicScheduleModal({ content, isOpen, onClose }: DynamicSchedu
                     {/* Photo Container */}
                     <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-full bg-white dark:bg-slate-800 border-[3px] border-white dark:border-slate-700 shadow-sm overflow-hidden flex items-center justify-center">
                       {speaker.image ? (
-                        <img src={speaker.image} alt={speaker.name} className="w-full h-full object-cover" />
+                        <img 
+                          src={speaker.image} 
+                          alt={speaker.name} 
+                          className="w-full h-full object-cover bg-white" 
+                          style={{ objectPosition: (speaker as any).imagePosition || "center 20%" }} 
+                        />
                       ) : (
                         <User className="w-8 h-8 md:w-10 md:h-10 text-slate-300 dark:text-slate-500" />
                       )}

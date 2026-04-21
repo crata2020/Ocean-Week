@@ -17,13 +17,13 @@ interface SessionDetailModalProps {
 }
 
 const speakers: Speaker[] = [
-  { id: "1", name: "해양수산부장관", org: "", image: "/images/speakers/minister.png" },
+  { id: "1", name: "해양수산부장관", org: "" },
   { id: "2", name: "부산광역시장", org: "" },
-  { id: "3", name: "조승환의원", org: "" },
+  { id: "3", name: "조승환 국회의원", org: "(부산 영도구)", image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/cho_seung_hwan.jpg" },
   { id: "4", name: "양재생 회장", org: "부산상공회의소", image: "/images/speakers/yang.png" },
-  { id: "5", name: "류동근 총장", org: "국립한국해양대학교", image: "/images/speakers/ryu.png" },
-  { id: "6", name: "배상훈 총장", org: "국립부경대학교" },
-  { id: "7", name: "안병길 사장", org: "한국해양진흥공사", image: "/images/speakers/ahn.png" },
+  { id: "5", name: "류동근 총장", org: "국립한국해양대학교", image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/ryu_dong_geun.jpg" },
+  { id: "6", name: "배상훈 총장", org: "국립부경대학교", image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/bae_sang_hoon.jpg" },
+  { id: "7", name: "안병길 사장", org: "한국해양진흥공사", image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/ahn_byung_gil.jpg" },
   { id: "8", name: "최금식 회장", org: "선보패밀리그룹", image: "/images/speakers/choi.png" },
 ];
 
@@ -87,7 +87,7 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
                           src={speaker.image}
                           alt={speaker.name}
                           fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="object-cover object-[center_20%] bg-white transition-transform duration-500 group-hover:scale-105"
                           style={{ imageRendering: "auto" }}
                           sizes="(max-width: 768px) 50vw, 25vw"
                           quality={100}

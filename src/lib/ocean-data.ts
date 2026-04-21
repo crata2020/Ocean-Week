@@ -87,10 +87,10 @@ export const oceanScheduleTimeline = [
         speakers: [
           { role: "좌장", name: "최가영 박사", org: "국가녹색기술연구소" },
           { role: "발제", name: "정여진 박사", org: "한국해양수산개발원(KMI)" },
-          { role: "토론", name: "책임연구원", org: "LG 전자" },
+          { role: "토론", name: "김남진 책임연구원", org: "LG 전자" },
           { role: "토론", name: "손승태 부장", org: "한국거래소" },
           { role: "토론", name: "김태선 대표", org: "NAMU EnR" },
-          { role: "토론", name: "과장", org: "해양수산부 해양생태과" }
+          { role: "토론", name: "김현성 과장", org: "해양수산부 해양생태과" }
         ]
       },
       {

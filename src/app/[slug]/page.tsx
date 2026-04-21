@@ -200,7 +200,7 @@ export default function ContentPage() {
                             onClick={() => setSelectedSessionId("summit")}
                           >
                             <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-teal-300">
-                              해양산업리더서밋
+                              해양산업리더스 서밋
                               <ExternalLink className="h-3 w-3 text-teal-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                             </div>
                             <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">송상근 부산항만공사 사장 특강</div>
