@@ -199,8 +199,8 @@ export const partnerLogos: Partner[] = [
   // ROW 1: Government & Academia
   { name: "해양수산부", logo: "해양수산부 1.svg", scale: 1.0 },
   { name: "부산광역시", logo: "부산광역시 1.svg", scale: 1.0 },
-  { name: "부산광역시의회", logo: "부산광역시의회 1.svg", scale: 1.0 },
-  { name: "부산광역시교육청", scale: 1.0 },
+  { name: "부산광역시의회", logo: "부산광역시의회.svg", scale: 1.0 },
+  { name: "부산광역시교육청", logo: "부산광역시교육청 1.svg", scale: 1.0 },
   { name: "부산상공회의소", logo: "부산상공회의소 1.svg", scale: 1.0 },
   { name: "국립부경대학교", logo: "국립부경대학교 1.svg", scale: 1.0 },
   { name: "한국해양대학교", logo: "한국해양대학교(최신) 1.svg", scale: 1.0 },
@@ -230,7 +230,7 @@ export const partnerLogos: Partner[] = [
   { name: "극지해양미래포럼", logo: "극지해양미래포럼 1.svg", scale: 1.0 },
 
   // ROW 4: Associations & Tech
-  { name: "(사)해양문학가협회", scale: 1.0 },
+  { name: "(사)해양문학가협회", logo: "한국해양문학가협회 1.svg", scale: 1.0 },
   { name: "부산조선해양기자재공업협동조합", logo: "부산조선해양기자재공업협동조합 1.svg", scale: 1.0 },
   { name: "한국해기사협회", logo: "한국해기사협회 1.svg", scale: 1.0 },
   { name: "크라타연구소", logo: "크라타연구소 1.svg", scale: 1.0 },
