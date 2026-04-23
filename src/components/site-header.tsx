@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
+import { cn, publicAssetPath } from "@/lib/utils";
 import { navigationLinks, utilityLinks } from "@/lib/site-content";
 
 import Image from "next/image";
@@ -16,7 +16,7 @@ function OceanWeekMark() {
     >
       <div className="relative h-[36px] w-[156px] mb-2">
         <Image
-          src="/images/logos/해양주간 로고만.svg"
+          src={publicAssetPath("/images/logos/해양주간 로고만.svg")}
           alt="2026 해양주간"
           fill
           className="object-contain"

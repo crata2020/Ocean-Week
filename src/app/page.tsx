@@ -5,7 +5,7 @@ import { CalendarDays, MapPin, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { heroContent, partnerLogos } from "@/lib/site-content";
-import { cn } from "@/lib/utils";
+import { cn, publicAssetPath } from "@/lib/utils";
 
 
 
@@ -44,7 +44,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center">
               <div className="relative h-[80px] w-[320px] md:h-[120px] md:w-[480px] mb-6">
                 <Image
-                  src="/images/logos/해양주간 로고만.svg"
+                  src={publicAssetPath("/images/logos/해양주간 로고만.svg")}
                   alt="2026 해양주간 Logo Graphic"
                   fill
                   className="object-contain brightness-0 invert"
@@ -128,7 +128,7 @@ export default function HomePage() {
                 )}>
                   {partner.logo ? (
                     <Image
-                      src={`/images/logos/${partner.logo}`}
+                      src={publicAssetPath(`/images/logos/${partner.logo}`)}
                       alt={partner.name}
                       fill
                       className="object-contain transition-all duration-300"
