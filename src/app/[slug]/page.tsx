@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { notFound, useParams } from "next/navigation";
+import { notFound, useParams, useSearchParams } from "next/navigation";
 import { CalendarDays, MapPin, ExternalLink } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -16,9 +16,28 @@ import { PhotoGallery } from "@/components/photo-gallery";
 export default function ContentPage() {
   const params = useParams();
   const slug = params?.slug as string;
+  const searchParams = useSearchParams();
   
   const [isLeaderModalOpen, setIsLeaderModalOpen] = useState(false);
   const [selectedSessionId, setSelectedSessionId] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    const modalParam = searchParams.get("modal");
+    if (modalParam === "leader") {
+      setIsLeaderModalOpen(true);
+    } else if (modalParam) {
+      setSelectedSessionId(modalParam);
+    }
+
+    if (modalParam) {
+      setTimeout(() => {
+        const el = document.getElementById(modalParam);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [searchParams]);
 
   if (!slug || !(slug in contentPages)) {
     notFound();
@@ -376,7 +395,7 @@ export default function ContentPage() {
                                         isPolarSession ? "polar-lecture" : null;
 
                       return (
-                        <div key={sIndex} className="relative group">
+                        <div key={sIndex} id={modalType || undefined} className="relative group scroll-mt-32">
                           {/* Timeline Dot */}
                           <div className={`absolute -left-[38px] top-1.5 h-3.5 w-3.5 rounded-full border-[3px] bg-white dark:bg-slate-950 transition-colors duration-300 ${
                             clickable ? 'border-sky-500 group-hover:bg-sky-500' : 'border-slate-300'

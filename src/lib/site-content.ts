@@ -7,7 +7,7 @@ export const navigationLinks = [
   { label: "행사소개", href: "/intro" },
   { label: "행사일정", href: "/schedule" },
   { label: "현장스케치", href: "/sketch" },
-  { label: "수중사진전", href: "/underwater" },
+  { label: "해양사진전", href: "/underwater" },
   { label: "극지사진전", href: "/polar" },
   { label: "Q&A", href: "/qna" },
 ] as const;
@@ -349,8 +349,8 @@ export const contentPages: Record<ContentSlug, ContentPage> = {
     ],
   },
   underwater: {
-    title: "수중사진전",
-    eyebrow: "Underwater Photography Exhibition",
+    title: "해양사진전",
+    eyebrow: "Ocean Photography Exhibition",
     summary:
       "바닷속 신비로운 생태계와 생명체들의 경이로운 순간을 기록한 전시입니다.\n화려한 산호초와 거대 바다 생물 등 렌즈로 본 바다의 깊은 아름다움을 만나보세요.",
     sections: [],

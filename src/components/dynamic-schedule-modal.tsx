@@ -3,6 +3,7 @@
 import React from "react";
 import { X, User, GraduationCap, Globe, ShieldCheck, Info } from "lucide-react";
 import { type ModalContent } from "@/lib/modal-data";
+import { OpinionBoard } from "./opinion-board";
 
 interface DynamicScheduleModalProps {
   content: ModalContent | null;
@@ -177,6 +178,13 @@ export function DynamicScheduleModal({ content, isOpen, onClose }: DynamicSchedu
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Show Opinion Board only for specific online conference sessions */}
+          {(content.id === "arctic-industry" || content.id === "arctic-education") && (
+            <div className="px-8 pb-12 sm:px-12 sm:pb-16 bg-white dark:bg-slate-900 pt-0">
+              <OpinionBoard sessionId={content.id} />
             </div>
           )}
         </div>
