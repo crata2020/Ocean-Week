@@ -18,6 +18,7 @@ const displayFont = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.oceanweek.co.kr"),
   title: "2026 해양주간",
   description: "2026 해양주간 공식 홈페이지 - 해양산업의 미래를 논의하는 부산 대표 해양 컨퍼런스",
   openGraph: {
