@@ -17,14 +17,12 @@ interface SessionDetailModalProps {
 }
 
 const speakers: Speaker[] = [
-  { id: "1", name: "해양수산부장관", org: "" },
-  { id: "2", name: "부산광역시장", org: "" },
-  { id: "3", name: "조승환 국회의원", org: "(부산 영도구)", image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/cho_seung_hwan.jpg" },
-  { id: "4", name: "양재생 회장", org: "부산상공회의소", image: "/images/speakers/yang.png" },
-  { id: "5", name: "류동근 총장", org: "국립한국해양대학교", image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/ryu_dong_geun.jpg" },
-  { id: "6", name: "배상훈 총장", org: "국립부경대학교", image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/bae_sang_hoon.jpg" },
-  { id: "7", name: "안병길 사장", org: "한국해양진흥공사", image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/ahn_byung_gil.jpg" },
-  { id: "8", name: "최금식 회장", org: "선보패밀리그룹", image: "/images/speakers/choi.png" },
+  { id: "1", name: "황종우 장관", org: "해양수산부", image: "/images/speakers/황종우.jpg" },
+  { id: "2", name: "조승환 국회의원", org: "(부산 영도구)", image: "/images/speakers/조승환.jpg" },
+  { id: "3", name: "배상훈 총장", org: "국립부경대학교", image: "/images/speakers/배상훈 총장.jpg" },
+  { id: "4", name: "류동근 총장", org: "국립한국해양대학교", image: "/images/speakers/류동근.jpg" },
+  { id: "5", name: "김영재 원장", org: "부산연구원", image: "/images/speakers/김영재.jpg" },
+  { id: "6", name: "최금식 회장", org: "선보패밀리그룹", image: "/images/speakers/최금식.jpg" },
 ];
 
 export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps) {
@@ -71,8 +69,8 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
             </h3>
           </div>
 
-          {/* Grid Layout (2x4) */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner">
+          {/* Grid Layout (3 columns) */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner">
             {speakers.map((speaker) => (
               <div 
                 key={speaker.id} 

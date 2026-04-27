@@ -28,7 +28,7 @@ export default function IntroPage() {
               해양인의 열정과 힘을 모아 갑니다.
             </h2>
             <p className="leading-loose text-slate-700 dark:text-slate-300 break-keep">
-              2019년 <strong>&apos;해양컨퍼런스&apos;</strong>로 출발한 본 행사는 2023년부터 <strong>&apos;해양주간-OCEAN WEEK&apos;</strong>로 확대되어, 해양 분야를 아우르는 종합적인 교류의 장으로 발전해왔습니다.<br /><br />정부부처, 부산광역시, 해양수산 관련 공기업, 연구기관, 협회 및 기업 등 다양한 주체가 한자리에 모여 정보 교류와 비즈니스 네트워킹을 진행하고, 이를 통해 해양산업의 미래를 함께 논의하며, 해양산업의 경쟁력 강화와 대한민국 발전에 기여하는 것을 목적으로 하고 있습니다.
+              2019년 <strong>&apos;해양컨퍼런스&apos;</strong>로 출발한 본 행사는 2023년부터 <strong>&apos;해양주간-OCEAN WEEK&apos;</strong>로 확대되어, 해양 분야를 아우르는 종합적인 교류의 장으로 발전해왔습니다.<br /><br />해양수산부, 부산광역시, 부산연구원, 국립한국해양대학교, 국립부경대학교, 선보패밀리그룹 등 다양한 주체가 한자리에 모여 정보 교류와 비즈니스 네트워킹을 진행하고, 이를 통해 해양산업의 미래를 함께 논의하며, 해양산업의 경쟁력 강화와 대한민국 발전에 기여하는 것을 목적으로 하고 있습니다.
             </p>
             <p className="leading-loose text-slate-700 dark:text-slate-300">
               대한민국이 세계적 해양산업 선도국으로 자리매김하기 위해 마련한 <strong>&apos;해양주간-OCEAN WEEK&apos;</strong>을 통해 해양인들의 열정과 힘을 모아갈 수 있기를 응원합니다.
@@ -41,10 +41,10 @@ export default function IntroPage() {
               우리에게 던져진 과제는 많습니다.
             </h2>
             <p className="leading-loose text-slate-700 dark:text-slate-300 break-keep text-lg">
-              북극항로시대를 맞은 비연안국의 항행에 대한 권리, 북극항로 연관산업 발전방안, K-조선기자재산업의 방향성 모색,
-              블루카본의 탄소마켓 시장, 항만산업의 세계화 전략, 해운산업 발전을 위한 선박금융의 역할, 미래세대를 위한 해양교육,
-              해양수산업에서 빅데이터의 가치, 글로벌 물류대란 대응방안, 해상풍력 특별법시대 개막-기회와 도전, 미래전략, 
-              크루즈관광산업 현황과 미래, 해양바이오산업의 신 성장 동력 등이 그것입니다.
+              북극항로시대를 맞은 비연안국의 항행에 대한 권리 · 북극항로 연관산업 발전방안 · K-조선기자재산업의 방향성 모색 ·
+              블루카본의 탄소마켓 시장 · 항만산업의 세계화 전략 · 해운산업 발전을 위한 선박금융의 역할 · 미래세대를 위한 해양교육 ·
+              해양수산업에서 빅데이터의 가치 · 글로벌 물류대란 대응방안 · 해상풍력 특별법시대 개막-기회와 도전 · 미래전략 · 
+              크루즈관광산업 현황과 미래 · 해양바이오산업의 신 성장 동력 등이 그것입니다.
             </p>
             <p className="leading-loose text-slate-700 dark:text-slate-300 font-semibold bg-sky-50 dark:bg-sky-900/20 p-6 rounded-2xl border border-sky-100 dark:border-sky-800/50">
               해양주간 사무국은 각 분야의 전문가들과 함께 참여형 토론의 장을 만들어 가겠습니다. 열띤 토론 끝에 모아진 의견들은 정책제안으로 이어질 것입니다.
@@ -72,11 +72,11 @@ export default function IntroPage() {
                   </p>
                   <p className="break-keep">
                     <span className="font-bold text-sky-700 dark:text-sky-400">&lt;기관장 토크콘서트&gt;</span><br />
-                    해양수산부장관, 부산광역시장을 비롯하여 참여 기관장들이 무대에 등단해 <strong>&apos;해양수산부 이전과 해양수도 부산&apos;</strong>을 주제로<br />서로의 의견을 자유롭게 나누게 됩니다.
+                    황종우 해양수산부 장관, 조승환 국회의원을 비롯하여 참여 기관장들이 무대에 등단해 <strong>&apos;해양수산부 이전과 해양수도 부산&apos;</strong>을 주제로<br />서로의 의견을 자유롭게 나누게 됩니다.
                   </p>
                   <p className="break-keep">
                     <span className="font-bold text-sky-700 dark:text-sky-400">&lt;해양경제포럼&gt;</span><br />
-                    &apos;북극항로&apos; 이슈를 놓고 한국, 중국, 일본, 러시아 전문가들이 발표 및 토론을 이어갑니다. 지난 한 해 동안 북극항로 이슈를 두고 각계에서 논의가 진행되었지만, 북극항로 연안국인 러시아와 북극항로 운항 경험을 축적해가고 있는 중국, 그리고 방향성을 모색하는 한국, 일본 전문가들이 한자리에 모여 토론을 개최한 전례가 없기에,<br />한국, 중국, 일본, 러시아 전문가들이 토론을 벌이는 것은 최고의 이슈가 되리라 기대합니다.
+                    &apos;북극항로&apos; 이슈를 놓고 한국, 중국, 일본, 러시아 전문가들이 발표 및 토론을 이어갑니다. 지난 한 해 동안 북극항로 이슈를 두고 각계에서 논의가 진행되었지만, 북극항로 연안국인 러시아와 북극항로 운항 경험을 축적해가고 있는 중국, 그리고 방향성을 모색하는 한국, 일본 전문가들이 한자리에 모여 토론을 개최한 전례가 없기에,<br />한국, 중국, 일본, 러시아 전문가들이 토론을 벌이는 것은 국제적인 관심을 불러올 것으로 보입니다.
                   </p>
                 </div>
               </div>
@@ -85,14 +85,17 @@ export default function IntroPage() {
               <div className="relative pl-8 sm:pl-10 mb-16">
                 <div className="absolute -left-[11px] top-1 h-[22px] w-[22px] rounded-full bg-teal-400 border-4 border-slate-50 dark:border-slate-950 z-10" />
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6 break-keep">6월 9일</h3>
-                <div className="space-y-4 text-slate-700 dark:text-slate-300 leading-loose">
-                  <p className="break-keep">
-                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;세션 오프닝행사&gt;</span>
+                  <p className="break-keep mb-4">
+                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;세션 오프닝행사&gt;</span>를 시작으로 <strong>&lt;블루카본의 잠재력과 탄소시장화 전략&gt;</strong>,<br className="hidden md:block" /> <strong>&lt;해양풍력 특별법 시대 개막 기회와 도전·미래전략&gt;</strong> 세션이 이어집니다.
+                  </p>
+                  <p className="break-keep mb-4">
+                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;블루카본의 잠재력과 탄소시장화 전략&gt;</span><br />
+                    중국 시안대학교의 천루전 교수와 인도 VNV 어드바이저리의 산딥 로이 초두리 대표, 서울대학교 김종성 교수, LG전자 김영석 실장, 한국해양수산개발원 정여진 박사 등을 비롯해 국내 전문가들이 참여해 글로벌 동향과 정책 방향을 공유하며, LG전자에서 개발한 신소재가 블루카본 시장에 어떻게 적용될 수 있을지에 대한 심도 있는 논의가 진행됩니다.
                   </p>
                   <p className="break-keep">
-                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;해양경제포럼&gt;</span>
+                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;해양풍력 특별법 시대 개막 기회와 도전·미래전략&gt;</span><br />
+                    해상풍력 특별법 시행을 계기로 국내 에너지 산업은 새로운 전환점을 맞이하고 있습니다. 본 세션에서는 제도 변화가 산업 전반에 미칠 영향을 짚어보고, 해상풍력 확대를 위한 기회와 과제를 균형 있게 살펴봅니다. 국립한국해양대학교 이영호 교수가 좌장을 맡고, 한국풍력산업협회 최덕환 실장이 발제를 통해 정책 방향과 산업 전망을 제시합니다. 이어지는 토론에서는 각계 전문가들이 참여해 해상풍력 산업의 지속가능한 성장과 미래 전략을 심도 있게 논의할 예정입니다.
                   </p>
-                </div>
               </div>
 
               {/* Day 3 */}
@@ -100,9 +103,7 @@ export default function IntroPage() {
                 <div className="absolute -left-[11px] top-1 h-[22px] w-[22px] rounded-full bg-blue-400 border-4 border-slate-50 dark:border-slate-950 z-10" />
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6 break-keep">6월 10일</h3>
                 <div className="space-y-6 text-slate-700 dark:text-slate-300 leading-loose">
-                  <p className="break-keep">
-                    <span className="font-bold text-blue-700 dark:text-blue-400">&lt;제2회 대한민국해양지도자 대상 시상식&gt;</span>
-                  </p>
+
                   <p className="break-keep leading-relaxed">
                     <span className="font-bold text-blue-700 dark:text-blue-400">&lt;해양산업리더스 서밋&gt;</span><br />
                     해양산업관련 산·학·연 리더를 초빙하여 &apos;해양산업리더스 서밋&apos;을 개최합니다.<br />

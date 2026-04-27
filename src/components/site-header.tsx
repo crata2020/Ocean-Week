@@ -96,12 +96,19 @@ export function SiteHeader() {
                         <div className="mt-1 flex flex-col gap-1">
                           <Link href="/schedule?modal=arctic-route-presentation" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로 비연안국의 권리</Link>
                           <Link href="/schedule?modal=blue-carbon-am" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 블루카본의 잠재력과 탄소시장화 전략</Link>
+                          <Link href="/schedule?modal=blue-carbon-pm" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 블루카본 탄소시장 반영방안</Link>
                           <Link href="/schedule?modal=offshore-wind" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 해상풍력 특별법 시대 개막</Link>
                         </div>
                       </div>
                       <Link href="/schedule?modal=ocean-awards" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">제 2회 대한민국해양지도자 대상 시상식</Link>
                       <Link href="/schedule?modal=summit" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">해양산업리더스 서밋</Link>
-                      <Link href="/schedule?modal=arctic-industry" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">온라인 컨퍼런스</Link>
+                      <div className="px-3 py-2">
+                        <span className="text-[13px] font-bold text-slate-400">온라인 컨퍼런스</span>
+                        <div className="mt-1 flex flex-col gap-1">
+                          <Link href="/schedule?modal=arctic-industry" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로 연관산업 발전방안</Link>
+                          <Link href="/schedule?modal=arctic-education" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로시대 극지교육의 방향성</Link>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
