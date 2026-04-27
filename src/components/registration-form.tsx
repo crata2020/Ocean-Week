@@ -287,7 +287,7 @@ export function RegistrationForm({
                 <span className="font-bold text-lg text-slate-700 dark:text-slate-200">{day.date}</span>
               </div>
 
-              <div className="grid gap-3">
+              <div className="grid gap-1.5">
                 {day.sessions.map((session) => {
                   const checked = values.selectedSessions.includes(session.id);
                   const currentCount = sessionCounts?.[session.id] || 0;
@@ -299,28 +299,28 @@ export function RegistrationForm({
                       key={session.id}
                       htmlFor={`session-${session.id}`}
                       className={cn(
-                        "relative flex items-center justify-between p-4 sm:p-5 rounded-xl border-2 cursor-pointer transition-all hover:border-sky-500",
+                        "relative flex items-center justify-between p-2.5 sm:p-3 rounded-lg border cursor-pointer transition-all hover:border-sky-500",
                         checked
                           ? "border-sky-500 bg-sky-50 shadow-sm dark:bg-sky-900/20"
                           : "border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950"
                       )}
                     >
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3">
                         <Checkbox
                           id={`session-${session.id}`}
                           checked={checked}
                           onCheckedChange={(next) => toggleSession(session.id, next === true)}
                           aria-invalid={Boolean(fieldErrors.selectedSessions?.length)}
-                          className="h-6 w-6 mt-0.5 border-slate-300 data-[state=checked]:bg-sky-600 data-[state=checked]:border-sky-600"
+                          className="h-5 w-5 mt-0.5 border-slate-300 data-[state=checked]:bg-sky-600 data-[state=checked]:border-sky-600"
                         />
-                        <div className="flex flex-col gap-1.5 mt-1">
-                          <span className={cn("text-base sm:text-lg font-bold leading-tight", checked ? "text-sky-900 dark:text-sky-100" : "text-slate-800 dark:text-slate-200")}>
+                        <div className="flex flex-col gap-0.5 mt-0.5">
+                          <span className={cn("text-[14px] sm:text-[15px] font-bold leading-tight", checked ? "text-sky-900 dark:text-sky-100" : "text-slate-800 dark:text-slate-200")}>
                             {session.title}
                           </span>
-                          <span className="text-[13px] font-semibold text-sky-600 dark:text-sky-400">
+                          <span className="text-[11px] sm:text-xs font-semibold text-sky-600 dark:text-sky-400">
                             {session.time}
                           </span>
-                          <span className="text-sm font-medium text-slate-500 dark:text-slate-400 pr-2">
+                          <span className="text-[12px] leading-tight font-medium text-slate-500 dark:text-slate-400 pr-2">
                             {session.description}
                           </span>
                         </div>
