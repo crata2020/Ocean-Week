@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useTransition } from "react";
-
+import React, { useState, useTransition, useEffect } from "react";
+import { Loader2 } from "lucide-react";
 import { RegistrationForm } from "@/components/registration-form";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,7 @@ import { registrationSessionDays, getRegistrationSessionLabel } from "@/lib/site
 // Let's replace the bottom half of the RegistrationStatusPanel component where the record is rendered.
 import { cn } from "@/lib/utils";
 import { lookupRegistrationSchema, type RegistrationRecord } from "@/lib/registrations";
+import { supabase } from "@/lib/supabase-client";
 
 type LookupErrors = Partial<Record<"name" | "phone", string[]>>;
 
@@ -30,6 +31,50 @@ export function RegistrationStatusPanel({ sessionCounts }: { sessionCounts?: Rec
   const [message, setMessage] = useState<string | null>(null);
   const [record, setRecord] = useState<RegistrationRecord | null>(null);
   const [isPending, startTransition] = useTransition();
+
+  const [isActive, setIsActive] = useState(false);
+  const [youtubeUrl, setYoutubeUrl] = useState("");
+  const [isSavingSettings, setIsSavingSettings] = useState(false);
+  const [settingsLoaded, setSettingsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (record?.role === "admin" && !settingsLoaded) {
+      async function loadSettings() {
+        const { data } = await supabase
+          .from("site_settings")
+          .select("*")
+          .eq("id", "youtube_live")
+          .single();
+        if (data) {
+          setIsActive(data.is_active);
+          setYoutubeUrl(data.youtube_url || "");
+        }
+        setSettingsLoaded(true);
+      }
+      loadSettings();
+    }
+  }, [record?.role, settingsLoaded]);
+
+  const handleSaveSettings = async () => {
+    setIsSavingSettings(true);
+    try {
+      const res = await fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: "youtube_live",
+          is_active: isActive,
+          youtube_url: youtubeUrl,
+        }),
+      });
+      if (res.ok) alert("메인 홈페이지 유튜브 설정이 저장되었습니다.");
+      else alert("저장 중 오류가 발생했습니다.");
+    } catch (error) {
+      alert("네트워크 오류가 발생했습니다.");
+    } finally {
+      setIsSavingSettings(false);
+    }
+  };
 
   function handleLookup(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -231,6 +276,51 @@ export function RegistrationStatusPanel({ sessionCounts }: { sessionCounts?: Rec
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                   전체 명단 Excel 다운로드
                 </Button>
+
+                {/* 메인 홈페이지 설정 추가 */}
+                <div className="mt-8 pt-6 border-t border-emerald-500/20">
+                  <h3 className="text-lg font-bold text-slate-800 mb-4">메인 홈페이지 라이브 설정</h3>
+                  <div className="flex flex-col gap-5 bg-white p-5 rounded-lg border border-emerald-500/20">
+                    <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg border">
+                      <div>
+                        <p className="font-semibold text-sm">라이브 화면 켜기</p>
+                        <p className="text-xs text-slate-500">메인 화면 배너 대신 유튜브 라이브를 표시합니다.</p>
+                      </div>
+                      <label className="relative inline-flex items-center cursor-pointer">
+                        <input 
+                          type="checkbox" 
+                          className="sr-only peer" 
+                          checked={isActive}
+                          onChange={(e) => setIsActive(e.target.checked)}
+                        />
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-emerald-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+                      </label>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold mb-2">유튜브 임베드 링크 (URL)</label>
+                      <Input 
+                        value={youtubeUrl}
+                        onChange={(e) => setYoutubeUrl(e.target.value)}
+                        placeholder="예: https://www.youtube.com/embed/XXXXX"
+                        className="w-full bg-white"
+                      />
+                      <p className="text-xs text-slate-400 mt-2">
+                        * 유튜브 공유하기 {'>'} 퍼가기(Embed) 소스 코드에서 src="..." 안에 있는 주소만 복사해서 넣어주세요.
+                      </p>
+                    </div>
+
+                    <Button 
+                      onClick={handleSaveSettings} 
+                      disabled={isSavingSettings}
+                      className="w-full sm:w-auto self-start bg-slate-800 hover:bg-slate-900 text-white"
+                    >
+                      {isSavingSettings ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
+                      라이브 설정 저장하기
+                    </Button>
+                  </div>
+                </div>
+
               </CardContent>
             </Card>
           )}

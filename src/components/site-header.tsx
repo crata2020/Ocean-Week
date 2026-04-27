@@ -44,7 +44,7 @@ function OceanWeekMark() {
 
 export function SiteHeader() {
   return (
-    <header className="relative z-50 border-b border-border/70 bg-white/98 backdrop-blur supports-[backdrop-filter]:bg-white/95">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-white/98 backdrop-blur supports-[backdrop-filter]:bg-white/95">
       <div className="h-1 w-full bg-[linear-gradient(90deg,rgba(122,201,187,0.85)_0%,rgba(52,126,191,0.85)_58%,rgba(241,187,95,0.8)_100%)]" />
       <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-4 sm:px-8">
         <div className="grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-start">

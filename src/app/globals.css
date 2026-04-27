@@ -74,6 +74,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 180px;
 }
 
 body {

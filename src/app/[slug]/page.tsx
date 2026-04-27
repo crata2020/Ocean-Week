@@ -395,7 +395,7 @@ export default function ContentPage() {
                                         isPolarSession ? "polar-lecture" : null;
 
                       return (
-                        <div key={sIndex} id={modalType || undefined} className="relative group scroll-mt-32">
+                        <div key={sIndex} id={modalType || undefined} className="relative group scroll-mt-[50px]">
                           {/* Timeline Dot */}
                           <div className={`absolute -left-[38px] top-1.5 h-3.5 w-3.5 rounded-full border-[3px] bg-white dark:bg-slate-950 transition-colors duration-300 ${
                             clickable ? 'border-sky-500 group-hover:bg-sky-500' : 'border-slate-300'
