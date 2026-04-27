@@ -45,6 +45,27 @@ type Database = {
         }>;
         Relationships: [];
       };
+      site_settings: {
+        Row: {
+          id: string;
+          is_active: boolean;
+          youtube_url: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          id: string;
+          is_active?: boolean;
+          youtube_url?: string | null;
+          updated_at?: string;
+        };
+        Update: Partial<{
+          id: string;
+          is_active: boolean;
+          youtube_url: string | null;
+          updated_at: string;
+        }>;
+        Relationships: [];
+      };
     };
   };
 };
