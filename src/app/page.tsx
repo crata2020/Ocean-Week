@@ -43,19 +43,7 @@ export default async function HomePage() {
 
   return (
     <div className="flex min-h-screen flex-col font-sans bg-white dark:bg-slate-950">
-      {/* 1. Immersive Hero Section or YouTube Live */}
-      {isLiveActive ? (
-        <section className="relative flex h-[85vh] min-h-[600px] w-full items-start justify-center bg-slate-950 px-4 pt-10 md:px-8">
-          <div className="relative w-full max-w-6xl aspect-video rounded-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10">
-            <iframe 
-              src={finalYoutubeUrl}
-              className="absolute top-0 left-0 w-full h-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
-          </div>
-        </section>
-      ) : (
+      {/* 1. Logo Hero Section (Always visible as the main identity) */}
       <section className="relative flex h-[85vh] min-h-[600px] w-full items-center justify-center overflow-hidden">
         {/* Background Image with Dark Navy Deep Ocean Gradient */}
         <div className="absolute inset-0 z-0">
@@ -146,6 +134,25 @@ export default async function HomePage() {
         {/* Hero → Content Seamless Fade Out */}
         <div className="absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-white via-white/40 to-transparent dark:from-slate-950" />
       </section>
+
+      {/* 2. YouTube Live Section (Visible only when active, below the Hero) */}
+      {isLiveActive && (
+        <section className="relative flex w-full flex-col items-center justify-center bg-slate-950 px-4 py-20 md:px-8">
+          <div className="mb-10 flex flex-col items-center gap-3">
+            <Badge variant="outline" className="animate-pulse border-red-500/50 bg-red-500/10 text-red-500">
+              LIVE BROADCAST
+            </Badge>
+            <h2 className="text-3xl font-bold text-white md:text-4xl">실시간 현장 중계</h2>
+          </div>
+          <div className="relative w-full max-w-6xl aspect-video rounded-2xl overflow-hidden shadow-[0_0_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10">
+            <iframe 
+              src={finalYoutubeUrl}
+              className="absolute top-0 left-0 w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            />
+          </div>
+        </section>
       )}
 
       <section className="relative z-20 -mt-8 bg-white dark:bg-slate-950 px-4 pb-20 pt-8">
