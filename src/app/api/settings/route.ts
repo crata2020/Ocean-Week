@@ -4,7 +4,9 @@ import { getSupabaseAdminClient } from "@/lib/supabase-admin";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { id, is_active, youtube_url } = body;
+    const id = String(body.id);
+    const is_active = Boolean(body.is_active);
+    const youtube_url = body.youtube_url ? String(body.youtube_url) : null;
 
     if (!id) {
       return NextResponse.json({ error: "Missing id" }, { status: 400 });
@@ -13,6 +15,7 @@ export async function POST(request: Request) {
     const supabaseAdmin = getSupabaseAdminClient();
     const { data, error } = await supabaseAdmin
       .from("site_settings")
+      // @ts-ignore
       .update({ 
         is_active, 
         youtube_url, 

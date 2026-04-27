@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 
-type Database = {
+export type Database = {
   public: {
     Tables: {
       registrations: {
@@ -63,6 +63,33 @@ type Database = {
           is_active: boolean;
           youtube_url: string | null;
           updated_at: string;
+        }>;
+        Relationships: [];
+      };
+      conference_opinions: {
+        Row: {
+          id: string;
+          session_id: string;
+          author_name: string;
+          password: string;
+          content: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          session_id: string;
+          author_name: string;
+          password: string;
+          content: string;
+          created_at?: string;
+        };
+        Update: Partial<{
+          id: string;
+          session_id: string;
+          author_name: string;
+          password: string;
+          content: string;
+          created_at: string;
         }>;
         Relationships: [];
       };

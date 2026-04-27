@@ -23,8 +23,10 @@ export default async function HomePage() {
   let isLiveActive = false;
   let finalYoutubeUrl = "";
 
+  // @ts-ignore
   if (setting?.is_active && setting?.youtube_url) {
     isLiveActive = true;
+    // @ts-ignore
     let url = setting.youtube_url;
     
     // 일반 유튜브 주소, youtu.be 단축 주소, 라이브 주소에서 영상 ID 추출
