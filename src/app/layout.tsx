@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     description: "2026 해양주간 공식 홈페이지 - 해양산업의 미래를 논의하는 부산 대표 해양 컨퍼런스",
     url: "https://www.oceanweek.co.kr",
     siteName: "2026 해양주간",
+    images: [
+      {
+        url: "https://www.oceanweek.co.kr/images/blank.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
     locale: "ko_KR",
     type: "website",
   },
@@ -32,6 +39,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "2026 해양주간",
     description: "2026 해양주간 공식 홈페이지 - 해양산업의 미래를 논의하는 부산 대표 해양 컨퍼런스",
+    images: ["https://www.oceanweek.co.kr/images/blank.png"],
   },
 };
 
