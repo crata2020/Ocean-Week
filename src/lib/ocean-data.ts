@@ -43,7 +43,7 @@ export const oceanScheduleTimeline = [
       },
       {
         time: "15:20~16:50",
-        title: "해양경제포럼: 패널 토론",
+        title: "해양경제포럼: 북극항로 비연안국의 권리 패널토론",
         description: "전체 발표자 및 지정 패널 토론",
         speakers: [
           { role: "좌장", name: "신형철 소장", org: "극지연구소" },
@@ -96,10 +96,11 @@ export const oceanScheduleTimeline = [
         title: "해양경제포럼: 해상풍력 특별법 시대 개막 - 기회와 도전, 미래전략",
         speakers: [
           { role: "좌장", name: "이영호 교수", org: "국립한국해양대학교" },
+          { role: "발제", name: "최덕환 실장", org: "한국풍력산업협회" },
           { role: "토론", name: "최우진 대표", org: "코리오제네레이션" },
           { role: "토론", name: "김현도 대표", org: "지오뷰" },
-          { role: "토론", name: "최덕환 실장", org: "한국풍력산업협회" },
-          { role: "토론", name: "과장", org: "해양수산부" }
+          { role: "토론", name: "강호근 교수", org: "국립한국해양대학교" },
+          { role: "토론", name: "이강희 박사", org: "한국조선해양기자재연구원" }
         ]
       }
     ]
@@ -137,8 +138,8 @@ export const oceanScheduleTimeline = [
         speakers: [
           { role: "좌장", name: "이동화 대표", org: "극지해양미래포럼" },
           { role: "발제", name: "박수현 국장", org: "국제신문" },
-          { role: "토론", name: "장학사", org: "부산광역시교육청" },
           { role: "토론", name: "손용구 교수", org: "국립한국해양대학교 북극해연구센터" },
+          { role: "토론", name: "전영근 교육전문가", org: "전 부산교육청 교육국장" },
           { role: "토론", name: "이정아 교장", org: "수영초등학교" }
         ]
       },

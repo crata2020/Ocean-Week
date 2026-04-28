@@ -89,26 +89,27 @@ export function SiteHeader() {
                 </Link>
                 {link.label === "행사일정" && (
                   <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="w-72 rounded-md border border-border bg-white p-2 shadow-lg ring-1 ring-black/5 flex flex-col gap-1">
-                      <Link href="/schedule?modal=leader" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">기관장토크</Link>
+                    <div className="w-80 rounded-md border border-border bg-white p-2 shadow-lg ring-1 ring-black/5 flex flex-col gap-1">
+                      <Link href="/schedule?modal=leader" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">기관장 토크 콘서트</Link>
                       <div className="px-3 py-2">
                         <span className="text-[13px] font-bold text-slate-400">해양경제포럼</span>
                         <div className="mt-1 flex flex-col gap-1">
-                          <Link href="/schedule?modal=arctic-route-presentation" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로 비연안국의 권리</Link>
+                          <Link href="/schedule?modal=arctic-route" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로 비연안국의 권리</Link>
                           <Link href="/schedule?modal=blue-carbon-am" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 블루카본의 잠재력과 탄소시장화 전략</Link>
                           <Link href="/schedule?modal=blue-carbon-pm" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 블루카본 탄소시장 반영방안</Link>
-                          <Link href="/schedule?modal=offshore-wind" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 해상풍력 특별법 시대 개막</Link>
+                          <Link href="/schedule?modal=offshore-wind" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 해상풍력 특별법 시대 개막 - 기회와 도전, 미래전략</Link>
                         </div>
                       </div>
-                      <Link href="/schedule?modal=ocean-awards" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">제 2회 대한민국해양지도자 대상 시상식</Link>
+                      <Link href="/schedule?modal=ocean-awards" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">제2회 대한민국해양지도자 대상 시상식</Link>
                       <Link href="/schedule?modal=summit" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">해양산업리더스 서밋</Link>
                       <div className="px-3 py-2">
                         <span className="text-[13px] font-bold text-slate-400">온라인 컨퍼런스</span>
                         <div className="mt-1 flex flex-col gap-1">
-                          <Link href="/schedule?modal=arctic-industry" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로 연관산업 발전방안</Link>
+                          <Link href="/schedule?modal=arctic-industry" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로 연관산업 발전 방안</Link>
                           <Link href="/schedule?modal=arctic-education" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로시대 극지교육의 방향성</Link>
                         </div>
                       </div>
+                      <Link href="/schedule?modal=polar-lecture" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">극지시민강좌</Link>
                     </div>
                   </div>
                 )}

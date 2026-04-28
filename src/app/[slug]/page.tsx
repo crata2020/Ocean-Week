@@ -255,7 +255,7 @@ export default function ContentPage() {
                                 </div>
                                 <div 
                                   className="group/sub cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/10 -m-2 p-2 rounded-lg transition-colors"
-                                  onClick={() => setSelectedSessionId("arctic-route-panel")}
+                                  onClick={() => setSelectedSessionId("arctic-route")}
                                 >
                                   <div className="text-[13px] text-slate-600 dark:text-slate-400 flex items-center gap-1 group-hover/sub:text-blue-600 transition-colors">
                                     ② 한 ‧ 중 ‧ 일 ‧ 러 발표자 + 패널 토론
@@ -368,8 +368,8 @@ export default function ContentPage() {
                     {dayPlan.sessions.map((session, sIndex) => {
                       {/* Advanced Modal Mapping Logic */}
                       const isLeaderSession = session.title.includes("기관장 토크 콘서트");
-                      const isArcticPres = session.title.includes("비연안국의 권리") && !session.title.includes("패널 토론");
-                      const isArcticPanel = session.title.includes("패널 토론");
+                      const isArcticPres = session.title.includes("비연안국의 권리") && !session.title.includes("패널토론");
+                      const isArcticPanel = session.title.includes("패널토론") || session.title.includes("패널 토론");
                       const isBlueCarbonAM = session.title.includes("블루카본의 잠재력");
                       const isBlueCarbonPM = session.title.includes("블루카본 탄소시장 반영방안");
                       const isOffshoreWind = session.title.includes("해상풍력");
@@ -384,7 +384,7 @@ export default function ContentPage() {
                       
                       const modalType = isLeaderSession ? "leader" :
                                         isArcticPres ? "arctic-route-presentation" :
-                                        isArcticPanel ? "arctic-route-panel" :
+                                        isArcticPanel ? "arctic-route" :
                                         isBlueCarbonAM ? "blue-carbon-am" :
                                         isBlueCarbonPM ? "blue-carbon-pm" :
                                         isOffshoreWind ? "offshore-wind" :

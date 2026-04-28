@@ -193,6 +193,7 @@ export interface Partner {
   scale?: number;
   xOffset?: string;
   yOffset?: string;
+  transformOrigin?: string;
 }
 
 export const partnerLogos: Partner[] = [
@@ -202,14 +203,15 @@ export const partnerLogos: Partner[] = [
   { name: "부산광역시의회", logo: "부산광역시의회.svg", scale: 1.0 },
   { name: "부산광역시교육청", logo: "부산광역시교육청 1.svg", scale: 1.0 },
   { name: "부산상공회의소", logo: "부산상공회의소 1.svg", scale: 1.0 },
-  { name: "국립부경대학교", logo: "국립부경대학교 1.svg", scale: 1.0 },
   { name: "한국해양대학교", logo: "한국해양대학교(최신) 1.svg", scale: 1.0 },
+  { name: "동서대학교", logo: "동서대.png", scale: 1.0 },
   { name: "영산대학교", logo: "영산대학교 1.svg", scale: 1.0 },
+  { name: "국립부경대학교", logo: "부경대.png", scale: 1.55, transformOrigin: "left center" },
   { name: "한국해양수산개발원", logo: "한국해양수산개발원 1.svg", scale: 1.0 },
 
   // ROW 2: Research & Corporate
   { name: "한국해양과학기술원", logo: "한국해양과학기술원 1.svg", scale: 1.0 },
-  { name: "한국해양진흥공사", logo: "한국해양진흥공사 로고 1.svg", scale: 1.0 },
+  { name: "한국해양진흥공사", logo: "한국해양진흥공사.svg", scale: 1.0 },
   { name: "한국조선해양기자재연구원", logo: "한국조선해양기자재연구원 1.svg", scale: 1.0 },
   { name: "LG전자", logo: "LG 전자 1.svg", scale: 1.0 },
   { name: "LG 퓨로텍", logo: "LG-퓨로텍 1.svg", scale: 1.0 },
@@ -231,14 +233,14 @@ export const partnerLogos: Partner[] = [
 
   // ROW 4: Associations & Tech
   { name: "(사)해양문학가협회", logo: "한국해양문학가협회 1.svg", scale: 1.0 },
-  { name: "부산조선해양기자재공업협동조합", logo: "부산조선해양기자재공업협동조합 1.svg", scale: 1.0 },
+  { name: "극지연구소", logo: "극지연구소 1.svg", scale: 1.0 },
   { name: "한국해기사협회", logo: "한국해기사협회 1.svg", scale: 1.0 },
   { name: "크라타연구소", logo: "크라타연구소 1.svg", scale: 1.0 },
   { name: "쇼우테크", logo: "쇼우테크 1.svg", scale: 1.0 },
   { name: "국립해양박물관", logo: "국립해양박물관 1.svg", scale: 1.0 },
   { name: "국제신문", logo: "국제신문 1.svg", scale: 1.0 },
-  { name: "극지연구소", logo: "극지연구소 1.svg", scale: 1.0 },
-  { name: "남해지방해양경찰청", logo: "남해지방해양경찰청 1.svg", scale: 1.0 },
+  { name: "부산조선해양기자재공업협동조합", logo: "부산조선해양기자재공업협동조합 1.svg", scale: 1.85, transformOrigin: "left center" },
+  { name: "남해지방해양경찰청", logo: "남해지방해양경찰청.png", scale: 1.0 },
 ];
 
 export type ContentSlug =

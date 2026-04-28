@@ -28,10 +28,10 @@ export default function IntroPage() {
               해양인의 열정과 힘을 모아 갑니다.
             </h2>
             <p className="leading-loose text-slate-700 dark:text-slate-300 break-keep">
-              2019년 <strong>&apos;해양컨퍼런스&apos;</strong>로 출발한 본 행사는 2023년부터 <strong>&apos;해양주간-OCEAN WEEK&apos;</strong>로 확대되어, 해양 분야를 아우르는 종합적인 교류의 장으로 발전해왔습니다.<br /><br />해양수산부, 부산광역시, 부산연구원, 국립한국해양대학교, 국립부경대학교, 선보패밀리그룹 등 다양한 주체가 한자리에 모여 정보 교류와 비즈니스 네트워킹을 진행하고, 이를 통해 해양산업의 미래를 함께 논의하며, 해양산업의 경쟁력 강화와 대한민국 발전에 기여하는 것을 목적으로 하고 있습니다.
+              해양인들의 역량을 결집하기 위해 2019년 <strong>&lsquo;해양컨퍼런스&rsquo;</strong>로 출발한 본 행사는 2023년부터 <strong>&lsquo;해양주간-OCEAN WEEK&apos;</strong>로 확대되어, 해양 분야를 아우르는 종합적인 교류의 장으로 발전해왔습니다.<br /><br />정부부처, 부산광역시, 해양·수산 관련 연구소, 대학, 기업, 공공기관 등이 한 자리에 모여 정보교류 및 비즈니스 네트워킹을 통해 해양산업의 미래를 논의하며, 궁극적으로 대한민국 발전에 기여하는 것을 목적으로 하고 있습니다.
             </p>
             <p className="leading-loose text-slate-700 dark:text-slate-300">
-              대한민국이 세계적 해양산업 선도국으로 자리매김하기 위해 마련한 <strong>&apos;해양주간-OCEAN WEEK&apos;</strong>을 통해 해양인들의 열정과 힘을 모아갈 수 있기를 응원합니다.
+              대한민국이 세계적 해양산업 선도국으로 자리매김하기 위해 마련한 <strong>&lsquo;해양주간-OCEAN WEEK&apos;</strong>를 통해 해양인들의 열정과 힘을 모아갈 수 있기를 응원합니다.
             </p>
           </div>
 

@@ -101,7 +101,9 @@ export function DynamicScheduleModal({ content, isOpen, onClose }: DynamicSchedu
                           src={speaker.image} 
                           alt={speaker.name} 
                           className="w-full h-full object-cover bg-white" 
-                          style={{ objectPosition: (speaker as any).imagePosition || "center 20%" }} 
+                          style={{
+                            objectPosition: speaker.imagePosition || "center 20%",
+                          }} 
                         />
                       ) : (
                         <User className="w-8 h-8 md:w-10 md:h-10 text-slate-300 dark:text-slate-500" />

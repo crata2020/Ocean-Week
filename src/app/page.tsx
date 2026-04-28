@@ -166,7 +166,7 @@ export default async function HomePage() {
                 className="group relative flex items-center justify-center transition-all duration-300 hover:scale-105"
               >
                 <div className={cn(
-                  "relative flex items-center justify-center overflow-hidden rounded-md px-1 h-12 w-full md:h-14 lg:h-16",
+                  "relative flex items-center justify-center overflow-visible rounded-md px-1 h-12 w-full md:h-14 lg:h-16",
                   !partner.logo && "bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
                 )}>
                   {partner.logo ? (
@@ -177,6 +177,7 @@ export default async function HomePage() {
                       className="object-contain transition-all duration-300"
                       style={{
                         transform: `scale(${partner.scale || 1}) translate(${partner.xOffset || '0'}, ${partner.yOffset || '0'})`,
+                        transformOrigin: partner.transformOrigin || "center",
                       }}
                     />
                   ) : (
