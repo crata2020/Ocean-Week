@@ -8,10 +8,23 @@ import { OpinionBoard } from "./opinion-board";
 interface DynamicScheduleModalProps {
   content: ModalContent | null;
   isOpen: boolean;
+  focusOpinion?: boolean;
   onClose: () => void;
 }
 
-export function DynamicScheduleModal({ content, isOpen, onClose }: DynamicScheduleModalProps) {
+export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, onClose }: DynamicScheduleModalProps) {
+  React.useEffect(() => {
+    if (!isOpen || !content || !focusOpinion) return;
+
+    const timeout = window.setTimeout(() => {
+      document
+        .getElementById(`opinion-${content.id}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 250);
+
+    return () => window.clearTimeout(timeout);
+  }, [content, focusOpinion, isOpen]);
+
   if (!isOpen || !content) return null;
 
   const colorStyles = {
@@ -185,7 +198,7 @@ export function DynamicScheduleModal({ content, isOpen, onClose }: DynamicSchedu
 
           {/* Show Opinion Board only for specific online conference sessions */}
           {(content.id === "arctic-industry" || content.id === "arctic-education") && (
-            <div className="px-8 pb-12 sm:px-12 sm:pb-16 bg-white dark:bg-slate-900 pt-0">
+            <div id={`opinion-${content.id}`} className="scroll-mt-6 px-8 pb-12 sm:px-12 sm:pb-16 bg-white dark:bg-slate-900 pt-0">
               <OpinionBoard sessionId={content.id} />
             </div>
           )}

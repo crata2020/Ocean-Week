@@ -106,7 +106,9 @@ export function SiteHeader() {
                         <span className="text-[13px] font-bold text-slate-400">온라인 컨퍼런스</span>
                         <div className="mt-1 flex flex-col gap-1">
                           <Link href="/schedule?modal=arctic-industry" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로 연관산업 발전 방안</Link>
+                          <Link href="/schedule?modal=arctic-industry&focus=opinion" className="block px-2 py-1.5 text-[13px] font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 hover:text-emerald-800 rounded-md transition-colors">- 의견 남기기</Link>
                           <Link href="/schedule?modal=arctic-education" className="block px-2 py-1.5 text-[13px] font-medium text-slate-600 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">- 북극항로시대 극지교육의 방향성</Link>
+                          <Link href="/schedule?modal=arctic-education&focus=opinion" className="block px-2 py-1.5 text-[13px] font-bold text-teal-700 bg-teal-50 hover:bg-teal-100 hover:text-teal-800 rounded-md transition-colors">- 의견 남기기</Link>
                         </div>
                       </div>
                       <Link href="/schedule?modal=polar-lecture" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">극지시민강좌</Link>

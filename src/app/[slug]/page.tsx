@@ -17,6 +17,7 @@ export default function ContentPage() {
   const params = useParams();
   const slug = params?.slug as string;
   const searchParams = useSearchParams();
+  const focusTarget = searchParams.get("focus");
   
   const [isLeaderModalOpen, setIsLeaderModalOpen] = useState(false);
   const [selectedSessionId, setSelectedSessionId] = useState<string | null>(null);
@@ -63,6 +64,7 @@ export default function ContentPage() {
       <DynamicScheduleModal 
         isOpen={!!selectedSessionId} 
         content={selectedSessionId ? scheduleModalData[selectedSessionId] : null}
+        focusOpinion={focusTarget === "opinion"}
         onClose={() => setSelectedSessionId(null)} 
         key={selectedSessionId || 'none'}
       />
