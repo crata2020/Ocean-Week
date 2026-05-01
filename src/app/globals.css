@@ -75,12 +75,18 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 180px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   background: var(--background);
   font-family: var(--font-body), sans-serif;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 a {

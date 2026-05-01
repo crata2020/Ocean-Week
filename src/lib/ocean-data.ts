@@ -23,7 +23,6 @@ export const oceanScheduleTimeline = [
         description: "해양수산부 이전과 해양수도 부산의 비전",
         speakers: [
           { role: "참여", name: "황종우 장관", org: "해양수산부" },
-          { role: "참여", name: "조승환 국회의원", org: "(부산 영도구)" },
           { role: "참여", name: "배상훈 총장", org: "국립부경대학교" },
           { role: "참여", name: "류동근 총장", org: "국립한국해양대학교" },
           { role: "참여", name: "김영재 원장", org: "부산연구원" },
@@ -127,7 +126,7 @@ export const oceanScheduleTimeline = [
           { role: "좌장", name: "윤희성 교수", org: "국립한국해양대학교" },
           { role: "발제", name: "장하용 박사", org: "부산연구원" },
           { role: "토론", name: "김세현 부산본부장", org: "한국해운협회" },
-          { role: "토론", name: "이한성 본부장", org: "중소조선연구원" },
+          { role: "토론", name: "조제형 본부장", org: "중소조선연구원" },
           { role: "토론", name: "이동해 센터장", org: "부산국제금융진흥원" },
           { role: "토론", name: "관계자", org: "부산항만공사" }
         ]
@@ -138,6 +137,7 @@ export const oceanScheduleTimeline = [
         speakers: [
           { role: "좌장", name: "이동화 대표", org: "극지해양미래포럼" },
           { role: "발제", name: "박수현 국장", org: "국제신문" },
+          { role: "토론", name: "이은정 실장", org: "국제신문 논설실" },
           { role: "토론", name: "손용구 교수", org: "국립한국해양대학교 북극해연구센터" },
           { role: "토론", name: "전영근 교육전문가", org: "전 부산교육청 교육국장" },
           { role: "토론", name: "이정아 교장", org: "수영초등학교" }

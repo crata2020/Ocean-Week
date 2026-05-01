@@ -144,13 +144,16 @@ export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, on
               )}
               
               <div className="grid gap-8">
-                {content.sections?.map((section, idx) => (
-                  <div key={idx} className="group">
-                    <h4 className={`text-xl font-bold mb-4 border-l-4 pl-4 ${accentColors[content.themeColor]}`}>
-                      {section.title}
-                    </h4>
-                    <div className="space-y-2 pl-5">
-                      {section.isTable ? (
+                {content.sections?.map((section, idx) => {
+                  const hideBullets = section.title === "7. 제출서류 배부 및 접수";
+
+                  return (
+                    <div key={idx} className="group">
+                      <h4 className={`text-xl font-bold mb-4 border-l-4 pl-4 ${accentColors[content.themeColor]}`}>
+                        {section.title}
+                      </h4>
+                      <div className="space-y-2 pl-5">
+                        {section.isTable ? (
                         <div className="mt-10 mb-12 overflow-x-auto rounded-2xl border-2 border-slate-200 dark:border-slate-800 shadow-sm">
                           <table className="w-full text-left border-collapse">
                             <thead>
@@ -175,23 +178,31 @@ export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, on
                           </table>
                         </div>
                       ) : (
-                        section.content.map((item, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <div className={`mt-2 h-1.5 w-1.5 rounded-full shrink-0 ${
-                              content.themeColor === 'blue' ? 'bg-blue-400' :
-                              content.themeColor === 'emerald' ? 'bg-emerald-400' :
-                              content.themeColor === 'amber' ? 'bg-amber-400' :
-                              'bg-teal-400'
-                            }`} />
-                            <p className="text-base font-medium text-slate-600 dark:text-slate-400">
-                              {item}
-                            </p>
-                          </div>
-                        ))
+                        section.content.map((item, i) => {
+                          const isIndented = item.startsWith('  ');
+                          const itemText = isIndented ? item.trim() : item;
+                          
+                          return (
+                            <div key={i} className="flex items-start gap-3">
+                              {!isIndented && (
+                                <div className={`mt-2 h-1.5 w-1.5 rounded-full shrink-0 ${
+                                  content.themeColor === 'blue' ? 'bg-blue-400' :
+                                  content.themeColor === 'emerald' ? 'bg-emerald-400' :
+                                  content.themeColor === 'amber' ? 'bg-amber-400' :
+                                  'bg-teal-400'
+                                }`} />
+                              )}
+                              <p className={`text-base font-medium text-slate-600 dark:text-slate-400 ${isIndented ? 'pl-4.5' : ''}`}>
+                                {itemText}
+                              </p>
+                            </div>
+                          );
+                        })
                       )}
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}

@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
         hostname: "pjxuvjcwlhcevwrecvof.supabase.co",
       },
     ],
+    localPatterns: [
+      {
+        pathname: "/images/**",
+        search: "",
+      },
+    ],
   },
 };
 

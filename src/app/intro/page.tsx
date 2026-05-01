@@ -86,15 +86,15 @@ export default function IntroPage() {
                 <div className="absolute -left-[11px] top-1 h-[22px] w-[22px] rounded-full bg-teal-400 border-4 border-slate-50 dark:border-slate-950 z-10" />
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6 break-keep">6월 9일</h3>
                   <p className="break-keep mb-4">
-                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;세션 오프닝행사&gt;</span>를 시작으로 <strong>&lt;블루카본의 잠재력과 탄소시장화 전략&gt;</strong>,<br className="hidden md:block" /> <strong>&lt;해양풍력 특별법 시대 개막 기회와 도전·미래전략&gt;</strong> 세션이 이어집니다.
+                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;세션 오프닝행사&gt;</span>를 시작으로 <strong>&lt;블루카본의 잠재력과 탄소시장화 전략&gt;</strong>,<br className="hidden md:block" /> <strong>&lt;해상풍력 특별법 시대 개막 - 기회와 도전·미래전략&gt;</strong> 세션이 이어집니다.
                   </p>
                   <p className="break-keep mb-4">
                     <span className="font-bold text-teal-700 dark:text-teal-400">&lt;블루카본의 잠재력과 탄소시장화 전략&gt;</span><br />
-                    중국 시안대학교의 천루전 교수와 인도 VNV 어드바이저리의 산딥 로이 초두리 대표, 서울대학교 김종성 교수, LG전자 김영석 실장, 한국해양수산개발원 정여진 박사 등을 비롯해 국내 전문가들이 참여해 글로벌 동향과 정책 방향을 공유하며, LG전자에서 개발한 신소재가 블루카본 시장에 어떻게 적용될 수 있을지에 대한 심도 있는 논의가 진행됩니다.
+                    중국 샤먼대학교의 천루전 교수와 인도 VNV 어드바이저리의 산딥 로이 초두리 대표, 서울대학교 김종성 교수, LG전자 김영석 실장, 한국해양수산개발원 정여진 박사 등을 비롯해 국내 전문가들이 참여해 글로벌 동향과 정책 방향을 공유하며, LG전자에서 개발한 신소재가 블루카본 시장에 어떻게 적용될 수 있을지에 대한 심도 있는 논의가 진행됩니다.
                   </p>
                   <p className="break-keep">
-                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;해양풍력 특별법 시대 개막 기회와 도전·미래전략&gt;</span><br />
-                    해상풍력 특별법 시행을 계기로 국내 에너지 산업은 새로운 전환점을 맞이하고 있습니다. 본 세션에서는 제도 변화가 산업 전반에 미칠 영향을 짚어보고, 해상풍력 확대를 위한 기회와 과제를 균형 있게 살펴봅니다. 국립한국해양대학교 이영호 교수가 좌장을 맡고, 한국풍력산업협회 최덕환 실장이 발제를 통해 정책 방향과 산업 전망을 제시합니다. 이어지는 토론에서는 각계 전문가들이 참여해 해상풍력 산업의 지속가능한 성장과 미래 전략을 심도 있게 논의할 예정입니다.
+                    <span className="font-bold text-teal-700 dark:text-teal-400">&lt;해상풍력 특별법 시대 개막 - 기회와 도전·미래전략&gt;</span><br />
+                    해상풍력 특별법 시행을 계기로 국내 에너지 산업은 새로운 전환점을 맞이하고 있습니다. 본 세션에서는 제도 변화가 산업 전반에 미칠 영향을 짚어보고, 해상풍력 확대를 위한 기회와 과제를 균형 있게 살펴봅니다. 국립한국해양대학교 이영호 연구석좌교수가 좌장을 맡고, 한국풍력산업협회 최덕환 실장이 발제를 통해 정책 방향과 산업 전망을 제시합니다. 이어지는 토론에서는 각계 전문가들이 참여해 해상풍력 산업의 지속가능한 성장과 미래 전략을 심도 있게 논의할 예정입니다.
                   </p>
               </div>
 

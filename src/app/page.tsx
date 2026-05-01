@@ -42,7 +42,7 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col font-sans bg-white dark:bg-slate-950">
+    <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden font-sans bg-white dark:bg-slate-950">
       {/* 1. Immersive Hero Section or YouTube Live */}
       {isLiveActive ? (
         <section className="relative flex h-[85vh] min-h-[600px] w-full items-start justify-center bg-slate-950 px-4 pt-10 md:px-8">
@@ -56,7 +56,7 @@ export default async function HomePage() {
           </div>
         </section>
       ) : (
-      <section className="relative flex h-[85vh] min-h-[600px] w-full items-center justify-center overflow-hidden">
+      <section className="relative flex h-[calc(100vh-160px)] min-h-[550px] w-full max-w-full items-center justify-center overflow-hidden">
         {/* Background Image with Dark Navy Deep Ocean Gradient */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -72,19 +72,19 @@ export default async function HomePage() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex w-full max-w-7xl flex-col items-center px-4 text-center md:px-8">
+        <div className="relative z-10 flex w-full max-w-full flex-col items-center px-4 text-center md:max-w-7xl md:px-8">
           <div className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both duration-700 ease-out">
             <Badge
               variant="outline"
-              className="mb-6 rounded-full border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-sky-100 backdrop-blur-md"
+              className="mb-5 rounded-full border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-sky-100 backdrop-blur-md"
             >
               {heroContent.eyebrow}
             </Badge>
           </div>
-          <h1 className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-8">
+          <h1 className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-7">
             <span className="sr-only">{heroContent.title}</span>
             <div className="flex flex-col items-center">
-              <div className="relative h-[80px] w-[320px] md:h-[120px] md:w-[480px] mb-6">
+              <div className="relative mb-5 h-[70px] w-[min(300px,82vw)] md:h-[115px] md:w-[440px]">
                 <Image
                   src={publicAssetPath("/images/logos/해양주간 로고만.svg")}
                   alt="2026 해양주간 Logo Graphic"
@@ -96,20 +96,20 @@ export default async function HomePage() {
               <div className="flex flex-col items-center gap-3">
                 <span
                   style={{ fontFamily: "var(--font-ssurround)" }}
-                  className="text-[44px] md:text-[72px] font-bold leading-none tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
+                  className="text-[clamp(2.125rem,10.5vw,2.65rem)] md:text-[68px] font-bold leading-none tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
                 >
                   2026 해양주간
                 </span>
                 <span
                   style={{ fontFamily: "var(--font-pretendard)" }}
-                  className="text-[20px] md:text-[32px] font-bold uppercase tracking-[0.05em] text-white opacity-90"
+                  className="text-[clamp(1.05rem,4.5vw,1.2rem)] md:text-[30px] font-bold uppercase tracking-[0.05em] text-white opacity-90"
                 >
                   OCEAN WEEK
                 </span>
               </div>
             </div>
           </h1>
-          <div className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-20 flex flex-col items-center gap-4 text-sky-100/90 delay-300 duration-700 ease-out sm:flex-row sm:gap-8">
+          <div className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mb-14 flex flex-col items-center gap-4 text-sky-100/90 delay-300 duration-700 ease-out sm:flex-row sm:gap-8">
             <div className="flex items-center gap-2">
               <CalendarDays className="h-5 w-5 text-sky-400" />
               <span className="text-lg font-medium md:text-xl">{heroContent.period}</span>
@@ -125,7 +125,7 @@ export default async function HomePage() {
               className={buttonVariants({
                 size: "lg",
                 className:
-                  "h-16 rounded-full bg-sky-500 px-10 text-xl md:text-2xl font-bold text-white shadow-[0_20px_40px_-15px_rgba(14,165,233,0.5)] transition-all hover:translate-y-[-2px] hover:bg-sky-400 tracking-wide",
+                  "min-h-14 h-auto max-w-[calc(100vw-2rem)] shrink whitespace-normal rounded-full bg-sky-500 px-6 py-3 text-lg sm:h-16 sm:px-10 sm:text-xl md:text-2xl font-bold text-white shadow-[0_20px_40px_-15px_rgba(14,165,233,0.5)] transition-all hover:translate-y-[-2px] hover:bg-sky-400 tracking-wide",
               })}
             >
               사전등록 바로가기
@@ -135,7 +135,7 @@ export default async function HomePage() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 z-20 -translate-x-1/2 animate-bounce opacity-50">
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 animate-bounce opacity-50">
           <div className="flex flex-col items-center gap-2">
             <div className="h-9 w-6 rounded-full border-2 border-white/30 flex justify-center p-1.5">
               <div className="h-1.5 w-1 rounded-full bg-white/50" />
@@ -148,7 +148,7 @@ export default async function HomePage() {
       </section>
       )}
 
-      <section className="relative z-20 -mt-8 bg-white dark:bg-slate-950 px-4 pb-20 pt-8">
+      <section className="relative z-20 -mt-8 w-full max-w-full overflow-x-hidden bg-white px-4 pb-20 pt-8 dark:bg-slate-950">
         <div className="mx-auto max-w-[1400px] space-y-10 text-center">
           <div className="flex flex-col items-center gap-3">
             <Badge
@@ -163,7 +163,10 @@ export default async function HomePage() {
             {partnerLogos.map((partner) => (
               <div
                 key={partner.name}
-                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-105"
+                className={cn(
+                  "group relative flex items-center justify-center transition-all duration-300 hover:scale-105",
+                  partner.startBottomRow && "col-start-1 sm:col-start-1 md:col-start-1 lg:col-start-1",
+                )}
               >
                 <div className={cn(
                   "relative flex items-center justify-center overflow-visible rounded-md px-1 h-12 w-full md:h-14 lg:h-16",

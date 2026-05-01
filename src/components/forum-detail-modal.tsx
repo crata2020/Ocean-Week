@@ -25,9 +25,9 @@ const speakerBios: SpeakerBio[] = [
   },
   {
     role: "발제",
-    name: "郭培淸(궈페이칭) 교수",
+    name: "郭培淸(궈베이칭) 교수",
     affiliation: ["중국해양대학교", "국제사무 및 공공관리학원"],
-    bio: "궈페이칭(Guo Peiqing) 교수는 Ocean University of China 국제문제 및 공공행정학부에서 재직 중이다. 그는 중국 교육부가 설립한 극지센터의 집행이사를 맡고 있다. 또한 매년 칭다오와 상트페테르부르크에서 개최되는 중국-러시아 북극 워크숍의 창립자로, 이 행사는 현재 제도화되어 운영되고 있다. 아울러 국제 싱크탱크 “Polar and Ocean Portal”(www.polaroceanportal.com)의 설립자이기도 하다.\n\n그는 2022년 Sakha Republic 대통령 Aisen Nikolaev의 임명으로 사하공화국 수장 직속 ‘복지 및 지속가능발전 위원회’ 위원으로 활동하였으며, 같은 해 Northern Forum의 ‘친선대사(Goodwill Ambassador)’로도 초청받았다. 그는 북극 관련 다수의 연구 성과를 발표했으며, 그중 대표적으로 2009년 Oceanic Press에서 출판된 『북극 항로의 국제문제 연구(Research on the International Issues of Arctic Passage)』를 주저자로 집필한 바 있다.\n\n그는 북극항로, 특히 북동항로와 북서항로의 법적 지위와 국제정치적 의미를 중심으로 연구를 수행해 왔으며, 국제해양법과 해양정치의 관점에서 북극 지역의 질서 형성과 협력 구조를 분석해 왔다."
+    bio: "궈베이칭(Guo Peiqing) 교수는 Ocean University of China 국제문제 및 공공행정학부에서 재직 중이다. 그는 중국 교육부가 설립한 극지센터의 집행이사를 맡고 있다. 또한 매년 칭다오와 상트페테르부르크에서 개최되는 중국-러시아 북극 워크숍의 창립자로, 이 행사는 현재 제도화되어 운영되고 있다. 아울러 국제 싱크탱크 “Polar and Ocean Portal”(www.polaroceanportal.com)의 설립자이기도 하다.\n\n그는 2022년 Sakha Republic 대통령 Aisen Nikolaev의 임명으로 사하공화국 수장 직속 ‘복지 및 지속가능발전 위원회’ 위원으로 활동하였으며, 같은 해 Northern Forum의 ‘친선대사(Goodwill Ambassador)’로도 초청받았다. 그는 북극 관련 다수의 연구 성과를 발표했으며, 그중 대표적으로 2009년 Oceanic Press에서 출판된 『북극 항로의 국제문제 연구(Research on the International Issues of Arctic Passage)』를 주저자로 집필한 바 있다.\n\n그는 북극항로, 특히 북동항로와 북서항로의 법적 지위와 국제정치적 의미를 중심으로 연구를 수행해 왔으며, 국제해양법과 해양정치의 관점에서 북극 지역의 질서 형성과 협력 구조를 분석해 왔다."
   },
   {
     role: "발제",

@@ -18,7 +18,6 @@ interface SessionDetailModalProps {
 
 const speakers: Speaker[] = [
   { id: "1", name: "황종우 장관", org: "해양수산부", image: "/images/speakers/황종우.jpg" },
-  { id: "2", name: "조승환 국회의원", org: "(부산 영도구)", image: "/images/speakers/조승환.jpg" },
   { id: "3", name: "배상훈 총장", org: "국립부경대학교", image: "/images/speakers/배상훈 총장.jpg" },
   { id: "4", name: "류동근 총장", org: "국립한국해양대학교", image: "/images/speakers/류동근.jpg" },
   { id: "5", name: "김영재 원장", org: "부산연구원", image: "/images/speakers/김영재.jpg" },

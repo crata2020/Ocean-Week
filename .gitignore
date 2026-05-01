@@ -3,3 +3,7 @@ node_modules
 .env.local
 .dev-server.out.log
 .dev-server.err.log
+scratch/
+*.hwp
+*.pdf
+*.html
