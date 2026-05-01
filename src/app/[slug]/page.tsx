@@ -451,13 +451,13 @@ export default function ContentPage() {
                                   <div className="inline-flex w-fit rounded bg-slate-100 dark:bg-slate-800 px-2.5 py-1 text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                                     {role}
                                   </div>
-                                  <div className="flex flex-wrap gap-x-20 gap-y-4 pl-1">
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(4,auto)] gap-x-12 gap-y-6 pl-1">
                                     {speakers.map((sp: any, sidx: number) => (
                                       <div key={sidx} className="flex flex-col">
                                         <span className="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">
                                           {sp.name}
                                         </span>
-                                        <span className="text-xs text-slate-500 dark:text-slate-500 mt-0.5">
+                                        <span className="text-xs text-slate-500 dark:text-slate-500 mt-0.5 whitespace-pre-line">
                                           {sp.org}
                                         </span>
                                       </div>

@@ -51,7 +51,7 @@ export const oceanScheduleTimeline = [
           { role: "토론", name: "후지오 오니시 박사", org: "홋카이도대학교 북극연구센터" },
           { role: "토론", name: "스미르노프 세르게이 마라토비치 교수", org: "블라디보스톡 극동연방대" },
           { role: "토론", name: "남형식 교수", org: "국립한국해양대학교" },
-          { role: "토론", name: "정영두 센터장", org: "한국해양진흥공사 북극항로 종합지원센터" }
+          { role: "토론", name: "정영두 센터장", org: "한국해양진흥공사\n북극항로 종합지원센터" }
         ]
       }
     ]
@@ -138,7 +138,7 @@ export const oceanScheduleTimeline = [
           { role: "좌장", name: "이동화 대표", org: "극지해양미래포럼" },
           { role: "발제", name: "박수현 국장", org: "국제신문" },
           { role: "토론", name: "이은정 실장", org: "국제신문 논설실" },
-          { role: "토론", name: "손용구 교수", org: "국립한국해양대학교 북극해연구센터" },
+          { role: "토론", name: "손용구 교수", org: "국립한국해양대학교\n북극해연구센터" },
           { role: "토론", name: "전영근 교육전문가", org: "전 부산교육청 교육국장" },
           { role: "토론", name: "이정아 교장", org: "수영초등학교" }
         ]

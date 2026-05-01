@@ -81,7 +81,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
       {
         role: "패널토론 · 지정 패널",
         name: "정영두 센터장",
-        affiliation: ["한국해양진흥공사 북극항로 종합지원센터"],
+        affiliation: ["한국해양진흥공사", "북극항로 종합지원센터"],
         bio: "정영두 센터장은 팬오션과 켄코선박운용, 한국해양진흥공사에서 해운시장 조사와 산업 정보, ESG 및 공급망 대응 업무를 두루 수행해 온 해운·물류 전문가이다. 현재 북극항로 종합지원센터장을 맡아 북극항로와 연계한 해상 공급망 안정화와 해운·물류 분야 경제안보 강화에 기여하고 있다.",
         image: "/images/speakers/정영두.jpg"
       }
@@ -182,7 +182,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
       {
         role: "토론",
         name: "정영두 센터장",
-        affiliation: ["한국해양진흥공사 북극항로 종합지원센터"],
+        affiliation: ["한국해양진흥공사", "북극항로 종합지원센터"],
         bio: "정영두 센터장은 팬오션과 켄코선박운용, 한국해양진흥공사에서 해운시장 조사와 산업 정보, ESG 및 공급망 대응 업무를 두루 수행해 온 해운·물류 전문가이다. 현재 북극항로 종합지원센터장을 맡아 북극항로와 연계한 해상 공급망 안정화와 해운·물류 분야 경제안보 강화에 기여하고 있다.",
         image: "/images/speakers/정영두.jpg"
       }
@@ -523,7 +523,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
       {
         role: "토론",
         name: "손용구 교수",
-        affiliation: ["국립한국해양대학교 북극해연구센터"],
+        affiliation: ["국립한국해양대학교", "북극해연구센터"],
         bio: "손용구 교수는 국립한국해양대학교 북극해연구센터에서 북극해 환경, 해양과학 및 극지 연구를 수행하고 있다. 북극항로와 관련된 과학적·기술적 이해를 바탕으로 극지교육의 학문적 기반을 제시하고 있으며, 미래 세대가 갖추어야 할 연구 역량과 교육 방향에 대해서도 지속적으로 제안하고 있다.",
         image: "/images/speakers/손용구.jpg"
       },
