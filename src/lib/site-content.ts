@@ -194,6 +194,7 @@ export interface Partner {
   xOffset?: string;
   yOffset?: string;
   transformOrigin?: string;
+  startBottomRow?: boolean;
 }
 
 export const partnerLogos: Partner[] = [
