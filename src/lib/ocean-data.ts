@@ -96,7 +96,7 @@ export const oceanScheduleTimeline = [
         speakers: [
           { role: "좌장", name: "이영호 교수", org: "국립한국해양대학교" },
           { role: "발제", name: "최덕환 실장", org: "한국풍력산업협회" },
-          { role: "토론", name: "최우진 대표", org: "코리오제네레이션" },
+          { role: "토론", name: "이동준 실장", org: "한국남부발전" },
           { role: "토론", name: "김현도 대표", org: "지오뷰" },
           { role: "토론", name: "강호근 교수", org: "국립한국해양대학교" },
           { role: "토론", name: "이강희 박사", org: "한국조선해양기자재연구원" }

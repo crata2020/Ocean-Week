@@ -5,7 +5,7 @@ import { CalendarDays, MapPin, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { heroContent, partnerLogos } from "@/lib/site-content";
-import { cn, publicAssetPath } from "@/lib/utils";
+import { publicAssetPath } from "@/lib/utils";
 
 
 import { getSupabaseAdminClient } from "@/lib/supabase-admin";
@@ -148,8 +148,8 @@ export default async function HomePage() {
       </section>
       )}
 
-      <section className="relative z-20 -mt-8 w-full max-w-full overflow-x-hidden bg-white px-4 pb-20 pt-8 dark:bg-slate-950">
-        <div className="mx-auto max-w-[1400px] space-y-10 text-center">
+      <section className="relative z-20 -mt-8 w-full max-w-full overflow-x-hidden bg-white px-1 sm:px-2 md:px-4 lg:px-0 xl:px-4 pb-20 pt-8 dark:bg-slate-950">
+        <div className="mx-auto w-full max-w-[1800px] space-y-10 text-center">
           <div className="flex flex-col items-center gap-3">
             <Badge
               variant="outline"
@@ -159,38 +159,54 @@ export default async function HomePage() {
             </Badge>
             <h3 className="text-xl font-bold text-slate-400/80 tracking-tight">함께하는 기관</h3>
           </div>
-          <div className="grid grid-cols-3 items-center justify-center gap-x-4 gap-y-2 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 lg:gap-x-6 lg:gap-y-3">
-            {partnerLogos.map((partner) => (
-              <div
-                key={partner.name}
-                className={cn(
-                  "group relative flex items-center justify-center transition-all duration-300 hover:scale-105",
-                  partner.startBottomRow && "col-start-1 sm:col-start-1 md:col-start-1 lg:col-start-1",
-                )}
-              >
-                <div className={cn(
-                  "relative flex items-center justify-center overflow-visible rounded-md px-1 h-12 w-full md:h-14 lg:h-16",
-                  !partner.logo && "bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
-                )}>
-                  {partner.logo ? (
-                    <Image
-                      src={publicAssetPath(`/images/logos/${partner.logo}`)}
-                      alt={partner.name}
-                      fill
-                      className="object-contain transition-all duration-300"
-                      style={{
-                        transform: `scale(${partner.scale || 1}) translate(${partner.xOffset || '0'}, ${partner.yOffset || '0'})`,
-                        transformOrigin: partner.transformOrigin || "center",
-                      }}
-                    />
-                  ) : (
-                    <span className="text-[10px] md:text-xs font-bold text-slate-400 dark:text-slate-500 text-center leading-tight break-keep">
-                      {partner.name}
-                    </span>
-                  )}
+          <div className="flex flex-col gap-2 md:gap-4 w-full pt-4">
+            {[1, 2, 3, 4].map((rowNum) => {
+              const rowLogos = partnerLogos.filter((p) => p.row === rowNum);
+              if (rowLogos.length === 0) return null;
+              
+              return (
+                <div key={rowNum} className="flex flex-wrap lg:flex-nowrap w-full items-center justify-start gap-x-1 gap-y-6 md:gap-x-2 lg:gap-x-2 xl:gap-x-3">
+                  {rowLogos.map((partner) => (
+                    <div
+                      key={partner.name}
+                      className="group relative flex items-center justify-center transition-all duration-300 hover:scale-105 shrink min-w-0"
+                    >
+                      <div 
+                        className="relative flex items-center justify-center overflow-visible rounded-md px-1"
+                        style={{
+                          height: `calc(clamp(1.25rem, 1.2vw + 0.5rem, 2rem) * ${partner.scale || 1})`
+                        }}
+                      >
+                        {partner.logo ? (
+                          <>
+                            <img
+                              src={publicAssetPath(`/images/logos/${partner.logo}`)}
+                              alt={`${partner.name} 로고`}
+                              className="h-full w-auto max-w-full object-contain transition-all duration-300 opacity-90 hover:opacity-100"
+                              style={{
+                                transform: partner.yOffset ? `translateY(${partner.yOffset})` : undefined
+                              }}
+                            />
+
+                          </>
+                        ) : partner.name.startsWith("empty") ? (
+                          <div className="w-[60px] sm:w-[80px] md:w-[100px] h-full" />
+                        ) : (
+                          <span 
+                            className="font-bold text-slate-400 whitespace-nowrap px-1"
+                            style={{
+                              fontSize: `calc(0.75rem * ${(partner.scale || 1) * 1.2})`,
+                            }}
+                          >
+                            {partner.name}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

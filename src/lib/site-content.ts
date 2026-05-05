@@ -186,7 +186,6 @@ export function getRegistrationSessionLabel(id: string) {
   return `${session.date} ${session.time} ${session.title}`;
 }
 
-
 export interface Partner {
   name: string;
   logo?: string;
@@ -194,56 +193,52 @@ export interface Partner {
   xOffset?: string;
   yOffset?: string;
   transformOrigin?: string;
-  startBottomRow?: boolean;
+  row?: number;
 }
 
 export const partnerLogos: Partner[] = [
-  // ROW 1: Government & Academia
-  { name: "해양수산부", logo: "해양수산부 1.svg", scale: 1.0 },
-  { name: "부산광역시", logo: "부산광역시 1.svg", scale: 1.0 },
-  { name: "부산광역시의회", logo: "부산광역시의회.svg", scale: 1.0 },
-  { name: "부산광역시교육청", logo: "부산광역시교육청 1.svg", scale: 1.0 },
-  { name: "부산상공회의소", logo: "부산상공회의소 1.svg", scale: 1.0 },
-  { name: "한국해양대학교", logo: "한국해양대학교(최신) 1.svg", scale: 1.0 },
-  { name: "동서대학교", logo: "동서대.png", scale: 1.0 },
-  { name: "영산대학교", logo: "영산대학교 1.svg", scale: 1.0 },
-  { name: "한국해양수산개발원", logo: "한국해양수산개발원 1.svg", scale: 1.0 },
+  // ROW 1
+  { name: "해양수산부", logo: "해양수산부 1.svg", scale: 1.7, row: 1 },
+  { name: "부산광역시", logo: "부산광역시 1.svg", scale: 1.3, row: 1 },
+  { name: "부산광역시의회", logo: "부산광역시의회.svg", scale: 1.3, row: 1 },
+  { name: "부산광역시교육청", logo: "부산광역시교육청 1.svg", scale: 2.0, row: 1 },
+  { name: "부산상공회의소", logo: "부산상공회의소 1.svg", scale: 1.3, row: 1 },
+  { name: "국립부경대학교", logo: "부경대_1.png", scale: 2.0, row: 1 },
+  { name: "한국해양대학교", logo: "한국해양대학교(최신) 1.svg", scale: 1.3, row: 1 },
+  { name: "영산대학교", logo: "영산대학교 1.svg", scale: 1.1, row: 1 },
+  { name: "동서대학교", logo: "동서대.png", scale: 1.3, row: 1 },
 
-  // ROW 2: Research & Corporate
-  { name: "한국해양과학기술원", logo: "한국해양과학기술원 1.svg", scale: 1.0 },
-  { name: "한국해양진흥공사", logo: "한국해양진흥공사.svg", scale: 1.0 },
-  { name: "한국조선해양기자재연구원", logo: "한국조선해양기자재연구원 1.svg", scale: 1.0 },
-  { name: "LG전자", logo: "LG 전자 1.svg", scale: 1.0 },
-  { name: "LG 퓨로텍", logo: "LG-퓨로텍 1.svg", scale: 1.0 },
-  { name: "HJ중공업", logo: "HJ중공업 1.svg", scale: 1.0 },
-  { name: "은산해운항공", logo: "은산해운항공 1.svg", scale: 1.0 },
-  { name: "부산항만공사", logo: "부산항만공사 CI (1) 1.svg", scale: 1.0 },
-  { name: "한국선급", logo: "한국선급 1.svg", scale: 1.0 },
+  // ROW 2
+  { name: "부산항만공사", logo: "부산항만공사 CI (1) 1.svg", scale: 1.0, row: 2 },
+  { name: "한국해양진흥공사", logo: "한국해양진흥공사.svg", scale: 1.2, row: 2 },
+  { name: "한국해양과학기술원", logo: "한국해양과학기술원 1.svg", scale: 2.2, yOffset: "-15%", row: 2 },
+  { name: "한국해양수산개발원", logo: "한국해양수산개발원 1.svg", scale: 1.2, row: 2 },
+  { name: "극지연구소", logo: "극지연구소 1.svg", scale: 1.3, row: 2 },
+  { name: "중소조선연구원", logo: "중소조선연구원_1.jpg", scale: 1.3, row: 2 },
+  { name: "한국선급", logo: "한국선급 1.svg", scale: 1.2, row: 2 },
+  { name: "부산국제금융진흥원", logo: "부산국제금융진흥원 1.svg", scale: 1.4, row: 2 },
+  { name: "한국해운협회", logo: "한국해운협회 1.svg", scale: 1.0, row: 2 },
 
-  // ROW 3: Financial & Policy
-  { name: "LET'S GO 2025", logo: "선보패밀리그룹 1.svg", scale: 1.0 },
-  { name: "BNK 부산은행", logo: "부산은행.svg", scale: 1.0 },
-  { name: "파나시아", logo: "파나시아 1.svg", scale: 1.0 },
-  { name: "부산국제금융진흥원", logo: "부산국제금융진흥원 1.svg", scale: 1.0 },
-  { name: "한국해운협회", logo: "한국해운협회 1.svg", scale: 1.0 },
-  { name: "부산항도선사회", logo: "부산항도선사회 1.png", scale: 1.0 },
-  { name: "한국해양정책연합", logo: "한국해양정책연합 1.svg", scale: 1.0 },
-  { name: "한국해양수산데이터산업협회", logo: "한국해양수산데이터산업협회 로고 1.svg", scale: 1.0 },
-  { name: "극지해양미래포럼", logo: "극지해양미래포럼 1.svg", scale: 1.0 },
+  // ROW 3
+  { name: "부산항도선사회", logo: "부산항도선사회 1.png", scale: 2.8, row: 3 },
+  { name: "LG전자", logo: "LG 전자 1.svg", scale: 1.6, row: 3 },
+  { name: "LG PuroTec", logo: "LG-퓨로텍 1.svg", scale: 1.1, row: 3 },
+  { name: "BNK 부산은행", logo: "부산은행.svg", scale: 1.2, row: 3 },
+  { name: "은산해운항공", logo: "은산해운항공 1.svg", scale: 1.0, row: 3 },
+  { name: "HJ중공업", logo: "HJ중공업 1.svg", scale: 2.0, row: 3 },
+  { name: "LET'S GO 2025", logo: "선보패밀리그룹 1.svg", scale: 1.0, row: 3 },
+  { name: "PANASIA", logo: "파나시아 1.svg", scale: 1.2, yOffset: "15%", row: 3 },
+  { name: "BOWP", logo: "BOWP_1.jpg", scale: 1.4, row: 3 },
 
-  // ROW 4: Associations & Tech
-  { name: "(사)해양문학가협회", logo: "한국해양문학가협회 1.svg", scale: 1.0 },
-  { name: "극지연구소", logo: "극지연구소 1.svg", scale: 1.0 },
-  { name: "한국해기사협회", logo: "한국해기사협회 1.svg", scale: 1.0 },
-  { name: "크라타연구소", logo: "크라타연구소 1.svg", scale: 1.0 },
-  { name: "쇼우테크", logo: "쇼우테크 1.svg", scale: 1.0 },
-  { name: "국립해양박물관", logo: "국립해양박물관 1.svg", scale: 1.0 },
-  { name: "국제신문", logo: "국제신문 1.svg", scale: 1.0 },
-  { name: "남해지방해양경찰청", logo: "남해지방해양경찰청.png", scale: 1.0 },
-  { name: "부산조선해양기자재공업협동조합", logo: "부산조선해양기자재공업협동조합 1.svg", scale: 1.85, transformOrigin: "left center", startBottomRow: true },
-  { name: "국립부경대학교", logo: "부경대.png", scale: 1.55, xOffset: "60%", transformOrigin: "left center" },
+  // ROW 4
+  { name: "GEOVIEW", logo: "GEOVIEW_1.jpg", scale: 1.0, row: 4 },
+  { name: "한국해양정책연합", logo: "한국해양정책연합 1.svg", scale: 1.2, row: 4 },
+  { name: "극지해양미래포럼", logo: "극지해양미래포럼 1.svg", scale: 1.0, row: 4 },
+  { name: "한국해기사협회", logo: "한국해기사협회 1.svg", scale: 1.0, row: 4 },
+  { name: "한국해양문학가협회", logo: "한국해양문학가협회 1.svg", scale: 2.4, row: 4 },
+  { name: "CRATA 연구소", logo: "크라타연구소 1.svg", scale: 1.4, row: 4 },
+  { name: "국제신문", logo: "국제신문 1.svg", scale: 1.4, row: 4 },
 ];
-
 export type ContentSlug =
   | "intro"
   | "schedule"
