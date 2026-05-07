@@ -211,14 +211,17 @@ export function ChildrenGallery() {
           <div 
             key={group.id} 
             id={`section-${group.id}`}
-            className="gallery-section w-full snap-start flex flex-col px-2 pt-4 pb-6 md:px-6 overflow-hidden"
-            style={{ minHeight: "calc(100vh - var(--dynamic-header-height, 208px))" }}
+            className="gallery-section w-full snap-start flex flex-col px-2 pt-4 pb-4 md:px-8 xl:pl-28 overflow-hidden"
+            style={{ 
+              height: "calc(100dvh - var(--dynamic-header-height, 208px))",
+            }}
           >
             <div className={cn(
-              "flex flex-col flex-1 w-full max-w-[1800px] mx-auto transition-all duration-[1200ms] ease-out",
+              "flex flex-col h-full w-full max-w-[1800px] mx-auto transition-all duration-[1200ms] ease-out",
               visibleSections.has(`section-${group.id}`) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"
             )}>
-              <div className="flex items-center justify-between mb-6 flex-shrink-0">
+              {/* Section Header */}
+              <div className="flex items-center justify-between mb-3 flex-shrink-0">
                 <div className="flex items-center gap-4">
                   <h2 className={cn(
                     "font-black tracking-tight flex items-end gap-3",
@@ -242,42 +245,45 @@ export function ChildrenGallery() {
                 </div>
               </div>
 
+              {/* Image Grid — fills remaining height */}
               <div className={cn(
-                "grid gap-4 md:gap-x-8 md:gap-y-10 w-full my-auto",
-                group.rank === 1 ? "grid-cols-1 max-w-4xl mx-auto" :
-                group.rank === 2 ? "grid-cols-2 max-w-3xl mx-auto" :
-                "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+                "grid gap-3 md:gap-4 flex-1 min-h-0",
+                group.rank === 1 
+                  ? "grid-cols-1 max-w-4xl mx-auto w-full" 
+                  : group.rank === 2 
+                  ? "grid-cols-2 max-w-4xl mx-auto w-full"
+                  : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
               )}>
                 {group.items.map((item) => (
                   <div 
                     key={item.id} 
-                    className="group flex flex-col gap-3 cursor-pointer"
+                    className="group flex flex-col gap-2 cursor-pointer min-h-0"
                     onClick={() => openLightbox(item)}
                   >
-                    <div className={cn(
-                      "relative overflow-hidden rounded-xl shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:-translate-y-1 w-full",
-                      group.rank === 1 ? "aspect-[16/9] max-h-[70vh]" : 
-                      group.rank === 2 ? "aspect-[16/9] max-h-[35vh]" : 
-                      "aspect-[4/3]"
-                    )}>
+                    {/* Image fills all available height in the cell */}
+                    <div className="relative overflow-hidden rounded-xl shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:-translate-y-1 flex-1 min-h-0">
                       <Image
                         src={item.url}
                         alt={item.title}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes={group.rank === 1 ? "100vw" : "(max-width: 768px) 50vw, 20vw"}
+                        sizes={
+                          group.rank === 1 ? "80vw" : 
+                          group.rank === 2 ? "45vw" : 
+                          "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                        }
                       />
                       <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                     </div>
                     <div className="flex flex-col text-center px-1 flex-shrink-0">
                       <span className={cn(
                         "font-bold text-slate-800 dark:text-slate-100 truncate",
-                        group.rank === 1 ? "text-lg md:text-xl" : "text-sm"
+                        group.rank === 1 ? "text-base md:text-lg" : "text-xs md:text-sm"
                       )}>
                         {item.title}
                       </span>
                       {item.name && (
-                        <span className="text-[11px] md:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                        <span className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400">
                           {item.name} 어린이
                         </span>
                       )}
@@ -285,6 +291,7 @@ export function ChildrenGallery() {
                   </div>
                 ))}
               </div>
+
             </div>
           </div>
         ))}
