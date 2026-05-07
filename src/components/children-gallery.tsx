@@ -82,7 +82,13 @@ export function ChildrenGallery() {
     rank4Chunks.push(rank4Items.slice(i, i + 10));
   }
 
-  const sections = [
+  const sections: { 
+    id: string; 
+    rank: number; 
+    title: string; 
+    items: typeof artData; 
+    pageInfo?: string; 
+  }[] = [
     { id: 'rank-1', rank: 1, title: "대상", items: artData.filter(a => a.rank === 1) },
     { id: 'rank-2', rank: 2, title: "우수", items: artData.filter(a => a.rank === 2) },
     { id: 'rank-3', rank: 3, title: "장려", items: artData.filter(a => a.rank === 3) },
