@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
+import { ImageProtection } from "@/components/image-protection";
 
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${bodyFont.variable} ${displayFont.variable} antialiased`} suppressHydrationWarning>
         <div className="min-h-screen bg-background text-foreground">
+          <ImageProtection />
           <SiteHeader />
           <main>{children}</main>
         </div>

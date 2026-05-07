@@ -14,6 +14,7 @@ export function PhotoGallery({ folder }: PhotoGalleryProps) {
   const [images, setImages] = useState<{ name: string; url: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+  const galleryRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchImages() {
@@ -41,6 +42,16 @@ export function PhotoGallery({ folder }: PhotoGalleryProps) {
     }
     if (folder) fetchImages();
   }, [folder]);
+
+  // 이미지 로드 후 갤러리가 항상 보이도록 자동 스크롤
+  useEffect(() => {
+    if (!loading && images.length > 0 && galleryRef.current) {
+      const header = document.querySelector("header");
+      const headerHeight = header ? header.clientHeight : 0;
+      const top = galleryRef.current.getBoundingClientRect().top + window.scrollY - headerHeight - 2;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }, [loading, images.length]);
 
   if (loading) {
     return (
@@ -72,8 +83,19 @@ export function PhotoGallery({ folder }: PhotoGalleryProps) {
     }
   };
 
+  // 우클릭/드래그/저장 방지 핸들러
+  const preventDownload = (e: React.MouseEvent | React.DragEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
   return (
-    <div className="relative w-full overflow-hidden pt-2 pb-10 md:pt-4 md:pb-16 animate-in fade-in duration-1000">
+    <div
+      ref={galleryRef}
+      className="relative w-full overflow-hidden pt-2 pb-10 md:pt-4 md:pb-16 animate-in fade-in duration-1000"
+      onContextMenu={preventDownload}
+      style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
+    >
       {/* Lightbox Modal ... */}
       {selectedIdx !== null && (
         <div 
@@ -103,9 +125,14 @@ export function PhotoGallery({ folder }: PhotoGalleryProps) {
               src={images[selectedIdx].url}
               alt={images[selectedIdx].name}
               fill
-              className="object-contain"
+              className="object-contain pointer-events-none"
               priority
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
             />
+            {/* 라이트박스 다운로드 방지 오버레이 */}
+            <div className="absolute inset-0" onContextMenu={(e) => e.preventDefault()} />
             <div className="absolute -bottom-16 left-0 right-0 text-center animate-in slide-in-from-bottom-4 delay-300">
               <p className="text-white text-xl font-bold tracking-[0.3em] uppercase">{images[selectedIdx].name}</p>
             </div>
@@ -131,8 +158,11 @@ export function PhotoGallery({ folder }: PhotoGalleryProps) {
                 src={img.url} 
                 alt={img.name} 
                 fill 
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="object-cover transition-transform duration-1000 group-hover:scale-110 pointer-events-none"
                 sizes="800px"
+                draggable={false}
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
             </div>
@@ -148,6 +178,33 @@ export function PhotoGallery({ folder }: PhotoGalleryProps) {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* 사진 문의 / 저작권 문의 */}
+      <div className="mt-6 md:mt-10 px-6 py-6 md:py-8 border-t border-slate-200 dark:border-slate-700/60">
+        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
+          <div className="flex flex-col items-center gap-1 text-center">
+            <span className="text-[10px] font-black tracking-[0.25em] uppercase text-slate-400 dark:text-slate-500">사진 문의</span>
+            <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">박수현</span>
+            <a
+              href="tel:010-5167-7627"
+              className="text-sm font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors tracking-wide"
+            >
+              010-5167-7627
+            </a>
+          </div>
+          <div className="hidden sm:block w-px h-10 bg-slate-200 dark:bg-slate-700" />
+          <div className="flex flex-col items-center gap-1 text-center">
+            <span className="text-[10px] font-black tracking-[0.25em] uppercase text-slate-400 dark:text-slate-500">저작 및 사용권 문의</span>
+            <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">염청하</span>
+            <a
+              href="tel:010-9511-6575"
+              className="text-sm font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors tracking-wide"
+            >
+              010-9511-6575
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

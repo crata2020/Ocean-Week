@@ -199,6 +199,25 @@ select {
   }
 }
 
+/* ================================================
+   전역 이미지 다운로드 방지
+   ================================================ */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* 클릭 가능한 이미지(링크·버튼 내부)는 pointer-events 복원 */
+a img,
+button img,
+[role="button"] img,
+.cursor-pointer img {
+  pointer-events: auto;
+}
+
 @keyframes marquee-left {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

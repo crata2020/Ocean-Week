@@ -4,8 +4,9 @@ import { CalendarDays, MapPin, ChevronRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { heroContent, partnerLogos } from "@/lib/site-content";
+import { heroContent } from "@/lib/site-content";
 import { publicAssetPath } from "@/lib/utils";
+import { PartnerLogoGrid } from "@/components/partner-logo-grid";
 
 
 import { getSupabaseAdminClient } from "@/lib/supabase-admin";
@@ -64,7 +65,7 @@ export default async function HomePage() {
             alt="해양주간 2026 메인 배경"
             fill
             priority
-            className="animate-in fade-in zoom-in-105 object-cover object-center duration-1000"
+            className="animate-in fade-in zoom-in-105 object-cover object-center duration-1000 pointer-events-none"
           />
           <div className="absolute inset-0 bg-slate-950/45" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-transparent" />
@@ -89,7 +90,7 @@ export default async function HomePage() {
                   src={publicAssetPath("/images/logos/해양주간 로고만.svg")}
                   alt="2026 해양주간 Logo Graphic"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain brightness-0 invert pointer-events-none"
                   priority
                 />
               </div>
@@ -159,55 +160,7 @@ export default async function HomePage() {
             </Badge>
             <h3 className="text-xl font-bold text-slate-400/80 tracking-tight">함께하는 기관</h3>
           </div>
-          <div className="flex flex-col gap-2 md:gap-4 w-full pt-4">
-            {[1, 2, 3, 4].map((rowNum) => {
-              const rowLogos = partnerLogos.filter((p) => p.row === rowNum);
-              if (rowLogos.length === 0) return null;
-              
-              return (
-                <div key={rowNum} className="flex flex-wrap lg:flex-nowrap w-full items-center justify-start gap-x-1 gap-y-6 md:gap-x-2 lg:gap-x-2 xl:gap-x-3">
-                  {rowLogos.map((partner) => (
-                    <div
-                      key={partner.name}
-                      className="group relative flex items-center justify-center transition-all duration-300 hover:scale-105 shrink min-w-0"
-                    >
-                      <div 
-                        className="relative flex items-center justify-center overflow-visible rounded-md px-1"
-                        style={{
-                          height: `calc(clamp(1.25rem, 1.2vw + 0.5rem, 2rem) * ${partner.scale || 1})`
-                        }}
-                      >
-                        {partner.logo ? (
-                          <>
-                            <img
-                              src={publicAssetPath(`/images/logos/${partner.logo}`)}
-                              alt={`${partner.name} 로고`}
-                              className="h-full w-auto max-w-full object-contain transition-all duration-300 opacity-90 hover:opacity-100"
-                              style={{
-                                transform: partner.yOffset ? `translateY(${partner.yOffset})` : undefined
-                              }}
-                            />
-
-                          </>
-                        ) : partner.name.startsWith("empty") ? (
-                          <div className="w-[60px] sm:w-[80px] md:w-[100px] h-full" />
-                        ) : (
-                          <span 
-                            className="font-bold text-slate-400 whitespace-nowrap px-1"
-                            style={{
-                              fontSize: `calc(0.75rem * ${(partner.scale || 1) * 1.2})`,
-                            }}
-                          >
-                            {partner.name}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              );
-            })}
-          </div>
+          <PartnerLogoGrid />
         </div>
       </section>
 

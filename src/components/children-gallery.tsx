@@ -75,9 +75,15 @@ export function ChildrenGallery() {
     };
   }, []);
 
-  // Group by rank
+  // Group by rank — 우수: 2개씩, 입선: 10개씩 페이지 분할
+  const rank2Items = artData.filter(a => a.rank === 2);
+  const rank2Chunks: (typeof artData)[] = [];
+  for (let i = 0; i < rank2Items.length; i += 2) {
+    rank2Chunks.push(rank2Items.slice(i, i + 2));
+  }
+
   const rank4Items = artData.filter(a => a.rank === 4);
-  const rank4Chunks = [];
+  const rank4Chunks: (typeof artData)[] = [];
   for (let i = 0; i < rank4Items.length; i += 10) {
     rank4Chunks.push(rank4Items.slice(i, i + 10));
   }
@@ -90,7 +96,13 @@ export function ChildrenGallery() {
     pageInfo?: string; 
   }[] = [
     { id: 'rank-1', rank: 1, title: "대상", items: artData.filter(a => a.rank === 1) },
-    { id: 'rank-2', rank: 2, title: "우수", items: artData.filter(a => a.rank === 2) },
+    ...rank2Chunks.map((chunk, idx) => ({
+      id: `rank-2-${idx}`,
+      rank: 2,
+      title: "우수",
+      pageInfo: `${idx + 1} / ${rank2Chunks.length} 페이지`,
+      items: chunk
+    })),
     { id: 'rank-3', rank: 3, title: "장려", items: artData.filter(a => a.rank === 3) },
     ...rank4Chunks.map((chunk, idx) => ({
       id: `rank-4-${idx}`,
@@ -104,7 +116,7 @@ export function ChildrenGallery() {
   // Derive unique categories for the Sidebar
   const navCategories = [
     { targetId: 'rank-1', matchPrefix: 'rank-1', title: "대상" },
-    { targetId: 'rank-2', matchPrefix: 'rank-2', title: "우수" },
+    { targetId: 'rank-2-0', matchPrefix: 'rank-2', title: "우수" },
     { targetId: 'rank-3', matchPrefix: 'rank-3', title: "장려" },
     { targetId: 'rank-4-0', matchPrefix: 'rank-4', title: "입선" },
   ].filter(cat => sections.some(s => s.id.startsWith(cat.matchPrefix)));
@@ -128,8 +140,18 @@ export function ChildrenGallery() {
     if (idx !== -1) setSelectedIdx(idx);
   };
 
+  // 우클릭/드래그/저장 방지 핸들러
+  const preventDownload = (e: React.MouseEvent | React.DragEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
   return (
-    <div className="w-full relative animate-in fade-in duration-1000">
+    <div
+      className="w-full relative animate-in fade-in duration-1000"
+      onContextMenu={preventDownload}
+      style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
+    >
       
       {/* Lightbox Modal */}
       {selectedIdx !== null && (
@@ -160,9 +182,14 @@ export function ChildrenGallery() {
               src={artData[selectedIdx].url}
               alt={artData[selectedIdx].title}
               fill
-              className="object-contain"
+              className="object-contain pointer-events-none"
               priority
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
             />
+            {/* 라이트박스 다운로드 방지 오버레이 */}
+            <div className="absolute inset-0" onContextMenu={(e) => e.preventDefault()} />
             <div className="absolute -bottom-16 left-0 right-0 text-center animate-in slide-in-from-bottom-4 delay-300">
               <p className="text-white text-xl font-bold tracking-[0.1em] mb-1">{artData[selectedIdx].title}</p>
               <p className="text-white/80 text-sm">{artData[selectedIdx].award} {artData[selectedIdx].name && `| ${artData[selectedIdx].name}`}</p>
@@ -171,38 +198,65 @@ export function ChildrenGallery() {
         </div>
       )}
 
-      {/* Left Navigation Bar (Scrollspy) */}
-      <div className="fixed left-8 xl:left-12 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col border-l-2 border-slate-200 dark:border-slate-800">
-        {navCategories.map((cat) => {
-          const isActive = activeSection.startsWith(cat.matchPrefix);
-          return (
-            <button
-              key={`nav-${cat.targetId}`}
-              onClick={() => {
-                document.getElementById(`section-${cat.targetId}`)?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className={cn(
-                "relative flex items-center pl-6 py-3 text-left transition-all duration-300 group",
-                isActive ? "opacity-100" : "opacity-40 hover:opacity-80"
-              )}
+      {/* Left Navigation Bar (Scrollspy) + 문의 정보 */}
+      <div className="fixed left-8 xl:left-12 top-[calc(50%+100px)] -translate-y-1/2 z-40 hidden xl:flex flex-col justify-between" style={{ height: 'calc(100dvh - var(--dynamic-header-height, 208px) - 8rem)' }}>
+        {/* 카테고리 네비게이션 */}
+        <div className="flex flex-col border-l-2 border-slate-200 dark:border-slate-800">
+          {navCategories.map((cat) => {
+            const isActive = activeSection.startsWith(cat.matchPrefix);
+            return (
+              <button
+                key={`nav-${cat.targetId}`}
+                onClick={() => {
+                  document.getElementById(`section-${cat.targetId}`)?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={cn(
+                  "relative flex items-center pl-6 py-3 text-left transition-all duration-300 group",
+                  isActive ? "opacity-100" : "opacity-40 hover:opacity-80"
+                )}
+              >
+                {/* Active Marker on Border */}
+                <div className={cn(
+                  "absolute -left-[2px] top-1/2 -translate-y-1/2 w-[2px] bg-sky-500 transition-all duration-500",
+                  isActive ? "h-full opacity-100" : "h-0 opacity-0"
+                )} />
+                
+                <span className={cn(
+                  "text-sm whitespace-nowrap transition-all duration-300",
+                  isActive 
+                    ? "font-black text-sky-600 dark:text-sky-400 scale-110 origin-left" 
+                    : "font-medium text-slate-600 dark:text-slate-400"
+                )}>
+                  {cat.title}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* 하단 문의 정보 */}
+        <div className="flex flex-col gap-3 pl-4 border-l-2 border-slate-100 dark:border-slate-800/60">
+          <div className="flex flex-col gap-0.5">
+            <span className="text-[9px] font-black tracking-[0.2em] uppercase text-slate-400 dark:text-slate-500">사진 문의</span>
+            <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">박수현</span>
+            <a
+              href="tel:010-5167-7627"
+              className="text-xs font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors"
             >
-              {/* Active Marker on Border */}
-              <div className={cn(
-                "absolute -left-[2px] top-1/2 -translate-y-1/2 w-[2px] bg-sky-500 transition-all duration-500",
-                isActive ? "h-full opacity-100" : "h-0 opacity-0"
-              )} />
-              
-              <span className={cn(
-                "text-sm whitespace-nowrap transition-all duration-300",
-                isActive 
-                  ? "font-black text-sky-600 dark:text-sky-400 scale-110 origin-left" 
-                  : "font-medium text-slate-600 dark:text-slate-400"
-              )}>
-                {cat.title}
-              </span>
-            </button>
-          );
-        })}
+              010-5167-7627
+            </a>
+          </div>
+          <div className="flex flex-col gap-0.5">
+            <span className="text-[9px] font-black tracking-[0.2em] uppercase text-slate-400 dark:text-slate-500">저작 및 사용권 문의</span>
+            <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">염청하</span>
+            <a
+              href="tel:010-9511-6575"
+              className="text-xs font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors"
+            >
+              010-9511-6575
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Main Snap Flow */}
@@ -237,7 +291,7 @@ export function ChildrenGallery() {
                     )}
                   </h2>
                   <span className="text-sm font-medium px-3 py-1 bg-slate-200/50 dark:bg-slate-800/50 rounded-full text-slate-500 dark:text-slate-400">
-                    {group.rank === 4 ? "총 40작품 중 10작품" : `${group.items.length}작품`}
+                    {group.rank === 4 ? "총 40작품 중 10작품" : group.rank === 2 ? `총 ${rank2Items.length}작품 중 ${group.items.length}작품` : `${group.items.length}작품`}
                   </span>
                 </div>
                 <div className="hidden sm:flex text-xs font-medium text-slate-400 animate-pulse">
@@ -251,7 +305,7 @@ export function ChildrenGallery() {
                 group.rank === 1 
                   ? "grid-cols-1 max-w-4xl mx-auto w-full" 
                   : group.rank === 2 
-                  ? "grid-cols-2 max-w-4xl mx-auto w-full"
+                  ? "grid-cols-2 w-full"
                   : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
               )}>
                 {group.items.map((item) => (
@@ -266,12 +320,15 @@ export function ChildrenGallery() {
                         src={item.url}
                         alt={item.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                         sizes={
                           group.rank === 1 ? "80vw" : 
                           group.rank === 2 ? "45vw" : 
                           "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                         }
+                        draggable={false}
+                        onContextMenu={(e) => e.preventDefault()}
+                        onDragStart={(e) => e.preventDefault()}
                       />
                       <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                     </div>
@@ -297,6 +354,8 @@ export function ChildrenGallery() {
         ))}
 
       </div>
+
+
     </div>
   );
 }

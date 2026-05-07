@@ -123,11 +123,16 @@ export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, on
                             fill
                             priority
                             sizes="300px"
-                            className="object-cover bg-white" 
+                            className="object-cover bg-white pointer-events-none" 
                             style={{
                               objectPosition: speaker.imagePosition || "center 20%",
                             }} 
+                            draggable={false}
+                            onContextMenu={(e) => e.preventDefault()}
+                            onDragStart={(e) => e.preventDefault()}
                           />
+                          {/* 다운로드 방지 오버레이 */}
+                          <div className="absolute inset-0" onContextMenu={(e) => e.preventDefault()} />
                         </div>
                       ) : (
                         <User className="w-8 h-8 md:w-10 md:h-10 text-slate-300 dark:text-slate-500" />

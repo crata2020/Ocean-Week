@@ -84,13 +84,18 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
                           src={speaker.image}
                           alt={speaker.name}
                           fill
-                          className="object-cover object-[center_20%] bg-white transition-transform duration-500 group-hover:scale-105"
+                          className="object-cover object-[center_20%] bg-white transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                           style={{ imageRendering: "auto" }}
                           sizes="(max-width: 768px) 50vw, 25vw"
                           quality={100}
                           unoptimized
                           priority
+                          draggable={false}
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()}
                         />
+                        {/* 다운로드 방지 오버레이 */}
+                        <div className="absolute inset-0" onContextMenu={(e) => e.preventDefault()} />
                       </div>
                     ) : (
                       <div className="w-full h-full rounded-lg border-2 border-dashed border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center text-slate-300 dark:text-slate-700 p-4 text-center">
