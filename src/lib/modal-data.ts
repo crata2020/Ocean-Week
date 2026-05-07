@@ -7,6 +7,7 @@ export interface SpeakerBio {
   bio: string;
   image?: string;
   imagePosition?: string;
+  imageScale?: number;
 }
 
 export interface ModalContent {
@@ -44,7 +45,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
       },
       {
         role: "발표 · 토론 · 한국",
-        name: "최수범 교수",
+        name: "최수범 특임교수",
         affiliation: ["국민대학교 특임교수", "한국북극항로협회 사무총장"],
         bio: "최수범 교수는 해양·물류 및 북극항로 분야의 전문가로, 한국북극항로협회 사무총장과 국민대학교 특임교수로 활동하고 있다. 북극항로 개발과 국제 협력, 정책 연구를 주도하며, 해운·물류와 북극항로의 전략적 중요성과 미래 가능성을 연구·강의하고 있다. 정부·학계·산업계를 잇는 가교 역할도 수행하고 있다.",
         image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/choi_soo_beom.jpg"
@@ -59,8 +60,8 @@ export const scheduleModalData: Record<string, ModalContent> = {
       {
         role: "발표 · 토론 · 일본",
         name: "후지오 오니시 박사",
-        affiliation: ["홋카이도대학교 북극연구센터", "그룹리더"],
-        bio: "Fujio Ohnishi 박사는 홋카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
+        affiliation: ["훗카이도대학교 북극연구센터", "그룹리더"],
+        bio: "Fujio Ohnishi 박사는 훗카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
         image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/fujio_ohnishi.jpg"
       },
       {
@@ -98,7 +99,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
     speakers: [
       {
         role: "발표 · 한국",
-        name: "최수범 교수",
+        name: "최수범 특임교수",
         affiliation: ["국민대학교 특임교수", "한국북극항로협회 사무총장"],
         bio: "최수범 교수는 해양·물류 및 북극항로 분야의 전문가로, 한국북극항로협회 사무총장과 국민대학교 특임교수로 활동하고 있다. 북극항로 개발과 국제 협력, 정책 연구를 주도하며, 해운·물류와 북극항로의 전략적 중요성과 미래 가능성을 연구·강의하고 있다. 정부·학계·산업계를 잇는 가교 역할도 수행하고 있다.",
         image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/choi_soo_beom.jpg"
@@ -113,8 +114,8 @@ export const scheduleModalData: Record<string, ModalContent> = {
       {
         role: "발표 · 일본",
         name: "후지오 오니시 박사",
-        affiliation: ["홋카이도대학교 북극연구센터", "그룹리더"],
-        bio: "Fujio Ohnishi 박사는 홋카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
+        affiliation: ["훗카이도대학교 북극연구센터", "그룹리더"],
+        bio: "Fujio Ohnishi 박사는 훗카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
         image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/fujio_ohnishi.jpg"
       },
       {
@@ -145,7 +146,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
       },
       {
         role: "토론",
-        name: "최수범 교수",
+        name: "최수범 특임교수",
         affiliation: ["국민대학교 특임교수"],
         bio: "최수범 교수는 해양·물류 및 북극항로 분야의 전문가로, 한국북극항로협회 사무총장과 국민대학교 특임교수로 활동하고 있다. 북극항로 개발과 국제 협력, 정책 연구를 주도하며, 해운·물류와 북극항로의 전략적 중요성과 미래 가능성을 연구·강의하고 있다. 정부·학계·산업계를 잇는 가교 역할도 수행하고 있다.",
         image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/choi_soo_beom.jpg"
@@ -160,8 +161,8 @@ export const scheduleModalData: Record<string, ModalContent> = {
       {
         role: "토론",
         name: "후지오 오니시 박사",
-        affiliation: ["홋카이도대학교 북극연구센터"],
-        bio: "Fujio Ohnishi 박사는 홋카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
+        affiliation: ["훗카이도대학교 북극연구센터"],
+        bio: "Fujio Ohnishi 박사는 훗카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
         image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/fujio_ohnishi.jpg"
       },
       {
@@ -426,7 +427,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
   "summit": {
     id: "summit",
     title: "해양산업리더서밋",
-    subtitle: "송상근 부산항만공사 사장 특강",
+    subtitle: "송상근 사장(부산항만공사) 특강",
     time: "6월 10일(수) | 11:00 ~ 12:00",
     themeColor: "teal",
     type: "speakers",
@@ -523,7 +524,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
       },
       {
         role: "토론",
-        name: "손용구 교수",
+        name: "손용구 특임교수",
         affiliation: ["국립한국해양대학교", "북극해연구센터"],
         bio: "손용구 교수는 국립한국해양대학교 북극해연구센터에서 북극해 환경, 해양과학 및 극지 연구를 수행하고 있다. 북극항로와 관련된 과학적·기술적 이해를 바탕으로 극지교육의 학문적 기반을 제시하고 있으며, 미래 세대가 갖추어야 할 연구 역량과 교육 방향에 대해서도 지속적으로 제안하고 있다.",
         image: "/images/speakers/손용구.jpg"
@@ -531,7 +532,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
       {
         role: "토론",
         name: "전영근 교육전문가",
-        affiliation: ["전 부산교육청 교육국장"],
+        affiliation: ["전 부산광역시교육청 교육국장"],
         bio: "전영근 교육전문가는 부산광역시교육청 교육국장을 역임하며 지역 교육 정책과 교육과정 운영을 총괄해 왔다. 현장 중심의 교육 경험과 행정 전문성을 바탕으로 미래세대가 대비해야 할 극지교육의 방향성을 제시해 왔다.",
         image: "/images/speakers/전영근.jpg"
       },
@@ -539,7 +540,10 @@ export const scheduleModalData: Record<string, ModalContent> = {
         role: "토론",
         name: "이정아 교장",
         affiliation: ["수영초등학교"],
-        bio: "이정아 교장은 수영초등학교에서 학생 중심 교육과 미래 역량 기반 교육과정 운영을 이끌고 있다. 학교 현장의 풍부한 경험을 바탕으로 해양·환경 및 극지 관련 교육을 창의적으로 접목한 사례를 공유해 왔으며, 북극항로 시대에 필요한 기초교육 단계의 역할과 학교 현장의 실천 방향을 제시하고 있다."
+        bio: "이정아 교장은 수영초등학교에서 학생 중심 교육과 미래 역량 기반 교육과정 운영을 이끌고 있다. 학교 현장의 풍부한 경험을 바탕으로 해양·환경 및 극지 관련 교육을 창의적으로 접목한 사례를 공유해 왔으며, 북극항로 시대에 필요한 기초교육 단계의 역할과 학교 현장의 실천 방향을 제시하고 있다.",
+        image: "/images/speakers/이정아.jpg",
+        imageScale: 1.1,
+        imagePosition: "center 20%"
       }
     ]
   },

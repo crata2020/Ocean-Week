@@ -9,6 +9,7 @@ export const navigationLinks = [
   { label: "현장스케치", href: "/sketch" },
   { label: "해양사진전", href: "/underwater" },
   { label: "극지사진전", href: "/polar" },
+  { label: "어린이그림전", href: "/children" },
   { label: "Q&A", href: "/qna" },
 ] as const;
 
@@ -223,14 +224,16 @@ export const partnerLogos: Partner[] = [
   { name: "부산항도선사회", logo: "부산항도선사회 1.png", scale: 2.8, row: 3 },
   { name: "LG전자", logo: "LG 전자 1.svg", scale: 1.6, row: 3 },
   { name: "LG PuroTec", logo: "LG-퓨로텍 1.svg", scale: 1.1, row: 3 },
+  { name: "장금상선", logo: "sinokor.jpg", scale: 1.8, row: 3 },
   { name: "BNK 부산은행", logo: "부산은행.svg", scale: 1.2, row: 3 },
-  { name: "은산해운항공", logo: "은산해운항공 1.svg", scale: 1.0, row: 3 },
-  { name: "HJ중공업", logo: "HJ중공업 1.svg", scale: 2.0, row: 3 },
-  { name: "LET'S GO 2025", logo: "선보패밀리그룹 1.svg", scale: 1.0, row: 3 },
+  { name: "은산해운항공", logo: "은산해운항공 1.svg", scale: 1.5, row: 3 },
+  { name: "HJ중공업", logo: "HJ중공업 1.svg", scale: 2.5, row: 3 },
+  { name: "LET'S GO 2025", logo: "선보패밀리그룹 1.svg", scale: 1.5, row: 3 },
   { name: "PANASIA", logo: "파나시아 1.svg", scale: 1.2, yOffset: "15%", row: 3 },
-  { name: "BOWP", logo: "BOWP_1.jpg", scale: 1.4, row: 3 },
+
 
   // ROW 4
+  { name: "BOWP", logo: "BOWP_1.jpg", scale: 1.4, row: 4 },
   { name: "GEOVIEW", logo: "GEOVIEW_1.jpg", scale: 1.0, row: 4 },
   { name: "한국해양정책연합", logo: "한국해양정책연합 1.svg", scale: 1.2, row: 4 },
   { name: "극지해양미래포럼", logo: "극지해양미래포럼 1.svg", scale: 1.0, row: 4 },
@@ -245,6 +248,7 @@ export type ContentSlug =
   | "sketch"
   | "underwater"
   | "polar"
+  | "children"
   | "qna";
 
 type ContentPage = {
@@ -307,7 +311,7 @@ export const contentPages: Record<ContentSlug, ContentPage> = {
         title: "6월 8일(월)",
         body: [
           "오전에는 개회식 및 공연과 기관장 토크 콘서트가 진행되며, 토크 콘서트의 주제는 '해양수산부 이전과 해양수도 부산의 비전'입니다. 황종우 해양수산부 장관, 배상훈 국립부경대학교 총장, 류동근 국립한국해양대학교 총장, 김영재 부산연구원 원장, 최금식 선보패밀리그룹 회장이 참여 대상으로 제시되어 있습니다.",
-          "오후에는 해양경제포럼 '북극항로 비연안국의 권리' 세션이 진행되며, 신형철 극지연구소 소장이 좌장을 맡고 최수범 교수, 궈페이칭 교수, 후지오 오니시 박사, 세르게이 스미르노프 교수가 발제자로 구성되어 있습니다.",
+          "오후에는 해양경제포럼 '북극항로 비연안국의 권리' 세션이 진행되며, 신형철 극지연구소 소장이 좌장을 맡고 최수범 특임교수, 궈베이칭 교수, 후지오 오니시 박사, 세르게이 스미르노프 교수가 발제자로 구성되어 있습니다.",
         ],
       },
       {
@@ -367,6 +371,13 @@ export const contentPages: Record<ContentSlug, ContentPage> = {
     eyebrow: "Polar Region Photography Exhibition",
     summary:
       "지구의 양 끝, 남극과 북극에서 마주한 극한의 아름다움과 생명력을 담았습니다.\n기후 위기 속에서도 끈질기게 이어지는 극지의 소중한 기록을 공유합니다.",
+    sections: [],
+  },
+  children: {
+    title: "어린이그림전",
+    eyebrow: "Children's Art Exhibition",
+    summary:
+      "2026 해양주간을 맞아 어린이 해양그림 공모전 수상작을 전시합니다. 어린이들 시각으로 바라본 해양인들의 삶의 진솔한 모습을 함께 나누시기 바랍니다.",
     sections: [],
   },
   qna: {

@@ -12,6 +12,7 @@ import { SessionDetailModal } from "@/components/session-detail-modal";
 import { DynamicScheduleModal } from "@/components/dynamic-schedule-modal";
 import { scheduleModalData } from "@/lib/modal-data";
 import { PhotoGallery } from "@/components/photo-gallery";
+import { ChildrenGallery } from "@/components/children-gallery";
 
 export default function ContentPage() {
   const params = useParams();
@@ -124,11 +125,14 @@ export default function ContentPage() {
 
       {/* Content Sections */}
       <section className={cn(
-        "mx-auto w-full px-6 py-16 sm:py-20",
-        slug === "underwater" || slug === "polar" ? "max-w-none" : "max-w-5xl"
+        "mx-auto w-full px-6",
+        slug === "children" ? "py-4 sm:py-6" : "py-16 sm:py-20",
+        slug === "underwater" || slug === "polar" || slug === "children" ? "max-w-none" : "max-w-5xl"
       )}>
         {slug === "underwater" || slug === "polar" ? (
            <PhotoGallery folder={slug} />
+        ) : slug === "children" ? (
+           <div className="max-w-7xl mx-auto"><ChildrenGallery /></div>
         ) : slug === "schedule" ? (
           <div className="space-y-12">
             {/* --- Schedule At a Glance Table --- */}
@@ -224,7 +228,7 @@ export default function ContentPage() {
                               해양산업리더스 서밋
                               <ExternalLink className="h-3 w-3 text-teal-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                             </div>
-                            <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">송상근 부산항만공사 사장 특강</div>
+                            <div className="text-[13px] text-slate-600 dark:text-slate-400 mt-0.5">송상근 사장(부산항만공사) 특강</div>
                             <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-0.5">11:00~12:00</div>
                           </div>
                         </div>

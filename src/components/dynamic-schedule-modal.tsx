@@ -2,6 +2,7 @@
 
 import React from "react";
 import { X, User, GraduationCap, Globe, ShieldCheck, Info } from "lucide-react";
+import Image from "next/image";
 import { type ModalContent } from "@/lib/modal-data";
 import { OpinionBoard } from "./opinion-board";
 
@@ -108,16 +109,26 @@ export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, on
                     </div>
                     
                     {/* Photo Container */}
-                    <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-full bg-white dark:bg-slate-800 border-[3px] border-white dark:border-slate-700 shadow-sm overflow-hidden flex items-center justify-center">
+                    <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-full bg-white dark:bg-slate-800 border-[3px] border-white dark:border-slate-700 shadow-sm overflow-hidden relative flex items-center justify-center">
                       {speaker.image ? (
-                        <img 
-                          src={speaker.image} 
-                          alt={speaker.name} 
-                          className="w-full h-full object-cover bg-white" 
+                        <div 
+                          className="relative w-full h-full"
                           style={{
-                            objectPosition: speaker.imagePosition || "center 20%",
-                          }} 
-                        />
+                            transform: `scale(${speaker.imageScale || 1.0})`,
+                          }}
+                        >
+                          <Image 
+                            src={speaker.image} 
+                            alt={speaker.name} 
+                            fill
+                            priority
+                            sizes="300px"
+                            className="object-cover bg-white" 
+                            style={{
+                              objectPosition: speaker.imagePosition || "center 20%",
+                            }} 
+                          />
+                        </div>
                       ) : (
                         <User className="w-8 h-8 md:w-10 md:h-10 text-slate-300 dark:text-slate-500" />
                       )}

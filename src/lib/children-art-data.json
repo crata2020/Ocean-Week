@@ -1,0 +1,497 @@
+[
+  {
+    "id": "MS4g64yA7IOBX-qzhOuylOykgF_smrDrpqzqsIAg66eM65Oc64qUIOuvuOuemOydmCDrsJTri6Q",
+    "originalName": "1. 대상_계범준_우리가 만드는 미래의 바다.jpg",
+    "award": "대상",
+    "name": "계범준",
+    "title": "우리가 만드는 미래의 바다",
+    "rank": 1,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MS4g64yA7IOBX-qzhOuylOykgF_smrDrpqzqsIAg66eM65Oc64qUIOuvuOuemOydmCDrsJTri6Q.jpg"
+  },
+  {
+    "id": "Mi4g7Jqw7IiYX-q5gOyYiOydhF_rsJTri6Trpbwg7IK066as64qUIOyWvOydjOuwsCDsvZTrp4jrprA",
+    "originalName": "2. 우수_김예을_바다를 살리는 얼음배 코마린.jpg",
+    "award": "우수",
+    "name": "김예을",
+    "title": "바다를 살리는 얼음배 코마린",
+    "rank": 2,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/Mi4g7Jqw7IiYX-q5gOyYiOydhF_rsJTri6Trpbwg7IK066as64qUIOyWvOydjOuwsCDsvZTrp4jrprA.jpg"
+  },
+  {
+    "id": "My4g7Jqw7IiYX-ydtOumrOycoF_slYjrhZUhIOuCmOydmCDrsJTri6Qg7Lmc6rWs65Ok",
+    "originalName": "3. 우수_이리유_안녕! 나의 바다 친구들.jpg",
+    "award": "우수",
+    "name": "이리유",
+    "title": "안녕! 나의 바다 친구들",
+    "rank": 2,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/My4g7Jqw7IiYX-ydtOumrOycoF_slYjrhZUhIOuCmOydmCDrsJTri6Qg7Lmc6rWs65Ok.jpg"
+  },
+  {
+    "id": "NC4g7Jqw7IiYX-ydtOybkOyerF_shKDrsJXsnbQg7KO864qUIO2BsCDtlonrs7U",
+    "originalName": "4. 우수_이원재_선박이 주는 큰 행복.jpg",
+    "award": "우수",
+    "name": "이원재",
+    "title": "선박이 주는 큰 행복",
+    "rank": 2,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NC4g7Jqw7IiYX-ydtOybkOyerF_shKDrsJXsnbQg7KO864qUIO2BsCDtlonrs7U.jpg"
+  },
+  {
+    "id": "NS4g7Jqw7IiYX-y1nOyYiOycpF_rgrTqsIAg6r-I6r6464qUIOuvuOuemOydmCDrsJTri6Q",
+    "originalName": "5. 우수_최예윤_내가 꿈꾸는 미래의 바다.jpg",
+    "award": "우수",
+    "name": "최예윤",
+    "title": "내가 꿈꾸는 미래의 바다",
+    "rank": 2,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NS4g7Jqw7IiYX-y1nOyYiOycpF_rgrTqsIAg6r-I6r6464qUIOuvuOuemOydmCDrsJTri6Q.jpg"
+  },
+  {
+    "id": "Ni4g7J6l66CkX-yGkOuvvOyVhF_rsJjsp53snbTripQg67Cw7JmAIO2VqOq7mCDtlonrs7XtlZwg7ZWY66Oo",
+    "originalName": "6. 장려_손민아_반짝이는 배와 함께 행복한 하루.jpg",
+    "award": "장려",
+    "name": "손민아",
+    "title": "반짝이는 배와 함께 행복한 하루",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/Ni4g7J6l66CkX-yGkOuvvOyVhF_rsJjsp53snbTripQg67Cw7JmAIO2VqOq7mCDtlonrs7XtlZwg7ZWY66Oo.jpg"
+  },
+  {
+    "id": "Ny4g7J6l66CkX-uwsO2aqOyduF_rsJTri6TroZwg7LSI64yA7ZW07JqU",
+    "originalName": "7. 장려_배효인_바다로 초대해요.jpg",
+    "award": "장려",
+    "name": "배효인",
+    "title": "바다로 초대해요",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/Ny4g7J6l66CkX-uwsO2aqOyduF_rsJTri6TroZwg7LSI64yA7ZW07JqU.jpg"
+  },
+  {
+    "id": "OC4g7J6l66CkX-q5gO2DnOumrF_sgqzrnpHtlZjripQg67CU64ukIOyDneuqheuTpCwg7KeA7Lyc7KSE6ruY",
+    "originalName": "8. 장려_김태리_사랑하는 바다 생명들, 지켜줄께.jpg",
+    "award": "장려",
+    "name": "김태리",
+    "title": "사랑하는 바다 생명들, 지켜줄께",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/OC4g7J6l66CkX-q5gO2DnOumrF_sgqzrnpHtlZjripQg67CU64ukIOyDneuqheuTpCwg7KeA7Lyc7KSE6ruY.jpg"
+  },
+  {
+    "id": "OS4g7J6l66CkX-yGkOyEpO2VmF_rqqjrkZDsnZgg67CU64ukLCDtlajqu5gg7IKs64qUIOyasOumrCE",
+    "originalName": "9. 장려_손설하_모두의 바다, 함께 사는 우리!.jpg",
+    "award": "장려",
+    "name": "손설하",
+    "title": "모두의 바다, 함께 사는 우리!",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/OS4g7J6l66CkX-yGkOyEpO2VmF_rqqjrkZDsnZgg67CU64ukLCDtlajqu5gg7IKs64qUIOyasOumrCE.jpg"
+  },
+  {
+    "id": "MTAuIOyepeugpF_quYDsl6zsnYRf7L2U66eI66awIOqxsOu2geyEoCwg7KeA6rWs66W8IOyngO2CpOuKlCDrsJTri6Tsl6ztlok",
+    "originalName": "10. 장려_김여을_코마린 거북선, 지구를 지키는 바다여행.jpg",
+    "award": "장려",
+    "name": "김여을",
+    "title": "코마린 거북선, 지구를 지키는 바다여행",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTAuIOyepeugpF_quYDsl6zsnYRf7L2U66eI66awIOqxsOu2geyEoCwg7KeA6rWs66W8IOyngO2CpOuKlCDrsJTri6Tsl6ztlok.jpg"
+  },
+  {
+    "id": "MTEuIOyepeugpF_stZzsoJXsm5Bf7IiY7Lac6rCV6rWtIOuMgO2VnOuvvOq1rSDsnpDrnpHsiqTrn7Ag64yA7ZWc66-86rWt",
+    "originalName": "11. 장려_최정원_수출강국 대한민국 자랑스런 대한민국.jpg",
+    "award": "장려",
+    "name": "최정원",
+    "title": "수출강국 대한민국 자랑스런 대한민국",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTEuIOyepeugpF_stZzsoJXsm5Bf7IiY7Lac6rCV6rWtIOuMgO2VnOuvvOq1rSDsnpDrnpHsiqTrn7Ag64yA7ZWc66-86rWt.jpg"
+  },
+  {
+    "id": "MTIuIOyepeugpF_snbTqsIDsmKhf7ZaJ67O17J2EIOyLo-qzoCDqsIDsmpQg7KCEIOyEuOqzhOuhnA",
+    "originalName": "12. 장려_이가온_행복을 싣고 가요 전 세계로.jpg",
+    "award": "장려",
+    "name": "이가온",
+    "title": "행복을 싣고 가요 전 세계로",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTIuIOyepeugpF_snbTqsIDsmKhf7ZaJ67O17J2EIOyLo-qzoCDqsIDsmpQg7KCEIOyEuOqzhOuhnA.jpg"
+  },
+  {
+    "id": "MTMuIOyepeugpF_soITshJztlZhf67Cw66W8IOunjOuTpOyWtOyjvOuKlCDslYTrpoTri6TsmrQg7KGw6rCB65Ok",
+    "originalName": "13. 장려_전서하_배를 만들어주는 아름다운 조각들.jpg",
+    "award": "장려",
+    "name": "전서하",
+    "title": "배를 만들어주는 아름다운 조각들",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTMuIOyepeugpF_soITshJztlZhf67Cw66W8IOunjOuTpOyWtOyjvOuKlCDslYTrpoTri6TsmrQg7KGw6rCB65Ok.jpg"
+  },
+  {
+    "id": "MTQuIOyepeugpF_quYDssYTsm5Bf67CU64uk66W8IOyngO2CpOuKlCDsp4Dqtazrs7TtmLjshKA",
+    "originalName": "14. 장려_김채원_바다를 지키는 지구보호선.jpg",
+    "award": "장려",
+    "name": "김채원",
+    "title": "바다를 지키는 지구보호선",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTQuIOyepeugpF_quYDssYTsm5Bf67CU64uk66W8IOyngO2CpOuKlCDsp4Dqtazrs7TtmLjshKA.jpg"
+  },
+  {
+    "id": "MTUuIOyepeugpF_quYDrs7Trgphf7IS46rOE66W8IOuIhOu5hOuKlCDsvZTrp4jrprA",
+    "originalName": "15. 장려_김보나_세계를 누비는 코마린.jpg",
+    "award": "장려",
+    "name": "김보나",
+    "title": "세계를 누비는 코마린",
+    "rank": 3,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTUuIOyepeugpF_quYDrs7Trgphf7IS46rOE66W8IOuIhOu5hOuKlCDsvZTrp4jrprA.jpg"
+  },
+  {
+    "id": "MTYuIOyeheyEoF_quYDtlZjrprBf7J6R6rOgIOq3gOyXrOyatCDrsJTri6TsuZzqtazrk6Q",
+    "originalName": "16. 입선_김하린_작고 귀여운 바다친구들.jpg",
+    "award": "입선",
+    "name": "김하린",
+    "title": "작고 귀여운 바다친구들",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTYuIOyeheyEoF_quYDtlZjrprBf7J6R6rOgIOq3gOyXrOyatCDrsJTri6TsuZzqtazrk6Q.jpg"
+  },
+  {
+    "id": "MTcuIOyeheyEoF_quYDri6jsmrBf67CU64ukIOyGjSDsuZzqtazrk6Tqs7wg64aA7JWE7JqU",
+    "originalName": "17. 입선_김단우_바다 속 친구들과 놀아요.jpg",
+    "award": "입선",
+    "name": "김단우",
+    "title": "바다 속 친구들과 놀아요",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTcuIOyeheyEoF_quYDri6jsmrBf67CU64ukIOyGjSDsuZzqtazrk6Tqs7wg64aA7JWE7JqU.jpg"
+  },
+  {
+    "id": "MTguIOyeheyEoF_snbTshKDsmrBf7ZG466W4IOuwlOuLtyDsho0g7IOd66qF65Ok",
+    "originalName": "18. 입선_이선우_푸른 바닷 속 생명들.jpg",
+    "award": "입선",
+    "name": "이선우",
+    "title": "푸른 바닷 속 생명들",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTguIOyeheyEoF_snbTshKDsmrBf7ZG466W4IOuwlOuLtyDsho0g7IOd66qF65Ok.jpg"
+  },
+  {
+    "id": "MTkuIOyeheyEoF_stZzspJHsm5Bf66y8IOychOydmCDsiJjsg4Hsi5zsnqUg64aA65-s6rCA6riw",
+    "originalName": "19. 입선_최중원_물 위의 수상시장 놀러가기.jpg",
+    "award": "입선",
+    "name": "최중원",
+    "title": "물 위의 수상시장 놀러가기",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MTkuIOyeheyEoF_stZzspJHsm5Bf66y8IOychOydmCDsiJjsg4Hsi5zsnqUg64aA65-s6rCA6riw.jpg"
+  },
+  {
+    "id": "MjAuIOyeheyEoF_snbTshpTrr7xf66y867Cp7Jq4IOuCmOudvA",
+    "originalName": "20. 입선_이솔민_물방울 나라.jpg",
+    "award": "입선",
+    "name": "이솔민",
+    "title": "물방울 나라",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjAuIOyeheyEoF_snbTshpTrr7xf66y867Cp7Jq4IOuCmOudvA.jpg"
+  },
+  {
+    "id": "MjEuIOyeheyEoF_tmITri6TsnKRf67CU64uk66GcIOuWoOuCnCDqv4gg7IaM7ZKN",
+    "originalName": "21. 입선_현다윤_바다로 떠난 꿈 소풍.jpg",
+    "award": "입선",
+    "name": "현다윤",
+    "title": "바다로 떠난 꿈 소풍",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjEuIOyeheyEoF_tmITri6TsnKRf67CU64uk66GcIOuWoOuCnCDqv4gg7IaM7ZKN.jpg"
+  },
+  {
+    "id": "MjIuIOyeheyEoF_qsJXsp4Dsm5Bf7KCEIOyEuOqzhCDrsJTri6Trpbwg64iE67mE64qUIOuwsA",
+    "originalName": "22. 입선_강지원_전 세계 바다를 누비는 배.jpg",
+    "award": "입선",
+    "name": "강지원",
+    "title": "전 세계 바다를 누비는 배",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjIuIOyeheyEoF_qsJXsp4Dsm5Bf7KCEIOyEuOqzhCDrsJTri6Trpbwg64iE67mE64qUIOuwsA.jpg"
+  },
+  {
+    "id": "MjMuIOyeheyEoF_rsJXshJzsnKhf67CU64uk7Jyg7LmY7JuQIOy5nOq1rOuTpA",
+    "originalName": "23. 입선_박서율_바다유치원 친구들.jpg",
+    "award": "입선",
+    "name": "박서율",
+    "title": "바다유치원 친구들",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjMuIOyeheyEoF_rsJXshJzsnKhf67CU64uk7Jyg7LmY7JuQIOy5nOq1rOuTpA.jpg"
+  },
+  {
+    "id": "MjQuIOyeheyEoF_quYDsp4DsnKhf64K06rCAIOunjOuToCDrsLDtg4Dqs6Ag65ag64KY64qUIOuwlOuLpOyXrO2WiQ",
+    "originalName": "24. 입선_김지율_내가 만든 배타고 떠나는 바다여행.jpg",
+    "award": "입선",
+    "name": "김지율",
+    "title": "내가 만든 배타고 떠나는 바다여행",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjQuIOyeheyEoF_quYDsp4DsnKhf64K06rCAIOunjOuToCDrsLDtg4Dqs6Ag65ag64KY64qUIOuwlOuLpOyXrO2WiQ.jpg"
+  },
+  {
+    "id": "MjUuIOyeheyEoF_qt4Dsl6zsmrQg66y86rOg6riwIOy5nOq1rOuTpCDrp4zrgpjquLA",
+    "originalName": "25. 입선_귀여운 물고기 친구들 만나기.jpg",
+    "award": "입선",
+    "name": "",
+    "title": "귀여운 물고기 친구들 만나기",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjUuIOyeheyEoF_qt4Dsl6zsmrQg66y86rOg6riwIOy5nOq1rOuTpCDrp4zrgpjquLA.jpg"
+  },
+  {
+    "id": "MjYuIOyeheyEoF_tlZzsiJjslYRf66-4656Y7J2Y67CU64uk66W8IOyngOy8nOudvCDsuZztmZjqsr0g6rmU64GU67Cw",
+    "originalName": "26. 입선_한수아_미래의바다를 지켜라 친환경 깔끔배.jpg",
+    "award": "입선",
+    "name": "한수아",
+    "title": "미래의바다를 지켜라 친환경 깔끔배",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjYuIOyeheyEoF_tlZzsiJjslYRf66-4656Y7J2Y67CU64uk66W8IOyngOy8nOudvCDsuZztmZjqsr0g6rmU64GU67Cw.jpg"
+  },
+  {
+    "id": "MjcuIOyeheyEoF_snbTshqHslrhf67CU64uk7JmAIO2VqOq7mCEg642U67aI7Ja0IOyCtOyVhOqwgOyalA",
+    "originalName": "27. 입선_이송언_바다와 함께! 더불어 살아가요.jpg",
+    "award": "입선",
+    "name": "이송언",
+    "title": "바다와 함께! 더불어 살아가요",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjcuIOyeheyEoF_snbTshqHslrhf67CU64uk7JmAIO2VqOq7mCEg642U67aI7Ja0IOyCtOyVhOqwgOyalA.jpg"
+  },
+  {
+    "id": "MjguIOyeheyEoF_quYDrtoDqsr1f7JWE66aE64uk7Jq0IOyasOumrOuwlOuLpCDsmrDrpqwg7IaQ7Jy866GcIOyngOy8nOyalA",
+    "originalName": "28. 입선_김부경_아름다운 우리바다 우리 손으로 지켜요.jpg",
+    "award": "입선",
+    "name": "김부경",
+    "title": "아름다운 우리바다 우리 손으로 지켜요",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjguIOyeheyEoF_quYDrtoDqsr1f7JWE66aE64uk7Jq0IOyasOumrOuwlOuLpCDsmrDrpqwg7IaQ7Jy866GcIOyngOy8nOyalA.jpg"
+  },
+  {
+    "id": "MjkuIOyeheyEoF_quYDrkZDsmKRf67CU64uk66W8IOyngO2CpOuKlCDroZzrtIfqsIDsmKTrpqzqtbDri6g",
+    "originalName": "29. 입선_김두오_바다를 지키는 로봇가오리군단.jpg",
+    "award": "입선",
+    "name": "김두오",
+    "title": "바다를 지키는 로봇가오리군단",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MjkuIOyeheyEoF_quYDrkZDsmKRf67CU64uk66W8IOyngO2CpOuKlCDroZzrtIfqsIDsmKTrpqzqtbDri6g.jpg"
+  },
+  {
+    "id": "MzAu7J6F7ISgX-yGkOuPmeyatF_tlZjripjsnYQg64KY64qUIOq_iOydhCDqvrjripQg67CU64uk6rGw67aB",
+    "originalName": "30.입선_손동운_하늘을 나는 꿈을 꾸는 바다거북.jpg",
+    "award": "입선",
+    "name": "손동운",
+    "title": "하늘을 나는 꿈을 꾸는 바다거북",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzAu7J6F7ISgX-yGkOuPmeyatF_tlZjripjsnYQg64KY64qUIOq_iOydhCDqvrjripQg67CU64uk6rGw67aB.jpg"
+  },
+  {
+    "id": "MzEuIOyeheyEoF_quYDtg5zsl7Bf64K06rCAIOq_iOq-uOuKlCDquajrgZftlZjqs6Ag7Y-J7ZmU66Gc7Jq0IOuvuOuemCDrsJTri6Q",
+    "originalName": "31. 입선_김태연_내가 꿈꾸는 깨끗하고 평화로운 미래 바다.jpg",
+    "award": "입선",
+    "name": "김태연",
+    "title": "내가 꿈꾸는 깨끗하고 평화로운 미래 바다",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzEuIOyeheyEoF_quYDtg5zsl7Bf64K06rCAIOq_iOq-uOuKlCDquajrgZftlZjqs6Ag7Y-J7ZmU66Gc7Jq0IOuvuOuemCDrsJTri6Q.jpg"
+  },
+  {
+    "id": "MzIuIOyeheyEoF_rsJXtg5zrr7xf7Iqs6riw66Gc7Jq0IOuwlOuLpCDsuZzqtazrk6Q",
+    "originalName": "32. 입선_박태민_슬기로운 바다 친구들.jpg",
+    "award": "입선",
+    "name": "박태민",
+    "title": "슬기로운 바다 친구들",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzIuIOyeheyEoF_rsJXtg5zrr7xf7Iqs6riw66Gc7Jq0IOuwlOuLpCDsuZzqtazrk6Q.jpg"
+  },
+  {
+    "id": "MzMuIOyeheyEoF_smKTshLjslYRf64K06rCAIOyCrOueke2VmOuKlCDrsJTri6Q",
+    "originalName": "33. 입선_오세아_내가 사랑하는 바다.jpg",
+    "award": "입선",
+    "name": "오세아",
+    "title": "내가 사랑하는 바다",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzMuIOyeheyEoF_smKTshLjslYRf64K06rCAIOyCrOueke2VmOuKlCDrsJTri6Q.jpg"
+  },
+  {
+    "id": "MzQuIOyeheyEoF_quYDsi5zsmKRf67CU64ukIOyCrOusvOuGgOydtA",
+    "originalName": "34. 입선_김시오_바다 사물놀이.jpg",
+    "award": "입선",
+    "name": "김시오",
+    "title": "바다 사물놀이",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzQuIOyeheyEoF_quYDsi5zsmKRf67CU64ukIOyCrOusvOuGgOydtA.jpg"
+  },
+  {
+    "id": "MzUuIOyeheyEoF_soJXspIDsmrBf7ZWc6rWt7Zi4LCDshLjqs4TsuZzqtazrpbwg66eM64KY65-sIOqwgOyalCE",
+    "originalName": "35. 입선_정준우_한국호, 세계친구를 만나러 가요!.jpg",
+    "award": "입선",
+    "name": "정준우",
+    "title": "한국호, 세계친구를 만나러 가요!",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzUuIOyeheyEoF_soJXspIDsmrBf7ZWc6rWt7Zi4LCDshLjqs4TsuZzqtazrpbwg66eM64KY65-sIOqwgOyalCE.jpg"
+  },
+  {
+    "id": "MzYuIOyeheyEoF_snbTsnqzsnbhf7JeQ7L2UIOuniOumsCDtgbTrnqjtlZEg7YGs66Oo7KaI",
+    "originalName": "36. 입선_이재인_에코 마린 클램핑 크루즈.jpg",
+    "award": "입선",
+    "name": "이재인",
+    "title": "에코 마린 클램핑 크루즈",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzYuIOyeheyEoF_snbTsnqzsnbhf7JeQ7L2UIOuniOumsCDtgbTrnqjtlZEg7YGs66Oo7KaI.jpg"
+  },
+  {
+    "id": "MzcuIOyeheyEoF_quYDshLjslYRf66ek66as7J2YIOuwlOuLpOuKlCDsmrDrpqzqsIAg7KeA7YKo64uk",
+    "originalName": "37. 입선_김세아_매리의 바다는 우리가 지킨다.jpg",
+    "award": "입선",
+    "name": "김세아",
+    "title": "매리의 바다는 우리가 지킨다",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzcuIOyeheyEoF_quYDshLjslYRf66ek66as7J2YIOuwlOuLpOuKlCDsmrDrpqzqsIAg7KeA7YKo64uk.jpg"
+  },
+  {
+    "id": "MzguIOyeheyEoF_stZzsp4DsnKBf67CU64uk66eI7J2E",
+    "originalName": "38. 입선_최지유_바다마을.jpg",
+    "award": "입선",
+    "name": "최지유",
+    "title": "바다마을",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzguIOyeheyEoF_stZzsp4DsnKBf67CU64uk66eI7J2E.jpg"
+  },
+  {
+    "id": "MzkuIOyeheyEoF_sobDtlZjriqxf67CU64uk7J2YIOyLnOyekeyXkOyEnCDrsJTri6Trpbwg7KeA7Lyc7JqU",
+    "originalName": "39. 입선_조하늬_바다의 시작에서 바다를 지켜요.jpg",
+    "award": "입선",
+    "name": "조하늬",
+    "title": "바다의 시작에서 바다를 지켜요",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/MzkuIOyeheyEoF_sobDtlZjriqxf67CU64uk7J2YIOyLnOyekeyXkOyEnCDrsJTri6Trpbwg7KeA7Lyc7JqU.jpg"
+  },
+  {
+    "id": "NDAuIOyeheyEoF_quYDrgpjsnYBf67CU64ukIOyLneuLueyXkCDrhoDrn6zsmKTshLjsmpQ",
+    "originalName": "40. 입선_김나은_바다 식당에 놀러오세요.jpg",
+    "award": "입선",
+    "name": "김나은",
+    "title": "바다 식당에 놀러오세요",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDAuIOyeheyEoF_quYDrgpjsnYBf67CU64ukIOyLneuLueyXkCDrhoDrn6zsmKTshLjsmpQ.jpg"
+  },
+  {
+    "id": "NDEuIOyeheyEoF_snoTshLHsl7Bf7Jyg7Yag7ZS87JWEIOuniOumsCDruYzrpqzsp4A",
+    "originalName": "41. 입선_임성연_유토피아 마린 빌리지.jpg",
+    "award": "입선",
+    "name": "임성연",
+    "title": "유토피아 마린 빌리지",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDEuIOyeheyEoF_snoTshLHsl7Bf7Jyg7Yag7ZS87JWEIOuniOumsCDruYzrpqzsp4A.jpg"
+  },
+  {
+    "id": "NDIuIOyeheyEoF_tlZzsmIjsooVf67CU64uk66W8IOq0gOumrO2VmOuKlCDrr7jrnpjsnZgg67CU64uk7Jew6rWs7IaM",
+    "originalName": "42. 입선_한예종_바다를 관리하는 미래의 바다연구소.jpg",
+    "award": "입선",
+    "name": "한예종",
+    "title": "바다를 관리하는 미래의 바다연구소",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDIuIOyeheyEoF_tlZzsmIjsooVf67CU64uk66W8IOq0gOumrO2VmOuKlCDrr7jrnpjsnZgg67CU64uk7Jew6rWs7IaM.jpg"
+  },
+  {
+    "id": "NDMuIOyeheyEoF_snbTrgpjsl7Bf67CU64uk66W8IOyCtOumrOuKlCDsk7DroIjquLAg7KSN6riwIOuMgO2ajA",
+    "originalName": "43. 입선_이나연_바다를 살리는 쓰레기 줍기 대회.jpg",
+    "award": "입선",
+    "name": "이나연",
+    "title": "바다를 살리는 쓰레기 줍기 대회",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDMuIOyeheyEoF_snbTrgpjsl7Bf67CU64uk66W8IOyCtOumrOuKlCDsk7DroIjquLAg7KSN6riwIOuMgO2ajA.jpg"
+  },
+  {
+    "id": "NDQuIOyeheyEoF_shJzsp4DslYRf7KCE7IS46rOEIOyXrO2WiSDquLDroZ3snbQg64u06ri0IOyiheydtOuwsA",
+    "originalName": "44. 입선_서지아_전세계 여행 기록이 담긴 종이배.jpg",
+    "award": "입선",
+    "name": "서지아",
+    "title": "전세계 여행 기록이 담긴 종이배",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDQuIOyeheyEoF_shJzsp4DslYRf7KCE7IS46rOEIOyXrO2WiSDquLDroZ3snbQg64u06ri0IOyiheydtOuwsA.jpg"
+  },
+  {
+    "id": "NDUuIOyeheyEoF_quYDrspTrr7xf7YGs66Oo7KaI66W8IO2DgOqzoCDsoITshLjqs4Qg656c65Oc66eI7YGs66GcIOuGgOufrOyYpOyEuOyalCE",
+    "originalName": "45. 입선_김범민_크루즈를 타고 전세계 랜드마크로 놀러오세요!.jpg",
+    "award": "입선",
+    "name": "김범민",
+    "title": "크루즈를 타고 전세계 랜드마크로 놀러오세요!",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDUuIOyeheyEoF_quYDrspTrr7xf7YGs66Oo7KaI66W8IO2DgOqzoCDsoITshLjqs4Qg656c65Oc66eI7YGs66GcIOuGgOufrOyYpOyEuOyalCE.jpg"
+  },
+  {
+    "id": "NDYuIOyeheyEoF_stZzrr7zshJxf6rmo64GX7ZWcIOuwlOuLpCwg66-4656Y66W8IOyngO2CpOuKlCDsobDshKAg6riw7Iig",
+    "originalName": "46. 입선_최민서_깨끗한 바다, 미래를 지키는 조선 기술.jpg",
+    "award": "입선",
+    "name": "최민서",
+    "title": "깨끗한 바다, 미래를 지키는 조선 기술",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDYuIOyeheyEoF_stZzrr7zshJxf6rmo64GX7ZWcIOuwlOuLpCwg66-4656Y66W8IOyngO2CpOuKlCDsobDshKAg6riw7Iig.jpg"
+  },
+  {
+    "id": "NDcuIOyeheyEoF_tjJzrr7zsnpDsmrBf64K06rCA6r-I6r6464qU66-4656Y7J2Y67CU64ukIOyYpOyFmOyblOuTnOqzoOuemOuhpOuhnOy9lOyKpO2EsA",
+    "originalName": "47. 입선_팜민자우_내가꿈꾸는미래의바다 오션월드고래롤로코스터.jpg",
+    "award": "입선",
+    "name": "팜민자우",
+    "title": "내가꿈꾸는미래의바다 오션월드고래롤로코스터",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDcuIOyeheyEoF_tjJzrr7zsnpDsmrBf64K06rCA6r-I6r6464qU66-4656Y7J2Y67CU64ukIOyYpOyFmOyblOuTnOqzoOuemOuhpOuhnOy9lOyKpO2EsA.jpg"
+  },
+  {
+    "id": "NDguIOyeheyEoF_stZzsiJjruYhf67CU64uk7J2YIOuvuOuemOulvCDssYXsnoTsp4DripQg7L2U66eI66aw",
+    "originalName": "48. 입선_최수빈_바다의 미래를 책임지는 코마린.jpg",
+    "award": "입선",
+    "name": "최수빈",
+    "title": "바다의 미래를 책임지는 코마린",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDguIOyeheyEoF_stZzsiJjruYhf67CU64uk7J2YIOuvuOuemOulvCDssYXsnoTsp4DripQg7L2U66eI66aw.jpg"
+  },
+  {
+    "id": "NDkuIOyeheyEoF_quYDsl7DsmrBf7IOB7Ja07J2YIOyLrO2MkA",
+    "originalName": "49. 입선_김연우_상어의 심판.jpg",
+    "award": "입선",
+    "name": "김연우",
+    "title": "상어의 심판",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NDkuIOyeheyEoF_quYDsl7DsmrBf7IOB7Ja07J2YIOyLrO2MkA.jpg"
+  },
+  {
+    "id": "NTAuIOyeheyEoF_soJXslYTsnbhf67CU7J6QIOygleuztCDsiJjsp5EgQUkg66y47Ja0",
+    "originalName": "50. 입선_정아인_바자 정보 수집 AI 문어.jpg",
+    "award": "입선",
+    "name": "정아인",
+    "title": "바자 정보 수집 AI 문어",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NTAuIOyeheyEoF_soJXslYTsnbhf67CU7J6QIOygleuztCDsiJjsp5EgQUkg66y47Ja0.jpg"
+  },
+  {
+    "id": "NTEuIOyeheyEoF_snbTsnKDsoJVf67CU64ukIOyGjOyLnSDsoITtlbTsmpQ",
+    "originalName": "51. 입선_이유정_바다 소식 전해요.jpg",
+    "award": "입선",
+    "name": "이유정",
+    "title": "바다 소식 전해요",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NTEuIOyeheyEoF_snbTsnKDsoJVf67CU64ukIOyGjOyLnSDsoITtlbTsmpQ.jpg"
+  },
+  {
+    "id": "NTIuIOyeheyEoF_qsJXso7zsm5Bf7Ja47KCc64KYIOyghCDshLjqs4Trpbwg64iE67mE64qUIOykkQ",
+    "originalName": "52. 입선_강주원_언제나 전 세계를 누비는 중.jpg",
+    "award": "입선",
+    "name": "강주원",
+    "title": "언제나 전 세계를 누비는 중",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NTIuIOyeheyEoF_qsJXso7zsm5Bf7Ja47KCc64KYIOyghCDshLjqs4Trpbwg64iE67mE64qUIOykkQ.jpg"
+  },
+  {
+    "id": "NTMuIOyeheyEoF_rrLjqt5zruYhf7Jik7IWY66eI67iU",
+    "originalName": "53. 입선_문규빈_오션마블.jpg",
+    "award": "입선",
+    "name": "문규빈",
+    "title": "오션마블",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NTMuIOyeheyEoF_rrLjqt5zruYhf7Jik7IWY66eI67iU.jpg"
+  },
+  {
+    "id": "NTQuIOyeheyEoF_snKTrj4TsmIFfQUnsmYAg7JyE7ISx7J20IOyXrOuKlCDsiqTrp4jtirgg7ZWt7ZW0IOyLnOuMgA",
+    "originalName": "54. 입선_윤도영_AI와 위성이 여는 스마트 항해 시대.jpg",
+    "award": "입선",
+    "name": "윤도영",
+    "title": "AI와 위성이 여는 스마트 항해 시대",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NTQuIOyeheyEoF_snKTrj4TsmIFfQUnsmYAg7JyE7ISx7J20IOyXrOuKlCDsiqTrp4jtirgg7ZWt7ZW0IOyLnOuMgA.jpg"
+  },
+  {
+    "id": "NTUuIOyeheyEoF_quYDshJztlZhfSy3sl7DqtazquLDsiKDroZwg7KeA7YKk64qUIOyasOumrOydmCDrsJTri6Q",
+    "originalName": "55. 입선_김서하_K-연구기술로 지키는 우리의 바다.jpg",
+    "award": "입선",
+    "name": "김서하",
+    "title": "K-연구기술로 지키는 우리의 바다",
+    "rank": 4,
+    "url": "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/exhibitions/children/NTUuIOyeheyEoF_quYDshJztlZhfSy3sl7DqtazquLDsiKDroZwg7KeA7YKk64qUIOyasOumrOydmCDrsJTri6Q.jpg"
+  }
+]

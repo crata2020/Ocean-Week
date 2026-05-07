@@ -34,10 +34,10 @@ export const oceanScheduleTimeline = [
         title: "해양경제포럼: 북극항로 비연안국의 권리",
         description: "한 · 중 · 일 · 러 전문가 발표",
         speakers: [
-          { role: "한국", name: "최수범", org: "국민대학교 특임교수" },
-          { role: "중국", name: "궈베이칭", org: "중국해양대학교 교수" },
-          { role: "일본", name: "후지오 오니시", org: "홋카이도대학교 북극연구센터 박사" },
-          { role: "러시아", name: "스미르노프 세르게이 마라토비치", org: "블라디보스톡 극동연방대 교수" }
+          { role: "한국", name: "최수범 특임교수", org: "국민대학교" },
+          { role: "중국", name: "궈베이칭 교수", org: "중국해양대학교" },
+          { role: "일본", name: "후지오 오니시 박사", org: "훗카이도대학교 북극연구센터" },
+          { role: "러시아", name: "스미르노프 세르게이 마라토비치 교수", org: "블라디보스톡 극동연방대" }
         ]
       },
       {
@@ -46,9 +46,9 @@ export const oceanScheduleTimeline = [
         description: "전체 발표자 및 지정 패널 토론",
         speakers: [
           { role: "좌장", name: "신형철 소장", org: "극지연구소" },
-          { role: "토론", name: "최수범 교수", org: "국민대학교" },
+          { role: "토론", name: "최수범 특임교수", org: "국민대학교" },
           { role: "토론", name: "궈베이칭 교수", org: "중국해양대학교" },
-          { role: "토론", name: "후지오 오니시 박사", org: "홋카이도대학교 북극연구센터" },
+          { role: "토론", name: "후지오 오니시 박사", org: "훗카이도대학교 북극연구센터" },
           { role: "토론", name: "스미르노프 세르게이 마라토비치 교수", org: "블라디보스톡 극동연방대" },
           { role: "토론", name: "남형식 교수", org: "국립한국해양대학교" },
           { role: "토론", name: "정영두 센터장", org: "한국해양진흥공사\n북극항로 종합지원센터" }
@@ -75,7 +75,8 @@ export const oceanScheduleTimeline = [
           { role: "발표", name: "김영석 실장", org: "LG 전자 HS기능성소재사업실" },
           { role: "발표", name: "천루전 교수", org: "중국 샤먼대학교" },
           { role: "발표", name: "산딥 로이 초두리 CEO", org: "인도 VNV 어드바이저리" },
-          { role: "토론", name: "좌장 및 발표자 3인", org: "종합 토론 진행" }
+          { role: "발표", name: "전경화 대표", org: "비플랫 서비스" },
+          { role: "토론", name: "좌장 및 발표자 4인", org: "종합 토론 진행" }
         ]
       },
       {
@@ -84,7 +85,7 @@ export const oceanScheduleTimeline = [
         speakers: [
           { role: "좌장", name: "최가영 박사", org: "국가녹색기술연구소" },
           { role: "발제", name: "정여진 박사", org: "한국해양수산개발원(KMI)" },
-          { role: "토론", name: "김남진 책임연구원", org: "LG 전자" },
+          { role: "토론", name: "김남진 책임연구원", org: "LG전자 HS기능성소재사업실" },
           { role: "토론", name: "손승태 부장", org: "한국거래소" },
           { role: "토론", name: "김태선 대표", org: "NAMU EnR" },
           { role: "토론", name: "김현성 과장", org: "해양수산부 해양생태과" }
@@ -94,7 +95,7 @@ export const oceanScheduleTimeline = [
         time: "15:30~17:00",
         title: "해양경제포럼: 해상풍력 특별법 시대 개막 - 기회와 도전, 미래전략",
         speakers: [
-          { role: "좌장", name: "이영호 교수", org: "국립한국해양대학교" },
+          { role: "좌장", name: "이영호 연구석좌교수", org: "국립한국해양대학교" },
           { role: "발제", name: "최덕환 실장", org: "한국풍력산업협회" },
           { role: "토론", name: "이동준 실장", org: "한국남부발전" },
           { role: "토론", name: "김현도 대표", org: "지오뷰" },
@@ -117,7 +118,7 @@ export const oceanScheduleTimeline = [
       {
         time: "11:00~12:00",
         title: "해양산업리더스 서밋",
-        description: "특강 : 송상근(부산항만공사 사장)"
+        description: "특강 : 송상근 사장(부산항만공사)"
       },
       {
         time: "14:00~15:30",
@@ -128,18 +129,18 @@ export const oceanScheduleTimeline = [
           { role: "토론", name: "김세현 부산본부장", org: "한국해운협회" },
           { role: "토론", name: "조제형 본부장", org: "중소조선연구원" },
           { role: "토론", name: "이동해 센터장", org: "부산국제금융진흥원" },
-          { role: "토론", name: "관계자", org: "부산항만공사" }
+          { role: "토론", name: "구자림 글로벌사업단장", org: "부산항만공사" }
         ]
       },
       {
         time: "16:00~17:30",
         title: "온라인 컨퍼런스: 북극항로시대 극지교육의 방향성",
         speakers: [
-          { role: "좌장", name: "이동화 대표", org: "극지해양미래포럼" },
-          { role: "발제", name: "박수현 국장", org: "국제신문" },
+          { role: "좌장", name: "이동화 특임교수", org: "영산대학교" },
+          { role: "발제", name: "박수현 국장", org: "(사)극지해양미래포럼" },
           { role: "토론", name: "이은정 실장", org: "국제신문 논설실" },
-          { role: "토론", name: "손용구 교수", org: "국립한국해양대학교\n북극해연구센터" },
-          { role: "토론", name: "전영근 교육전문가", org: "전 부산교육청 교육국장" },
+          { role: "토론", name: "손용구 특임교수", org: "국립한국해양대학교 북극해연구센터" },
+          { role: "토론", name: "전영근 교육전문가", org: "전 부산광역시교육청 교육국장" },
           { role: "토론", name: "이정아 교장", org: "수영초등학교" }
         ]
       },
