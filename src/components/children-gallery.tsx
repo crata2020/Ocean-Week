@@ -235,26 +235,18 @@ export function ChildrenGallery() {
         </div>
 
         {/* 하단 문의 정보 */}
-        <div className="flex flex-col gap-3 pl-4 border-l-2 border-slate-100 dark:border-slate-800/60">
-          <div className="flex flex-col gap-0.5">
-            <span className="text-[9px] font-black tracking-[0.2em] uppercase text-slate-400 dark:text-slate-500">사진 문의</span>
-            <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">박수현</span>
-            <a
-              href="tel:010-5167-7627"
-              className="text-xs font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors"
-            >
-              010-5167-7627
-            </a>
-          </div>
-          <div className="flex flex-col gap-0.5">
-            <span className="text-[9px] font-black tracking-[0.2em] uppercase text-slate-400 dark:text-slate-500">저작 및 사용권 문의</span>
-            <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">염청하</span>
-            <a
-              href="tel:010-9511-6575"
-              className="text-xs font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors"
-            >
-              010-9511-6575
-            </a>
+        <div className="flex flex-col gap-4 pl-4 border-l-2 border-slate-100 dark:border-slate-800/60">
+          <div className="flex flex-col gap-1.5">
+            <span className="text-[9px] font-black tracking-[0.2em] uppercase text-slate-400 dark:text-slate-500">작품문의</span>
+            <div className="flex flex-col gap-1">
+              <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">(주)엠씨씨</span>
+              <a
+                href="tel:051-517-9611"
+                className="text-xs font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors"
+              >
+                051-517-9611
+              </a>
+            </div>
           </div>
         </div>
       </div>

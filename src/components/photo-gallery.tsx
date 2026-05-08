@@ -180,29 +180,20 @@ export function PhotoGallery({ folder }: PhotoGalleryProps) {
         ))}
       </div>
 
-      {/* 사진 문의 / 저작권 문의 */}
+      {/* 작품문의 */}
       <div className="mt-6 md:mt-10 px-6 py-6 md:py-8 border-t border-slate-200 dark:border-slate-700/60">
-        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
-          <div className="flex flex-col items-center gap-1 text-center">
-            <span className="text-[10px] font-black tracking-[0.25em] uppercase text-slate-400 dark:text-slate-500">사진 문의</span>
-            <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">박수현</span>
-            <a
-              href="tel:010-5167-7627"
-              className="text-sm font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors tracking-wide"
-            >
-              010-5167-7627
-            </a>
-          </div>
-          <div className="hidden sm:block w-px h-10 bg-slate-200 dark:bg-slate-700" />
-          <div className="flex flex-col items-center gap-1 text-center">
-            <span className="text-[10px] font-black tracking-[0.25em] uppercase text-slate-400 dark:text-slate-500">저작 및 사용권 문의</span>
-            <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">염청하</span>
-            <a
-              href="tel:010-9511-6575"
-              className="text-sm font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors tracking-wide"
-            >
-              010-9511-6575
-            </a>
+        <div className="max-w-2xl mx-auto flex flex-col items-center justify-center gap-2">
+          <div className="flex flex-col items-center gap-1.5 text-center">
+            <span className="text-[10px] font-black tracking-[0.25em] uppercase text-slate-400 dark:text-slate-500">작품문의</span>
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4">
+              <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">(주)엠씨씨</span>
+              <a
+                href="tel:051-517-9611"
+                className="text-sm font-bold text-sky-600 dark:text-sky-400 hover:text-sky-500 transition-colors tracking-wide"
+              >
+                051-517-9611
+              </a>
+            </div>
           </div>
         </div>
       </div>
