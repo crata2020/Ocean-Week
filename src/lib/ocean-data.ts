@@ -50,6 +50,7 @@ export const oceanScheduleTimeline = [
           { role: "토론", name: "궈베이칭 교수", org: "중국해양대학교" },
           { role: "토론", name: "후지오 오니시 박사", org: "훗카이도대학교 북극연구센터" },
           { role: "토론", name: "스미르노프 세르게이 마라토비치 교수", org: "블라디보스톡 극동연방대" },
+          { role: "토론", name: "김인현 석좌교수", org: "국립한국해양대학교" },
           { role: "토론", name: "남형식 교수", org: "국립한국해양대학교" },
           { role: "토론", name: "정영두 센터장", org: "한국해양진흥공사\n북극항로 종합지원센터" }
         ]

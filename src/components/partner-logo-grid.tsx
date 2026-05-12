@@ -4,6 +4,14 @@ import { partnerLogos } from "@/lib/site-content";
 import { publicAssetPath } from "@/lib/utils";
 
 export function PartnerLogoGrid() {
+  const rowNumbers = Array.from(
+    new Set(
+      partnerLogos
+        .map((partner) => partner.row)
+        .filter((row): row is number => typeof row === "number"),
+    ),
+  ).sort((a, b) => a - b);
+
   const prevent = (e: React.MouseEvent | React.DragEvent) => {
     e.preventDefault();
     return false;
@@ -15,7 +23,7 @@ export function PartnerLogoGrid() {
       onContextMenu={prevent}
       onDragStart={prevent}
     >
-      {[1, 2, 3, 4].map((rowNum) => {
+      {rowNumbers.map((rowNum) => {
         const rowLogos = partnerLogos.filter((p) => p.row === rowNum);
         if (rowLogos.length === 0) return null;
 

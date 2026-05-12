@@ -235,12 +235,14 @@ export const partnerLogos: Partner[] = [
   // ROW 4
   { name: "BOWP", logo: "BOWP_1.jpg", scale: 1.4, row: 4 },
   { name: "GEOVIEW", logo: "GEOVIEW_1.jpg", scale: 1.0, row: 4 },
+  { name: "동진기공", logo: "동진기공.jpg", scale: 1.15, row: 4 },
+  { name: "부산조선해양기자재공업협동조합", logo: "부산조선해양기자재공업협동조합 1.svg", scale: 1.2, row: 4 },
   { name: "한국해양정책연합", logo: "한국해양정책연합 1.svg", scale: 1.2, row: 4 },
   { name: "극지해양미래포럼", logo: "극지해양미래포럼 1.svg", scale: 1.0, row: 4 },
   { name: "한국해기사협회", logo: "한국해기사협회 1.svg", scale: 1.0, row: 4 },
   { name: "한국해양문학가협회", logo: "한국해양문학가협회 1.svg", scale: 2.4, row: 4 },
   { name: "CRATA 연구소", logo: "크라타연구소 1.svg", scale: 1.4, row: 4 },
-  { name: "국제신문", logo: "국제신문 1.svg", scale: 1.4, row: 4 },
+  { name: "국제신문", logo: "국제신문 1.svg", scale: 1.4, row: 5 },
 ];
 export type ContentSlug =
   | "intro"
