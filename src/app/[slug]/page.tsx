@@ -333,6 +333,17 @@ export default function ContentPage() {
                           </div>
                           
                           <div 
+                            className="group/item cursor-pointer hover:bg-teal-50 dark:hover:bg-teal-900/10 -m-2 p-2 rounded-lg transition-colors border-t border-dashed border-slate-200 dark:border-slate-800 pt-4 mb-6"
+                            onClick={() => setSelectedSessionId("youth-presentation")}
+                          >
+                            <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 underline-offset-4 group-hover/item:underline decoration-teal-300">
+                              청소년 프레젠테이션대회
+                              <ExternalLink className="h-3 w-3 text-teal-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                            </div>
+                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-1">14:00~15:00</div>
+                          </div>
+
+                          <div 
                             className="group/item cursor-pointer hover:bg-teal-50 dark:hover:bg-teal-900/10 -m-2 p-2 rounded-lg transition-colors border-t border-dashed border-slate-200 dark:border-slate-800 pt-4"
                             onClick={() => setSelectedSessionId("polar-lecture")}
                           >
@@ -340,7 +351,7 @@ export default function ContentPage() {
                               극지시민강좌
                               <ExternalLink className="h-3 w-3 text-teal-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                             </div>
-                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-1">14:00~17:00</div>
+                            <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mt-1">15:00~17:00</div>
                           </div>
                         </div>
                       </td>

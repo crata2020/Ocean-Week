@@ -111,6 +111,7 @@ export function SiteHeader() {
                           <Link href="/schedule?modal=arctic-education&focus=opinion" className="block px-2 py-1.5 text-[13px] font-bold text-teal-700 bg-teal-50 hover:bg-teal-100 hover:text-teal-800 rounded-md transition-colors">- 의견 남기기</Link>
                         </div>
                       </div>
+                      <Link href="/schedule?modal=youth-presentation" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">청소년 프레젠테이션대회</Link>
                       <Link href="/schedule?modal=polar-lecture" className="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-700 rounded-md transition-colors">극지시민강좌</Link>
                     </div>
                   </div>

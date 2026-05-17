@@ -130,7 +130,7 @@ export const oceanScheduleTimeline = [
           { role: "토론", name: "김세현 부산본부장", org: "한국해운협회" },
           { role: "토론", name: "조제형 본부장", org: "중소조선연구원" },
           { role: "토론", name: "이동해 센터장", org: "부산국제금융진흥원" },
-          { role: "토론", name: "구자림 글로벌사업단장", org: "부산항만공사" }
+          { role: "토론", name: "이응혁 실장", org: "부산항만공사\n국제물류지원실" }
         ]
       },
       {
@@ -146,9 +146,16 @@ export const oceanScheduleTimeline = [
         ]
       },
       {
-        time: "14:00~17:00",
+        time: "14:00~15:00",
+        title: "청소년 프레젠테이션대회"
+      },
+      {
+        time: "15:00~17:00",
         title: "극지시민강좌",
-        description: "북극항로 및 극지 해양의 지속가능한 이용과 미래 전략"
+        description: "북극항로 및 극지 해양의 지속가능한 이용과 미래 전략",
+        speakers: [
+          { role: "강연", name: "김민수 본부장", org: "한국해양수산개발원\n경제전략연구본부" }
+        ]
       }
     ]
   }
