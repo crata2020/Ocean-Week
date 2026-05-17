@@ -257,14 +257,14 @@ export function RegistrationStatusPanel({ sessionCounts }: { sessionCounts?: Rec
                       const a = document.createElement("a");
                       a.href = url;
                       
-                      // 동적 파일명 생성 (예: 2026_해양주간_사전등록명단_20260414_1530.csv)
+                      // 동적 파일명 생성 (예: 2026_해양주간_사전등록명단_20260414_1530.xlsx)
                       const now = new Date();
                       const yy = now.getFullYear();
                       const mm = String(now.getMonth() + 1).padStart(2, "0");
                       const dd = String(now.getDate()).padStart(2, "0");
                       const hh = String(now.getHours()).padStart(2, "0");
                       const min = String(now.getMinutes()).padStart(2, "0");
-                      a.download = `2026_해양주간_사전등록명단_${yy}${mm}${dd}_${hh}${min}.csv`;
+                      a.download = `2026_해양주간_사전등록명단_${yy}${mm}${dd}_${hh}${min}.xlsx`;
                       
                       document.body.appendChild(a);
                       a.click();

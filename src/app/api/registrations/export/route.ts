@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import * as XLSX from "xlsx";
 
 import { lookupRegistrationSchema, normalizePhone } from "@/lib/registrations";
 import { getRegistrationSessionLabel, registrationSessionDays } from "@/lib/site-content";
@@ -35,7 +36,7 @@ export async function POST(request: Request) {
       throw new Error("전체 데이터 조회에 실패했습니다.");
     }
 
-    // 3. CSV 변환
+    // 3. 엑셀 데이터 변환
     const headers = [
       "일자 구분",
       "구분 (세션명)",
@@ -47,21 +48,7 @@ export async function POST(request: Request) {
       "접수 일시",
     ];
 
-    const generateCsvRow = (rowArr: string[]) => {
-      return rowArr
-        .map((cell) => {
-          const stringCell = String(cell || "");
-          const escaped = stringCell.replace(/"/g, '""');
-          return `"${escaped}"`;
-        })
-        .join(",");
-    };
-
-    const csvLines = [generateCsvRow(headers)];
-
-    // To organize by day and session, we actually first resolve the day and session name for each selected_session_ids element.
-    // We will accumulate all generated rows, and then sort them so Day 1, Day 2 appear in order, and then grouped by session title.
-    const resolvedRows: { dayIndex: number; sessionTitle: string; csvArr: string[] }[] = [];
+    const resolvedRows: { dayIndex: number; sessionTitle: string; rowArr: string[] }[] = [];
 
     // Flatten logic
     allRecords.forEach((row: any) => {
@@ -99,8 +86,7 @@ export async function POST(request: Request) {
           row.name,
           row.organization,
           row.title,
-          // 전화번호 앞에 탭(\t) 문자를 추가하여 엑셀이 숫자로 강제 변환하여 맨 앞의 0을 지우는 현상(자동 변환 경고) 방지
-          `\t${row.phone_raw}`,
+          row.phone_raw,
           row.email,
           formatDateTime(row.created_at),
         ];
@@ -108,7 +94,7 @@ export async function POST(request: Request) {
         resolvedRows.push({
           dayIndex: foundDayIndex,
           sessionTitle: sessionTitleStr,
-          csvArr: rowArr,
+          rowArr,
         });
       });
     });
@@ -118,22 +104,38 @@ export async function POST(request: Request) {
       if (a.dayIndex !== b.dayIndex) return a.dayIndex - b.dayIndex;
       const titleCmp = a.sessionTitle.localeCompare(b.sessionTitle);
       if (titleCmp !== 0) return titleCmp;
-      // CSV의 7번 인덱스가 접수일시 (문자열)
-      return a.csvArr[7].localeCompare(b.csvArr[7]);
+      return a.rowArr[7].localeCompare(b.rowArr[7]);
     });
 
-    resolvedRows.forEach(({ csvArr }) => {
-      csvLines.push(generateCsvRow(csvArr));
+    const data = [headers];
+    resolvedRows.forEach(({ rowArr }) => {
+      data.push(rowArr);
     });
 
-    const csvContent = csvLines.join("\n");
-    const bom = "\uFEFF"; // 한글 깨짐 방지용 UTF-8 BOM
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.aoa_to_sheet(data);
 
-    return new Response(bom + csvContent, {
+    // 열 너비 설정
+    ws["!cols"] = [
+      { wch: 15 }, // 일자 구분
+      { wch: 35 }, // 세션명
+      { wch: 10 }, // 이름
+      { wch: 25 }, // 소속
+      { wch: 15 }, // 직책
+      { wch: 20 }, // 휴대전화
+      { wch: 30 }, // 이메일
+      { wch: 20 }, // 접수일시
+    ];
+
+    XLSX.utils.book_append_sheet(wb, ws, "사전등록명단");
+
+    const excelBuffer = XLSX.write(wb, { type: "buffer", bookType: "xlsx" });
+
+    return new Response(excelBuffer, {
       status: 200,
       headers: {
-        "Content-Type": "text/csv; charset=utf-8",
-        "Content-Disposition": 'attachment; filename="ocean_week_registrations.csv"',
+        "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "Content-Disposition": 'attachment; filename="ocean_week_registrations.xlsx"',
       },
     });
   } catch (error) {
