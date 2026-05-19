@@ -23,10 +23,13 @@ export const oceanScheduleTimeline = [
         description: "해양수산부 이전과 해양수도 부산의 비전",
         speakers: [
           { role: "참여", name: "황종우 장관", org: "해양수산부" },
+          { role: "참여", name: "성희엽 부시장", org: "부산광역시" },
           { role: "참여", name: "배상훈 총장", org: "국립부경대학교" },
           { role: "참여", name: "류동근 총장", org: "국립한국해양대학교" },
-          { role: "참여", name: "김영재 원장", org: "부산연구원" },
-          { role: "참여", name: "최금식 회장", org: "선보패밀리그룹" }
+          { role: "참여", name: "조정희 원장", org: "한국해양수산개발원" },
+          { role: "참여", name: "이희승 원장", org: "한국해양과학기술원" },
+          { role: "참여", name: "최금식 회장", org: "선보패밀리 그룹" },
+          { role: "참여", name: "박재율 공동대표", org: "해양수도부산발전협의회" }
         ]
       },
       {

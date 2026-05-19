@@ -18,10 +18,13 @@ interface SessionDetailModalProps {
 
 const speakers: Speaker[] = [
   { id: "1", name: "황종우 장관", org: "해양수산부", image: "/images/speakers/황종우.jpg" },
+  { id: "2", name: "성희엽 부시장", org: "부산광역시", image: "/images/speakers/성희엽.png" },
   { id: "3", name: "배상훈 총장", org: "국립부경대학교", image: "/images/speakers/배상훈 총장.jpg" },
   { id: "4", name: "류동근 총장", org: "국립한국해양대학교", image: "/images/speakers/류동근.jpg" },
-  { id: "5", name: "김영재 원장", org: "부산연구원", image: "/images/speakers/김영재.jpg" },
-  { id: "6", name: "최금식 회장", org: "선보패밀리그룹", image: "/images/speakers/최금식.jpg" },
+  { id: "5", name: "조정희 원장", org: "한국해양수산개발원", image: "/images/speakers/조정희.png" },
+  { id: "6", name: "이희승 원장", org: "한국해양과학기술원", image: "/images/speakers/이희승.png" },
+  { id: "7", name: "최금식 회장", org: "선보패밀리 그룹", image: "/images/speakers/최금식.png" },
+  { id: "8", name: "박재율 공동대표", org: "해양수도부산발전협의회", image: "/images/speakers/박재율.png" },
 ];
 
 export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps) {
@@ -69,7 +72,7 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
           </div>
 
           {/* Grid Layout (3 columns) */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner">
             {speakers.map((speaker) => (
               <div 
                 key={speaker.id} 
@@ -85,7 +88,7 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
                           alt={speaker.name}
                           fill
                           className="object-cover object-[center_20%] bg-white transition-transform duration-500 group-hover:scale-105 pointer-events-none"
-                          style={{ imageRendering: "auto" }}
+                          style={{ imageRendering: "-webkit-optimize-contrast" }}
                           sizes="(max-width: 768px) 50vw, 25vw"
                           quality={100}
                           unoptimized
