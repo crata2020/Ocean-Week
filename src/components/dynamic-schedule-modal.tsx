@@ -174,19 +174,17 @@ export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, on
                           <table className="w-full text-left border-collapse">
                             <thead>
                               <tr className="bg-slate-50 dark:bg-slate-800/80">
-                                <th className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-r border-slate-200 dark:border-slate-800 w-1/5 text-center">부문</th>
-                                <th className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-r border-slate-200 dark:border-slate-800 w-1/4 text-center">수상자</th>
-                                <th className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800 text-center">주요 공적</th>
+                                <th className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-r border-slate-200 dark:border-slate-800 w-[30%] text-center">부문</th>
+                                <th className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800 w-[70%] text-center">수상자</th>
                               </tr>
                             </thead>
                             <tbody>
                               {section.content.map((row, i) => {
-                                const [col1, col2, col3] = row.split('|');
+                                const [col1, col2] = row.split('|');
                                 return (
                                   <tr key={i} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
                                     <td className="p-5 font-black text-lg text-emerald-600 dark:text-emerald-400 border-b border-r border-slate-100 dark:border-slate-800 text-center bg-emerald-50/20">{col1}</td>
-                                    <td className="p-5 font-black text-xl text-slate-900 dark:text-white border-b border-r border-slate-100 dark:border-slate-800 text-center">{col2}</td>
-                                    <td className="p-5 text-base font-bold text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 leading-relaxed">{col3}</td>
+                                    <td className="p-5 font-black text-base sm:text-lg md:text-xl text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 text-center whitespace-pre-wrap">{col2}</td>
                                   </tr>
                                 );
                               })}
