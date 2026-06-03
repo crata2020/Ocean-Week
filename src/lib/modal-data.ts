@@ -62,7 +62,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
         name: "후지오 오니시 박사",
         affiliation: ["훗카이도대학교 북극연구센터", "그룹리더"],
         bio: "Fujio Ohnishi 박사는 훗카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
-        image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/fujio_ohnishi.jpg"
+        image: "/images/speakers/fujio_ohnishi.jpg"
       },
       {
         role: "발표 · 토론 · 러시아",
@@ -123,7 +123,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
         name: "후지오 오니시 박사",
         affiliation: ["훗카이도대학교 북극연구센터", "그룹리더"],
         bio: "Fujio Ohnishi 박사는 훗카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
-        image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/fujio_ohnishi.jpg"
+        image: "/images/speakers/fujio_ohnishi.jpg"
       },
       {
         role: "발표 · 러시아",
@@ -170,7 +170,7 @@ export const scheduleModalData: Record<string, ModalContent> = {
         name: "후지오 오니시 박사",
         affiliation: ["훗카이도대학교 북극연구센터"],
         bio: "Fujio Ohnishi 박사는 훗카이도대학교 북극연구센터 그룹리더로, 북극 해양과 항로 개발, 운항 안전성, 환경 영향을 중심으로 연구하고 있다. 기후변화에 따른 해빙 감소와 북극항로의 계절적 개방이 국제 해운과 물류에 미치는 영향을 분석하며, 경제성과 리스크 관리, 지속가능한 북극 이용 방안을 함께 탐구하고 있다.",
-        image: "https://pjxuvjcwlhcevwrecvof.supabase.co/storage/v1/object/public/panels/fujio_ohnishi.jpg"
+        image: "/images/speakers/fujio_ohnishi.jpg"
       },
       {
         role: "토론",
