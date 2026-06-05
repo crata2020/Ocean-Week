@@ -224,11 +224,12 @@ export const partnerLogos: Partner[] = [
   { name: "한국해양수산개발원", logo: "한국해양수산개발원 1.svg", scale: 1.2, row: 2 },
   { name: "극지연구소", logo: "극지연구소 1.svg", scale: 1.3, row: 2 },
   { name: "중소조선연구원", logo: "중소조선연구원_1.jpg", scale: 1.3, row: 2 },
+  { name: "부산연구원", logo: "부산연구원.png", scale: 1.8, row: 2 },
   { name: "한국선급", logo: "한국선급 1.svg", scale: 1.2, row: 2 },
   { name: "부산국제금융진흥원", logo: "부산국제금융진흥원 1.svg", scale: 1.4, row: 2 },
-  { name: "한국해운협회", logo: "한국해운협회 1.svg", scale: 1.0, row: 2 },
 
   // ROW 3
+  { name: "한국해운협회", logo: "한국해운협회 1.svg", scale: 1.0, row: 3 },
   { name: "부산항도선사회", logo: "부산항도선사회 1.png", scale: 2.8, row: 3 },
   { name: "LG전자", logo: "LG 전자 1.svg", scale: 1.6, row: 3 },
   { name: "LG PuroTec", logo: "LG-퓨로텍 1.svg", scale: 1.1, row: 3 },
@@ -237,19 +238,21 @@ export const partnerLogos: Partner[] = [
   { name: "은산해운항공", logo: "은산해운항공 1.svg", scale: 1.5, row: 3 },
   { name: "HJ중공업", logo: "HJ중공업 1.svg", scale: 2.5, row: 3 },
   { name: "LET'S GO 2025", logo: "선보패밀리그룹 1.svg", scale: 1.5, row: 3 },
-  { name: "PANASIA", logo: "파나시아 1.svg", scale: 1.2, yOffset: "15%", row: 3 },
-
 
   // ROW 4
+  { name: "동화엔텍", logo: "동화엔텍.jpg", scale: 1.4, row: 4 },
+  { name: "PANASIA", logo: "파나시아 1.svg", scale: 1.2, yOffset: "15%", row: 4 },
   { name: "BOWP", logo: "BOWP_1.jpg", scale: 1.4, row: 4 },
   { name: "GEOVIEW", logo: "GEOVIEW_1.jpg", scale: 1.0, row: 4 },
   { name: "동진기공", logo: "동진기공.jpg", scale: 1.15, row: 4 },
   { name: "부산조선해양기자재공업협동조합", logo: "부산조선해양기자재공업협동조합 1.svg", scale: 1.2, row: 4 },
   { name: "한국해양정책연합", logo: "한국해양정책연합 1.svg", scale: 1.2, row: 4 },
   { name: "극지해양미래포럼", logo: "극지해양미래포럼 1.svg", scale: 1.0, row: 4 },
-  { name: "한국해기사협회", logo: "한국해기사협회 1.svg", scale: 1.0, row: 4 },
-  { name: "한국해양문학가협회", logo: "한국해양문학가협회 1.svg", scale: 2.4, row: 4 },
-  { name: "CRATA 연구소", logo: "크라타연구소 1.svg", scale: 1.4, row: 4 },
+
+  // ROW 5
+  { name: "한국해기사협회", logo: "한국해기사협회 1.svg", scale: 1.0, row: 5 },
+  { name: "한국해양문학가협회", logo: "한국해양문학가협회 1.svg", scale: 2.4, row: 5 },
+  { name: "CRATA 연구소", logo: "크라타연구소 1.svg", scale: 1.4, row: 5 },
   { name: "국제신문", logo: "국제신문 1.svg", scale: 1.4, row: 5 },
 ];
 export type ContentSlug =
@@ -282,7 +285,7 @@ export const contentPages: Record<ContentSlug, ContentPage> = {
         title: "6월 8일(월): 개회식 및 해양 전략 포럼",
         body: [
           "<개회식>을 시작으로 <기관장 토크콘서트>, <해양경제 콘퍼런스>가 이어집니다.",
-          "<기관장 토크콘서트>는 해양수산부장관, 부산광역시장을 비롯하여 참여 기관장들이 무대에 등단해\n‘해양수산부 이전과 해양수도 부산’을 주제로 서로의 의견을 자유롭게 나누게 됩니다.",
+          "<기관장 토크콘서트>는 참여 기관장들이 무대에 등단해\n‘해양수산부 이전과 해양수도 부산’을 주제로 서로의 의견을 자유롭게 나누게 됩니다.",
           "<해양경제 콘퍼런스>에서는 ‘북극항로’ 이슈를 놓고 한국, 중국, 일본, 러시아 전문가들이 발표 및 토론을 이어갑니다.\n연안국인 러시아와 운항 경험을 축적해가는 중국, 방향성을 모색하는 한국과 일본의 전문가들이 한자리에 모여 토론을 벌이는 것은 국제적인 관심을 불러올 것으로 보입니다.",
         ],
       },
@@ -320,7 +323,7 @@ export const contentPages: Record<ContentSlug, ContentPage> = {
       {
         title: "6월 8일(월)",
         body: [
-          "오전에는 개회식 및 공연과 기관장 토크 콘서트가 진행되며, 토크 콘서트의 주제는 '해양수산부 이전과 해양수도 부산의 비전'입니다. 황종우 해양수산부 장관, 성희엽 부산광역시 부시장, 배상훈 국립부경대학교 총장, 류동근 국립한국해양대학교 총장, 조정희 한국해양수산개발원 원장, 이희승 한국해양과학기술원 원장, 최금식 선보패밀리 그룹 회장, 박재율 해양수도부산발전협의회 공동대표가 참여 대상으로 제시되어 있습니다.",
+          "오전에는 개회식 및 공연과 기관장 토크 콘서트가 진행되며, 토크 콘서트의 주제는 '해양수산부 이전과 해양수도 부산의 비전'입니다. 배상훈 국립부경대학교 총장, 류동근 국립한국해양대학교 총장, 조정희 한국해양수산개발원 원장, 이희승 한국해양과학기술원 원장, 최금식 선보패밀리 그룹 회장, 김영재 부산연구원 원장이 참여 대상으로 제시되어 있습니다.",
           "오후에는 해양경제포럼 '북극항로 비연안국의 권리' 세션이 진행되며, 신형철 극지연구소 소장이 좌장을 맡고 최수범 특임교수, 궈베이칭 교수, 후지오 오니시 박사, 세르게이 스미르노프 교수가 발제자로 구성되어 있습니다.",
         ],
       },

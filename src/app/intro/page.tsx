@@ -72,7 +72,7 @@ export default function IntroPage() {
                   </p>
                   <p className="break-keep">
                     <span className="font-bold text-sky-700 dark:text-sky-400">&lt;기관장 토크콘서트&gt;</span><br />
-                    황종우 해양수산부 장관, 조승환 국회의원을 비롯하여 참여 기관장들이 무대에 등단해 <strong>&apos;해양수산부 이전과 해양수도 부산&apos;</strong>을 주제로<br />서로의 의견을 자유롭게 나누게 됩니다.
+                    조승환 국회의원을 비롯하여 참여 기관장들이 무대에 등단해 <strong>&apos;해양수산부 이전과 해양수도 부산&apos;</strong>을 주제로<br />서로의 의견을 자유롭게 나누게 됩니다.
                   </p>
                   <p className="break-keep">
                     <span className="font-bold text-sky-700 dark:text-sky-400">&lt;해양경제포럼&gt;</span><br />
