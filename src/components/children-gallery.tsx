@@ -16,6 +16,18 @@ function chunkItems(items: ArtItem[], size: number) {
   return chunks;
 }
 
+function getArtworkFrameClass(rank: number) {
+  if (rank === 1) {
+    return "aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] md:max-h-[min(58dvh,620px)]";
+  }
+
+  if (rank === 2) {
+    return "aspect-[4/3] sm:aspect-[16/10]";
+  }
+
+  return "aspect-[4/3]";
+}
+
 export function ChildrenGallery() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set(['section-rank-1'])); // Initial visible
@@ -94,7 +106,7 @@ export function ChildrenGallery() {
 
   // Group by rank. Mobile gets smaller chunks so image cards stay readable.
   const rank2Items = artData.filter(a => a.rank === 2);
-  const rank2Chunks = chunkItems(rank2Items, 2);
+  const rank2Chunks = chunkItems(rank2Items, isCompactMobile ? 1 : 2);
 
   const compactChunkSize = isCompactMobile ? 4 : 10;
   const rank3Items = artData.filter(a => a.rank === 3);
@@ -312,32 +324,36 @@ export function ChildrenGallery() {
                 </div>
               </div>
 
-              {/* Image Grid — fills remaining height */}
+              {/* Image Grid */}
               <div className={cn(
-                "grid gap-3 md:gap-4 flex-1 min-h-0",
+                "grid flex-1 content-start items-start gap-3 overflow-hidden md:gap-4",
                 group.rank === 1 
                   ? "grid-cols-1 max-w-4xl mx-auto w-full" 
                   : group.rank === 2 
-                  ? "grid-cols-2 w-full"
+                  ? "mx-auto w-full max-w-5xl grid-cols-1 content-center gap-4 sm:grid-cols-2 sm:gap-6"
                   : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
               )}>
                 {group.items.map((item) => (
                   <div 
                     key={item.id} 
-                    className="group flex flex-col gap-2 cursor-pointer min-h-0"
+                    className="group flex min-h-0 cursor-pointer flex-col gap-2"
                     onClick={() => openLightbox(item)}
                   >
-                    {/* Image fills all available height in the cell */}
-                    <div className="relative overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200/70 transition-all duration-500 group-hover:shadow-md group-hover:-translate-y-1 flex-1 min-h-0 dark:bg-slate-900 dark:ring-slate-800">
+                    <div
+                      className={cn(
+                        "relative w-full overflow-hidden rounded-xl bg-slate-50/80 shadow-sm ring-1 ring-slate-200/70 transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-md dark:bg-slate-900 dark:ring-slate-800",
+                        getArtworkFrameClass(group.rank),
+                      )}
+                    >
                       <Image
                         src={item.url}
                         alt={item.title}
                         fill
-                        className="object-contain p-1.5 transition-transform duration-700 group-hover:scale-[1.02] pointer-events-none"
+                        className="pointer-events-none object-contain p-1 transition-transform duration-700 group-hover:scale-[1.02]"
                         unoptimized
                         sizes={
                           group.rank === 1 ? "80vw" : 
-                          group.rank === 2 ? "45vw" : 
+                          group.rank === 2 ? "(max-width: 640px) 90vw, 45vw" : 
                           "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                         }
                         draggable={false}
