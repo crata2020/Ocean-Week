@@ -84,11 +84,11 @@ export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, on
           {content.type === "speakers" ? (
             <div className="flex flex-col">
               {content.speakers?.map((speaker, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="flex flex-col md:flex-row border-b border-slate-100 dark:border-slate-800 last:border-0 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors duration-300"
                 >
-                  <div className="w-full md:w-[340px] p-6 sm:p-7 bg-slate-50/30 dark:bg-slate-900/50 border-r border-slate-100 dark:border-slate-800 flex flex-row items-center justify-between gap-4 shrink-0">
+                  <div className="w-full md:w-[380px] p-5 sm:p-7 bg-slate-50/30 dark:bg-slate-900/50 border-r border-slate-100 dark:border-slate-800 flex flex-row items-center gap-4 shrink-0">
                     {/* Details Container */}
                     <div className="flex flex-col items-start flex-1 min-w-0 pr-2">
                       <div className="inline-flex items-center gap-2 mb-2 md:mb-3">
@@ -109,7 +109,7 @@ export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, on
                     </div>
                     
                     {/* Photo Container */}
-                    <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-full bg-white dark:bg-slate-800 border-[3px] border-white dark:border-slate-700 shadow-sm overflow-hidden relative flex items-center justify-center">
+                    <div className="w-32 h-40 md:w-36 md:h-40 shrink-0 rounded-2xl bg-white dark:bg-slate-800 border-[3px] border-white dark:border-slate-700 shadow-sm overflow-hidden relative flex items-center justify-center">
                       {speaker.image ? (
                         <div 
                           className="relative w-full h-full"
@@ -123,7 +123,8 @@ export function DynamicScheduleModal({ content, isOpen, focusOpinion = false, on
                             fill
                             priority
                             sizes="300px"
-                            className="object-cover bg-white pointer-events-none" 
+                            unoptimized
+                            className="object-cover bg-white pointer-events-none"
                             style={{
                               objectPosition: speaker.imagePosition || "center 20%",
                             }} 

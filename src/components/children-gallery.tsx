@@ -6,12 +6,28 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import artData from "@/lib/children-art-data.json";
 import { cn } from "@/lib/utils";
 
+type ArtItem = (typeof artData)[number];
+
+function chunkItems(items: ArtItem[], size: number) {
+  const chunks: ArtItem[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    chunks.push(items.slice(i, i + size));
+  }
+  return chunks;
+}
+
 export function ChildrenGallery() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set(['section-rank-1'])); // Initial visible
   const [activeSection, setActiveSection] = useState<string>('rank-1');
+  const [isCompactMobile, setIsCompactMobile] = useState(false);
 
   useEffect(() => {
+    const compactMobileQuery = window.matchMedia("(max-width: 639px)");
+    const updateCompactMobile = () => setIsCompactMobile(compactMobileQuery.matches);
+    updateCompactMobile();
+    compactMobileQuery.addEventListener("change", updateCompactMobile);
+
     // Intersection Observer for scroll animations
     const observer = new IntersectionObserver(
       (entries) => {
@@ -66,6 +82,7 @@ export function ChildrenGallery() {
     document.documentElement.classList.add("snap-y", "snap-mandatory", "scroll-smooth");
     
     return () => {
+      compactMobileQuery.removeEventListener("change", updateCompactMobile);
       window.removeEventListener('resize', updateHeaderHeight);
       document.documentElement.classList.remove("snap-y", "snap-mandatory", "scroll-smooth");
       document.documentElement.style.scrollPaddingTop = "";
@@ -75,18 +92,15 @@ export function ChildrenGallery() {
     };
   }, []);
 
-  // Group by rank — 우수: 2개씩, 입선: 10개씩 페이지 분할
+  // Group by rank. Mobile gets smaller chunks so image cards stay readable.
   const rank2Items = artData.filter(a => a.rank === 2);
-  const rank2Chunks: (typeof artData)[] = [];
-  for (let i = 0; i < rank2Items.length; i += 2) {
-    rank2Chunks.push(rank2Items.slice(i, i + 2));
-  }
+  const rank2Chunks = chunkItems(rank2Items, 2);
 
+  const compactChunkSize = isCompactMobile ? 4 : 10;
+  const rank3Items = artData.filter(a => a.rank === 3);
+  const rank3Chunks = chunkItems(rank3Items, compactChunkSize);
   const rank4Items = artData.filter(a => a.rank === 4);
-  const rank4Chunks: (typeof artData)[] = [];
-  for (let i = 0; i < rank4Items.length; i += 10) {
-    rank4Chunks.push(rank4Items.slice(i, i + 10));
-  }
+  const rank4Chunks = chunkItems(rank4Items, compactChunkSize);
 
   const sections: { 
     id: string; 
@@ -103,7 +117,13 @@ export function ChildrenGallery() {
       pageInfo: `${idx + 1} / ${rank2Chunks.length} 페이지`,
       items: chunk
     })),
-    { id: 'rank-3', rank: 3, title: "장려", items: artData.filter(a => a.rank === 3) },
+    ...rank3Chunks.map((chunk, idx) => ({
+      id: `rank-3-${idx}`,
+      rank: 3,
+      title: "장려",
+      pageInfo: rank3Chunks.length > 1 ? `${idx + 1} / ${rank3Chunks.length} 페이지` : undefined,
+      items: chunk
+    })),
     ...rank4Chunks.map((chunk, idx) => ({
       id: `rank-4-${idx}`,
       rank: 4,
@@ -117,7 +137,7 @@ export function ChildrenGallery() {
   const navCategories = [
     { targetId: 'rank-1', matchPrefix: 'rank-1', title: "대상" },
     { targetId: 'rank-2-0', matchPrefix: 'rank-2', title: "우수" },
-    { targetId: 'rank-3', matchPrefix: 'rank-3', title: "장려" },
+    { targetId: 'rank-3-0', matchPrefix: 'rank-3', title: "장려" },
     { targetId: 'rank-4-0', matchPrefix: 'rank-4', title: "입선" },
   ].filter(cat => sections.some(s => s.id.startsWith(cat.matchPrefix)));
 
@@ -184,6 +204,7 @@ export function ChildrenGallery() {
               fill
               className="object-contain pointer-events-none"
               priority
+              unoptimized
               draggable={false}
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}
@@ -283,7 +304,7 @@ export function ChildrenGallery() {
                     )}
                   </h2>
                   <span className="text-sm font-medium px-3 py-1 bg-slate-200/50 dark:bg-slate-800/50 rounded-full text-slate-500 dark:text-slate-400">
-                    {group.rank === 4 ? "총 40작품 중 10작품" : group.rank === 2 ? `총 ${rank2Items.length}작품 중 ${group.items.length}작품` : `${group.items.length}작품`}
+                    {group.rank === 4 ? `총 ${rank4Items.length}작품 중 ${group.items.length}작품` : group.rank === 3 ? `총 ${rank3Items.length}작품 중 ${group.items.length}작품` : group.rank === 2 ? `총 ${rank2Items.length}작품 중 ${group.items.length}작품` : `${group.items.length}작품`}
                   </span>
                 </div>
                 <div className="hidden sm:flex text-xs font-medium text-slate-400 animate-pulse">
@@ -307,12 +328,13 @@ export function ChildrenGallery() {
                     onClick={() => openLightbox(item)}
                   >
                     {/* Image fills all available height in the cell */}
-                    <div className="relative overflow-hidden rounded-xl shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:-translate-y-1 flex-1 min-h-0">
+                    <div className="relative overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200/70 transition-all duration-500 group-hover:shadow-md group-hover:-translate-y-1 flex-1 min-h-0 dark:bg-slate-900 dark:ring-slate-800">
                       <Image
                         src={item.url}
                         alt={item.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+                        className="object-contain p-1.5 transition-transform duration-700 group-hover:scale-[1.02] pointer-events-none"
+                        unoptimized
                         sizes={
                           group.rank === 1 ? "80vw" : 
                           group.rank === 2 ? "45vw" : 

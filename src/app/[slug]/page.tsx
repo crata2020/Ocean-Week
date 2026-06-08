@@ -14,6 +14,142 @@ import { scheduleModalData } from "@/lib/modal-data";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { ChildrenGallery } from "@/components/children-gallery";
 
+const scheduleOverviewDays = [
+  {
+    id: "jun8",
+    tabLabel: "6.8",
+    dayLabel: "6월 8일",
+    weekday: "월",
+    venue: "벡스코 2전시관 320~324호",
+    periods: [
+      {
+        label: "오전",
+        items: [
+          { title: "개회식", time: "10:00~11:00" },
+          {
+            title: "기관장 토크 콘서트",
+            description: "① 해양수산부 이전과 해양수도 부산",
+            time: "11:00~12:00",
+            modalId: "leader",
+          },
+        ],
+      },
+      {
+        label: "오후",
+        items: [
+          {
+            title: "해양경제포럼",
+            description: "북극항로 비연안국의 권리",
+            time: "13:30~16:50",
+          },
+          {
+            title: "① 한 ‧ 중 ‧ 일 ‧ 러 전문가 발표",
+            time: "13:30~14:50",
+            modalId: "arctic-route-presentation",
+          },
+          {
+            title: "② 한 ‧ 중 ‧ 일 ‧ 러 발표자 + 패널 토론",
+            time: "15:20~16:50",
+            modalId: "arctic-route",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "jun9",
+    tabLabel: "6.9",
+    dayLabel: "6월 9일",
+    weekday: "화",
+    venue: "벡스코 2전시관 320~324호",
+    periods: [
+      {
+        label: "오전",
+        items: [
+          { title: "개회식", time: "10:00~10:20" },
+          {
+            title: "해양경제포럼",
+            description: "① 블루카본의 잠재력과 탄소시장화 전략",
+            time: "10:20~12:00",
+            modalId: "blue-carbon-am",
+          },
+        ],
+      },
+      {
+        label: "오후",
+        items: [
+          {
+            title: "해양경제포럼",
+            description: "② 블루카본 탄소시장 반영방안",
+            time: "13:30~15:00",
+            modalId: "blue-carbon-pm",
+          },
+          {
+            title: "해양경제포럼",
+            description: "③ 해상풍력 특별법 시대 개막 - 기회와 도전, 미래전략",
+            time: "15:30~17:00",
+            modalId: "offshore-wind",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "jun10",
+    tabLabel: "6.10",
+    dayLabel: "6월 10일",
+    weekday: "수",
+    venue: "벡스코 2전시관 320~324호",
+    periods: [
+      {
+        label: "오전",
+        items: [
+          {
+            title: "제2회 대한민국해양지도자 대상 시상식",
+            time: "10:00~11:00",
+            modalId: "ocean-awards",
+          },
+          {
+            title: "해양산업리더스 서밋",
+            description: "송상근 사장(부산항만공사) 특강",
+            time: "11:00~12:00",
+            modalId: "summit",
+          },
+        ],
+      },
+      {
+        label: "오후",
+        items: [
+          {
+            title: "온라인 컨퍼런스",
+            description: "① 북극항로 연관산업 발전 방안",
+            time: "14:00~15:30",
+            modalId: "arctic-industry",
+          },
+          {
+            title: "청소년 프레젠테이션대회",
+            time: "14:00~15:00",
+            modalId: "youth-presentation",
+          },
+          {
+            title: "극지시민강좌",
+            time: "15:00~17:00",
+            modalId: "polar-lecture",
+          },
+          {
+            title: "온라인 컨퍼런스",
+            description: "② 북극항로시대 극지교육의 방향성",
+            time: "16:00~17:30",
+            modalId: "arctic-education",
+          },
+        ],
+      },
+    ],
+  },
+] as const;
+
+type ScheduleOverviewDayId = (typeof scheduleOverviewDays)[number]["id"];
+
 export default function ContentPage() {
   const params = useParams();
   const slug = params?.slug as string;
@@ -22,6 +158,7 @@ export default function ContentPage() {
   
   const [isLeaderModalOpen, setIsLeaderModalOpen] = useState(false);
   const [selectedSessionId, setSelectedSessionId] = useState<string | null>(null);
+  const [activeOverviewDay, setActiveOverviewDay] = useState<ScheduleOverviewDayId>("jun8");
 
   React.useEffect(() => {
     const modalParam = searchParams.get("modal");
@@ -46,6 +183,15 @@ export default function ContentPage() {
   }
 
   const page = contentPages[slug as ContentSlug];
+  const activeOverview = scheduleOverviewDays.find((day) => day.id === activeOverviewDay) ?? scheduleOverviewDays[0];
+  const openScheduleOverviewModal = (modalId?: string) => {
+    if (!modalId) return;
+    if (modalId === "leader") {
+      setIsLeaderModalOpen(true);
+    } else {
+      setSelectedSessionId(modalId);
+    }
+  };
   
   // Prevent background scroll when modal is open
   React.useEffect(() => {
@@ -141,7 +287,116 @@ export default function ContentPage() {
                 <div className="h-6 w-1.5 rounded-full bg-sky-500" />
                 행사일정 한눈에 보기
               </h2>
-              <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm bg-white dark:bg-slate-900">
+
+              <div className="md:hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                <div
+                  role="tablist"
+                  aria-label="행사일정 날짜 선택"
+                  className="grid grid-cols-3 gap-1 rounded-xl bg-slate-100 p-1 dark:bg-slate-800/80"
+                >
+                  {scheduleOverviewDays.map((day) => {
+                    const isActive = activeOverviewDay === day.id;
+
+                    return (
+                      <button
+                        key={day.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={isActive}
+                        aria-controls={`schedule-overview-${day.id}`}
+                        onClick={() => setActiveOverviewDay(day.id)}
+                        className={cn(
+                          "min-h-14 rounded-lg px-2 py-2 text-center transition-all",
+                          isActive
+                            ? "bg-white text-sky-700 shadow-sm ring-1 ring-sky-100 dark:bg-slate-950 dark:text-sky-300 dark:ring-sky-900/60"
+                            : "text-slate-500 hover:bg-white/70 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-900/60"
+                        )}
+                      >
+                        <span className="block text-[11px] font-black tracking-[0.12em]">{day.tabLabel}</span>
+                        <span className="mt-0.5 block text-xs font-bold">{day.weekday}요일</span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div
+                  id={`schedule-overview-${activeOverview.id}`}
+                  role="tabpanel"
+                  className="mt-4 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50/70 dark:border-slate-800 dark:bg-slate-950/40"
+                >
+                  <div className="border-b border-slate-100 bg-white px-4 py-4 dark:border-slate-800 dark:bg-slate-900">
+                    <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-sky-600 dark:text-sky-300">
+                      <CalendarDays className="h-4 w-4" />
+                      {activeOverview.dayLabel}({activeOverview.weekday})
+                    </div>
+                    <div className="mt-2 flex items-start gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
+                      <span>{activeOverview.venue}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 p-4">
+                    {activeOverview.periods.map((period) => (
+                      <section key={period.label} className="space-y-2.5">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-sm font-black text-slate-900 dark:text-slate-100">{period.label}</h3>
+                          <span className="rounded-full bg-slate-200/70 px-2 py-0.5 text-[11px] font-bold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                            {period.items.length}개 일정
+                          </span>
+                        </div>
+
+                        <div className="space-y-2">
+                          {period.items.map((item) => {
+                            const modalId = "modalId" in item ? item.modalId : undefined;
+                            const content = (
+                              <>
+                                <div className="flex items-start justify-between gap-3">
+                                  <div className="min-w-0">
+                                    <div className="break-keep text-sm font-black leading-snug text-slate-800 dark:text-slate-100">
+                                      {item.title}
+                                    </div>
+                                    {"description" in item && item.description ? (
+                                      <div className="mt-1 break-keep text-xs font-medium leading-relaxed text-slate-500 dark:text-slate-400">
+                                        {item.description}
+                                      </div>
+                                    ) : null}
+                                  </div>
+                                  {modalId ? (
+                                    <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sky-500" />
+                                  ) : null}
+                                </div>
+                                <div className="mt-2 text-xs font-black text-sky-600 dark:text-sky-300">
+                                  {item.time}
+                                </div>
+                              </>
+                            );
+
+                            return modalId ? (
+                              <button
+                                key={`${item.title}-${item.time}`}
+                                type="button"
+                                onClick={() => openScheduleOverviewModal(modalId)}
+                                className="w-full rounded-xl border border-sky-100 bg-white p-3 text-left shadow-sm transition-colors hover:bg-sky-50 active:bg-sky-100 dark:border-sky-900/50 dark:bg-slate-900 dark:hover:bg-sky-950/30"
+                              >
+                                {content}
+                              </button>
+                            ) : (
+                              <div
+                                key={`${item.title}-${item.time}`}
+                                className="rounded-xl border border-slate-100 bg-white p-3 dark:border-slate-800 dark:bg-slate-900/70"
+                              >
+                                {content}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="hidden overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm bg-white dark:bg-slate-900 md:block">
                 <table className="w-full min-w-[760px] text-left border-collapse">
                   <thead>
                     <tr>

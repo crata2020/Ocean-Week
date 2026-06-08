@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function IntroPage() {
   return (
-    <div className="flex min-h-screen flex-col font-sans bg-slate-50 dark:bg-slate-950 pb-24">
+    <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden font-sans bg-slate-50 pb-24 dark:bg-slate-950">
       {/* Header */}
       <section className="relative w-full bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
         <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24 md:py-32 text-center">
@@ -127,9 +127,13 @@ export default function IntroPage() {
 
           {/* Footer Conclusion */}
           <div className="pt-16 mt-16 border-t border-slate-200 dark:border-slate-800 text-center">
-            <p className="text-base sm:text-lg font-bold text-slate-600 dark:text-slate-400 leading-relaxed mb-6 flex flex-col items-center">
-              <span className="whitespace-nowrap">해양주간 사무국은 콘퍼런스를 준비하면서 시민들의 해양에 대한 관심과 열정을 다시금 확인하게 되었습니다.</span>
-              <span className="whitespace-nowrap mt-2">대한민국의 미래는 해양에 있다는 믿음과 확신으로 해양인의 역량을 결집해 나가겠습니다.</span>
+            <p className="mx-auto mb-6 flex max-w-3xl flex-col items-center text-base font-bold leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
+              <span className="block break-keep">
+                해양주간 사무국은 콘퍼런스를 준비하면서 시민들의 해양에 대한 관심과 열정을 다시금 확인하게 되었습니다.
+              </span>
+              <span className="mt-2 block break-keep">
+                대한민국의 미래는 해양에 있다는 믿음과 확신으로 해양인의 역량을 결집해 나가겠습니다.
+              </span>
             </p>
             <p className="font-heading text-xl font-bold text-slate-800 dark:text-slate-200">
               - 2026년 해양주간 사무국

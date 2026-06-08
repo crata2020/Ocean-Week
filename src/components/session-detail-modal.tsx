@@ -41,7 +41,7 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
         className="relative w-full max-w-4xl rounded-3xl bg-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] dark:bg-slate-900 border border-white/20 dark:border-slate-800 animate-in fade-in zoom-in-95 duration-500 overflow-hidden flex flex-col max-h-[90vh]"
       >
         {/* Header Section */}
-        <div className="relative bg-emerald-50/50 dark:bg-emerald-950/20 px-6 py-8 text-center border-b border-slate-100 dark:border-slate-800">
+        <div className="relative bg-emerald-50/50 dark:bg-emerald-950/20 px-5 py-6 text-center border-b border-slate-100 dark:border-slate-800 sm:px-6 sm:py-8">
           <button
             onClick={onClose}
             className="absolute right-6 top-6 rounded-full bg-white dark:bg-slate-800 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 shadow-sm border border-slate-100 dark:border-slate-700 transition-all hover:rotate-90 z-20"
@@ -52,16 +52,16 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
           <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-sm font-bold mb-4">
             Special Session
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">
             기관장 <span className="text-emerald-600">토크 콘서트</span>
           </h2>
-          <div className="text-lg font-bold text-slate-500 dark:text-slate-400">
+          <div className="text-base sm:text-lg font-bold text-slate-500 dark:text-slate-400">
             6월 8일(월) <span className="mx-2 text-slate-300">|</span> 11:00 ~ 12:00
           </div>
         </div>
 
         {/* Main Content */}
-        <div className="px-6 py-8 overflow-y-auto">
+        <div className="px-4 py-5 overflow-y-auto sm:px-6 sm:py-8">
           <div className="inline-flex items-center gap-3 mb-6 pb-2 border-b-2 border-emerald-500/10">
             <span className="text-xs font-black text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded">주제</span>
             <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100">
@@ -70,25 +70,24 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
           </div>
 
           {/* Grid Layout (3 columns) */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner">
             {speakers.map((speaker) => (
               <div 
                 key={speaker.id} 
-                className="flex flex-col bg-white dark:bg-slate-900 group"
+                className="flex flex-row sm:flex-col bg-white dark:bg-slate-900 group"
               >
                 {/* Image Placeholder or Actual Image */}
-                <div className="relative aspect-[4/5] overflow-hidden bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4">
+                <div className="relative h-48 w-40 shrink-0 overflow-hidden bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-3 sm:w-full sm:h-auto sm:aspect-[4/5] sm:p-4">
                   <div className="relative w-full h-full">
                     {speaker.image ? (
-                      <div className="relative w-full h-full rounded-lg overflow-hidden shadow-md ring-1 ring-slate-200 dark:ring-slate-800 bg-white">
+                      <div className="relative w-full h-full rounded-xl overflow-hidden shadow-md ring-1 ring-slate-200 dark:ring-slate-800 bg-white">
                         <Image
                           src={speaker.image}
                           alt={speaker.name}
                           fill
-                          className="object-cover object-[center_20%] bg-white transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                          className="object-cover object-[center_18%] bg-white transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                           style={{ imageRendering: "-webkit-optimize-contrast" }}
                           sizes="(max-width: 768px) 50vw, 25vw"
-                          quality={100}
                           unoptimized
                           priority
                           draggable={false}
@@ -110,7 +109,7 @@ export function SessionDetailModal({ isOpen, onClose }: SessionDetailModalProps)
                 </div>
                 
                 {/* Description Text */}
-                <div className="px-5 py-6 text-center border-t border-slate-50 dark:border-slate-800 grow flex flex-col justify-center">
+                <div className="px-4 py-5 text-left sm:text-center border-t border-slate-50 dark:border-slate-800 grow flex flex-col justify-center sm:px-5 sm:py-6">
                   {speaker.org && (
                     <div className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-tighter mb-1 transform transition-transform group-hover:-translate-y-1">
                       {speaker.org}

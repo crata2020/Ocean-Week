@@ -19,69 +19,108 @@ export function PartnerLogoGrid() {
 
   return (
     <div
-      className="flex flex-col gap-2 md:gap-4 w-full pt-4"
+      className="w-full pt-2 md:pt-4"
       onContextMenu={prevent}
       onDragStart={prevent}
     >
-      {rowNumbers.map((rowNum) => {
-        const rowLogos = partnerLogos.filter((p) => p.row === rowNum);
-        if (rowLogos.length === 0) return null;
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:hidden">
+        {partnerLogos
+          .filter((partner) => !partner.name.startsWith("empty"))
+          .map((partner) => (
+            <div
+              key={partner.name}
+              className="relative flex h-14 items-center justify-center rounded-md border border-slate-200/75 bg-white px-3 shadow-[0_10px_26px_-24px_rgba(15,23,42,0.55)]"
+            >
+              {partner.logo ? (
+                <>
+                  <img
+                    src={publicAssetPath(`/images/logos/${partner.logo}`)}
+                    alt={`${partner.name} 로고`}
+                    className="max-h-9 max-w-full object-contain opacity-90 pointer-events-none select-none"
+                    style={{
+                      transform: partner.yOffset
+                        ? `translateY(${partner.yOffset})`
+                        : undefined,
+                      WebkitUserDrag: "none",
+                    } as React.CSSProperties}
+                    draggable={false}
+                  />
+                  <div
+                    className="absolute inset-0"
+                    onContextMenu={prevent}
+                    onDragStart={prevent}
+                  />
+                </>
+              ) : (
+                <span className="truncate text-xs font-bold text-slate-400">
+                  {partner.name}
+                </span>
+              )}
+            </div>
+          ))}
+      </div>
 
-        return (
-          <div
-            key={rowNum}
-            className="flex flex-wrap lg:flex-nowrap w-full items-center justify-start gap-x-1 gap-y-6 md:gap-x-2 lg:gap-x-2 xl:gap-x-3"
-          >
-            {rowLogos.map((partner) => (
-              <div
-                key={partner.name}
-                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-105 shrink min-w-0"
-              >
+      <div className="hidden flex-col gap-2 md:flex md:gap-4">
+        {rowNumbers.map((rowNum) => {
+          const rowLogos = partnerLogos.filter((p) => p.row === rowNum);
+          if (rowLogos.length === 0) return null;
+
+          return (
+            <div
+              key={rowNum}
+              className="flex flex-wrap lg:flex-nowrap w-full items-center justify-start gap-x-1 gap-y-6 md:gap-x-2 lg:gap-x-2 xl:gap-x-3"
+            >
+              {rowLogos.map((partner) => (
                 <div
-                  className="relative flex items-center justify-center overflow-hidden rounded-md px-1"
-                  style={{
-                    height: `calc(clamp(1.25rem, 1.2vw + 0.5rem, 2rem) * ${partner.scale || 1})`,
-                  }}
+                  key={partner.name}
+                  className="group relative flex items-center justify-center transition-all duration-300 hover:scale-105 shrink min-w-0"
                 >
-                  {partner.logo ? (
-                    <>
-                      <img
-                        src={publicAssetPath(`/images/logos/${partner.logo}`)}
-                        alt={`${partner.name} 로고`}
-                        className="h-full w-auto max-w-full object-contain transition-all duration-300 opacity-90 hover:opacity-100 pointer-events-none select-none"
+                  <div
+                    className="relative flex items-center justify-center overflow-hidden rounded-md px-1"
+                    style={{
+                      height: `calc(clamp(1.25rem, 1.2vw + 0.5rem, 2rem) * ${partner.scale || 1})`,
+                    }}
+                  >
+                    {partner.logo ? (
+                      <>
+                        <img
+                          src={publicAssetPath(`/images/logos/${partner.logo}`)}
+                          alt={`${partner.name} 로고`}
+                          className="h-full w-auto max-w-full object-contain transition-all duration-300 opacity-90 hover:opacity-100 pointer-events-none select-none"
+                          style={{
+                            transform: partner.yOffset
+                              ? `translateY(${partner.yOffset})`
+                              : undefined,
+                            WebkitUserDrag: "none",
+                          } as React.CSSProperties}
+                          draggable={false}
+                        />
+                        {/* 다운로드 방지 투명 오버레이 */}
+                        <div
+                          className="absolute inset-0"
+                          onContextMenu={prevent}
+                          onDragStart={prevent}
+                        />
+                      </>
+                    ) : partner.name.startsWith("empty") ? (
+                      <div className="w-[60px] sm:w-[80px] md:w-[100px] h-full" />
+                    ) : (
+                      <span
+                        className="font-bold text-slate-400 whitespace-nowrap px-1"
                         style={{
-                          transform: partner.yOffset
-                            ? `translateY(${partner.yOffset})`
-                            : undefined,
-                          WebkitUserDrag: "none",
-                        } as React.CSSProperties}
-                        draggable={false}
-                      />
-                      {/* 다운로드 방지 투명 오버레이 */}
-                      <div
-                        className="absolute inset-0"
-                        onContextMenu={prevent}
-                        onDragStart={prevent}
-                      />
-                    </>
-                  ) : partner.name.startsWith("empty") ? (
-                    <div className="w-[60px] sm:w-[80px] md:w-[100px] h-full" />
-                  ) : (
-                    <span
-                      className="font-bold text-slate-400 whitespace-nowrap px-1"
-                      style={{
-                        fontSize: `calc(0.75rem * ${(partner.scale || 1) * 1.2})`,
-                      }}
-                    >
-                      {partner.name}
-                    </span>
-                  )}
+                          fontSize: `calc(0.75rem * ${(partner.scale || 1) * 1.2})`,
+                        }}
+                      >
+                        {partner.name}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        );
-      })}
+              ))}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
