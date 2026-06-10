@@ -228,10 +228,12 @@ export function SiteHeader({ startsCollapsed = false }: { startsCollapsed?: bool
                 aria-label="메뉴 접기"
                 aria-expanded="true"
                 onClick={() => setIsHeaderCollapsed(true)}
-                className="inline-flex h-8 items-center gap-1 rounded-md border border-sky-100 bg-sky-50 px-2.5 text-[11px] font-bold text-sky-800 shadow-[0_12px_26px_-22px_rgba(29,84,111,0.55)] transition-colors hover:bg-sky-100 sm:h-9 sm:text-xs"
+                style={{ fontSize: "5px", lineHeight: 1 }}
+                className="inline-flex h-4 shrink-0 items-center gap-0.5 whitespace-nowrap rounded border border-sky-100 bg-sky-50 px-1 font-bold text-sky-800 shadow-[0_12px_26px_-22px_rgba(29,84,111,0.55)] transition-colors hover:bg-sky-100 sm:h-5 sm:px-1.5"
               >
-                메뉴 접기
-                <ChevronUp className="h-3.5 w-3.5" />
+                <span className="sm:hidden">메뉴</span>
+                <span className="hidden sm:inline">메뉴 접기</span>
+                <ChevronUp className="h-2 w-2" />
               </button>
             ) : null}
           </div>
@@ -247,10 +249,12 @@ export function SiteHeader({ startsCollapsed = false }: { startsCollapsed?: bool
                 aria-label="메뉴 펼치기"
                 aria-expanded="false"
                 onClick={() => setIsHeaderCollapsed(false)}
-                className="inline-flex h-8 items-center gap-1 rounded-md border border-sky-100 bg-white px-2.5 text-[11px] font-bold text-sky-800 shadow-[0_12px_26px_-22px_rgba(29,84,111,0.55)] transition-colors hover:bg-sky-50 sm:h-9 sm:text-xs"
+                style={{ fontSize: "5px", lineHeight: 1 }}
+                className="inline-flex h-4 shrink-0 items-center gap-0.5 whitespace-nowrap rounded border border-sky-100 bg-white px-1 font-bold text-sky-800 shadow-[0_12px_26px_-22px_rgba(29,84,111,0.55)] transition-colors hover:bg-sky-50 sm:h-5 sm:px-1.5"
               >
-                메뉴 펼치기
-                <ChevronDown className="h-3.5 w-3.5" />
+                <span className="sm:hidden">메뉴</span>
+                <span className="hidden sm:inline">메뉴 펼치기</span>
+                <ChevronDown className="h-2 w-2" />
               </button>
             ) : (
               utilityLinks.map((link) => (

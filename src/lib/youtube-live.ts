@@ -16,10 +16,10 @@ export function buildYoutubeEmbedUrl(youtubeUrl: string) {
   );
 
   if (watchMatch?.[1]) {
-    return `https://www.youtube.com/embed/${watchMatch[1]}?autoplay=1&mute=1&rel=0`;
+    return `https://www.youtube.com/embed/${watchMatch[1]}?autoplay=1&mute=0&rel=0`;
   }
 
-  return `${url}${url.includes("?") ? "&" : "?"}autoplay=1&mute=1`;
+  return `${url}${url.includes("?") ? "&" : "?"}autoplay=1&mute=0`;
 }
 
 export function getYoutubeLiveHeroState({

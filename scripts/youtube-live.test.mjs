@@ -25,7 +25,7 @@ const {
 test("buildYoutubeEmbedUrl converts YouTube watch URLs to autoplay embed URLs", () => {
   assert.equal(
     buildYoutubeEmbedUrl("https://www.youtube.com/watch?v=abcdefghijk"),
-    "https://www.youtube.com/embed/abcdefghijk?autoplay=1&mute=1&rel=0",
+    "https://www.youtube.com/embed/abcdefghijk?autoplay=1&mute=0&rel=0",
   );
 });
 
