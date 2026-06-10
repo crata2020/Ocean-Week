@@ -309,7 +309,10 @@ export function RegistrationStatusPanel({ sessionCounts }: { sessionCounts?: Rec
                         className="w-full bg-white"
                       />
                       <p className="text-xs text-slate-400 mt-2">
-                        * 유튜브 공유하기 {'>'} 퍼가기(Embed) 소스 코드에서 src="..." 안에 있는 주소만 복사해서 넣어주세요.
+                        * 유튜브 공유하기 {'>'} 퍼가기(Embed) 소스 코드에서 src=&quot;...&quot; 안에 있는 주소만 복사해서 넣어주세요.
+                      </p>
+                      <p className="text-xs text-slate-400 mt-1">
+                        * 링크 없이 라이브 화면을 켜면 메인 화면에 시작 안내 문구가 표시됩니다.
                       </p>
                     </div>
 

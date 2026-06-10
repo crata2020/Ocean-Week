@@ -3,8 +3,12 @@ import { Noto_Sans_KR } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
 import { ImageProtection } from "@/components/image-protection";
+import { getSupabaseAdminClient } from "@/lib/supabase-admin";
+import { getYoutubeLiveHeroState, shouldStartHeaderCollapsed } from "@/lib/youtube-live";
 
 import "./globals.css";
+
+export const revalidate = 0;
 
 const bodyFont = Noto_Sans_KR({
   variable: "--font-body",
@@ -44,17 +48,40 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+async function getLiveHeaderCollapsed() {
+  const supabaseAdmin = getSupabaseAdminClient();
+  const { data: setting } = await supabaseAdmin
+    .from("site_settings")
+    .select("*")
+    .eq("id", "youtube_live")
+    .single();
+
+  const liveSetting = setting as unknown as {
+    is_active?: boolean | null;
+    youtube_url?: string | null;
+  } | null;
+
+  return shouldStartHeaderCollapsed(
+    getYoutubeLiveHeroState({
+      isActive: Boolean(liveSetting?.is_active),
+      youtubeUrl: liveSetting?.youtube_url,
+    }),
+  );
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const startsCollapsed = await getLiveHeaderCollapsed();
+
   return (
     <html lang="ko">
       <body className={`${bodyFont.variable} ${displayFont.variable} antialiased`} suppressHydrationWarning>
         <div className="min-h-screen bg-background text-foreground">
           <ImageProtection />
-          <SiteHeader />
+          <SiteHeader startsCollapsed={startsCollapsed} />
           <main>{children}</main>
         </div>
       </body>

@@ -6,7 +6,9 @@ export async function POST(request: Request) {
     const body = await request.json();
     const id = String(body.id);
     const is_active = Boolean(body.is_active);
-    const youtube_url = body.youtube_url ? String(body.youtube_url) : null;
+    const youtube_url = body.youtube_url
+      ? String(body.youtube_url).trim() || null
+      : null;
 
     if (!id) {
       return NextResponse.json({ error: "Missing id" }, { status: 400 });

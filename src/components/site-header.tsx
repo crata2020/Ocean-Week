@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -71,14 +71,19 @@ function getNavigationNextTarget(scroller: HTMLDivElement) {
   return nextItem ? nextItem.left - NAV_EDGE_OFFSET : scroller.scrollLeft + availableWidth;
 }
 
-function OceanWeekMark() {
+function OceanWeekMark({ compact = false }: { compact?: boolean }) {
   return (
     <Link
       href="/"
       className="inline-flex flex-col items-center transition-opacity hover:opacity-80"
       aria-label="2026 해양주간 홈"
     >
-      <div className="relative mb-1 h-[24px] w-[108px] sm:h-[30px] sm:w-[132px] lg:mb-2 lg:h-[36px] lg:w-[156px]">
+      <div
+        className={cn(
+          "relative mb-1 h-[24px] w-[108px] sm:h-[30px] sm:w-[132px] lg:mb-2 lg:h-[36px] lg:w-[156px]",
+          compact && "mb-0 h-[18px] w-[82px] sm:h-[22px] sm:w-[98px] lg:mb-0 lg:h-[24px] lg:w-[110px]",
+        )}
+      >
         <Image
           src={publicAssetPath("/images/logos/해양주간 로고만.svg")}
           alt="2026 해양주간"
@@ -90,13 +95,19 @@ function OceanWeekMark() {
       <div className="flex flex-col items-center gap-1.5">
         <span
           style={{ fontFamily: "var(--font-ssurround)" }}
-          className="text-[16px] font-bold leading-none tracking-tight text-primary sm:text-[18px] lg:text-[22px]"
+          className={cn(
+            "text-[16px] font-bold leading-none tracking-tight text-primary sm:text-[18px] lg:text-[22px]",
+            compact && "text-[13px] sm:text-[15px] lg:text-[16px]",
+          )}
         >
           2026 해양주간
         </span>
         <span
           style={{ fontFamily: "var(--font-pretendard)" }}
-          className="mt-0.5 text-[10px] font-bold leading-none tracking-[0.05em] text-muted-foreground sm:text-[12px] lg:mt-1 lg:text-[14px]"
+          className={cn(
+            "mt-0.5 text-[10px] font-bold leading-none tracking-[0.05em] text-muted-foreground sm:text-[12px] lg:mt-1 lg:text-[14px]",
+            compact && "hidden",
+          )}
         >
           OCEAN WEEK
         </span>
@@ -105,11 +116,14 @@ function OceanWeekMark() {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({ startsCollapsed = false }: { startsCollapsed?: boolean }) {
   const navScrollRef = useRef<HTMLDivElement>(null);
+  const [isHeaderCollapsed, setIsHeaderCollapsed] = useState(startsCollapsed);
   const [canScrollNavigationLeft, setCanScrollNavigationLeft] = useState(false);
   const [canScrollNavigationRight, setCanScrollNavigationRight] = useState(false);
   const [navigationRightClip, setNavigationRightClip] = useState(0);
+  const isLiveCollapsible = startsCollapsed;
+  const isCollapsed = isLiveCollapsible && isHeaderCollapsed;
 
   const syncNavigationState = useCallback((nextScrollLeft?: number) => {
     const scroller = navScrollRef.current;
@@ -170,7 +184,7 @@ export function SiteHeader() {
     const scroller = navScrollRef.current;
     if (!scroller) return;
 
-    syncNavigationState();
+    const syncFrame = window.requestAnimationFrame(() => syncNavigationState());
 
     const handleScroll = () => syncNavigationState();
     const handleResize = () => syncNavigationState();
@@ -185,6 +199,7 @@ export function SiteHeader() {
     }
 
     return () => {
+      window.cancelAnimationFrame(syncFrame);
       scroller.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
       resizeObserver?.disconnect();
@@ -194,41 +209,77 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-white/98 backdrop-blur supports-[backdrop-filter]:bg-white/95">
       <div className="h-1 w-full bg-[linear-gradient(90deg,rgba(122,201,187,0.85)_0%,rgba(52,126,191,0.85)_58%,rgba(241,187,95,0.8)_100%)]" />
-      <div className="mx-auto flex max-w-7xl flex-col gap-2 px-3 py-2 sm:gap-3 sm:px-5 sm:py-3 lg:gap-5 lg:px-8 lg:py-4">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 lg:items-start">
-          <div className="min-w-0" aria-hidden="true" />
+      <div
+        className={cn(
+          "mx-auto flex max-w-7xl flex-col px-3 sm:px-5 lg:px-8",
+          isCollapsed ? "py-2" : "gap-2 py-2 sm:gap-3 sm:py-3 lg:gap-5 lg:py-4",
+        )}
+      >
+        <div
+          className={cn(
+            "grid items-center gap-3",
+            isCollapsed ? "grid-cols-[1fr_auto_1fr]" : "grid-cols-[1fr_auto_1fr] lg:items-start",
+          )}
+        >
+          <div className="min-w-0">
+            {isLiveCollapsible && !isCollapsed ? (
+              <button
+                type="button"
+                aria-label="메뉴 접기"
+                aria-expanded="true"
+                onClick={() => setIsHeaderCollapsed(true)}
+                className="inline-flex h-8 items-center gap-1 rounded-md border border-sky-100 bg-sky-50 px-2.5 text-[11px] font-bold text-sky-800 shadow-[0_12px_26px_-22px_rgba(29,84,111,0.55)] transition-colors hover:bg-sky-100 sm:h-9 sm:text-xs"
+              >
+                메뉴 접기
+                <ChevronUp className="h-3.5 w-3.5" />
+              </button>
+            ) : null}
+          </div>
 
           <div className="flex min-w-0 justify-center">
-            <OceanWeekMark />
+            <OceanWeekMark compact={isCollapsed} />
           </div>
 
           <div className="flex min-w-0 flex-wrap justify-end gap-1.5 lg:gap-2">
-            {utilityLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-label={link.label}
-                className={cn(
-                  buttonVariants({
-                    variant: "outline",
-                    size: "lg",
-                    className:
-                      "h-8 w-[3.25rem] min-w-0 rounded-md border-border bg-white px-0 text-[12px] font-semibold text-primary shadow-[0_12px_26px_-22px_rgba(29,84,111,0.45)] hover:border-primary/35 hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-auto sm:px-3 sm:text-sm lg:h-10 lg:min-w-28 lg:px-4",
-                  }),
-                )}
+            {isCollapsed ? (
+              <button
+                type="button"
+                aria-label="메뉴 펼치기"
+                aria-expanded="false"
+                onClick={() => setIsHeaderCollapsed(false)}
+                className="inline-flex h-8 items-center gap-1 rounded-md border border-sky-100 bg-white px-2.5 text-[11px] font-bold text-sky-800 shadow-[0_12px_26px_-22px_rgba(29,84,111,0.55)] transition-colors hover:bg-sky-50 sm:h-9 sm:text-xs"
               >
-                <span className="sm:hidden">
-                  {link.label === "사전등록현황" ? "현황" : "등록"}
-                </span>
-                <span className="hidden sm:inline">{link.label}</span>
-              </Link>
-            ))}
+                메뉴 펼치기
+                <ChevronDown className="h-3.5 w-3.5" />
+              </button>
+            ) : (
+              utilityLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-label={link.label}
+                  className={cn(
+                    buttonVariants({
+                      variant: "outline",
+                      size: "lg",
+                      className:
+                        "h-8 w-[3.25rem] min-w-0 rounded-md border-border bg-white px-0 text-[12px] font-semibold text-primary shadow-[0_12px_26px_-22px_rgba(29,84,111,0.45)] hover:border-primary/35 hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-auto sm:px-3 sm:text-sm lg:h-10 lg:min-w-28 lg:px-4",
+                    }),
+                  )}
+                >
+                  <span className="sm:hidden">
+                    {link.label === "사전등록현황" ? "현황" : "등록"}
+                  </span>
+                  <span className="hidden sm:inline">{link.label}</span>
+                </Link>
+              ))
+            )}
           </div>
         </div>
 
-        <Separator className="hidden bg-border/80 md:block" />
+        {!isCollapsed && <Separator className="hidden bg-border/80 md:block" />}
 
-        <nav aria-label="주요 메뉴" className="relative -mx-3 px-3 pb-0.5 sm:mx-0 sm:px-0">
+        {!isCollapsed && <nav aria-label="주요 메뉴" className="relative -mx-3 px-3 pb-0.5 sm:mx-0 sm:px-0">
           <div
             ref={navScrollRef}
             onScroll={updateNavigationOverflow}
@@ -308,7 +359,7 @@ export function SiteHeader() {
               </button>
             </div>
           )}
-        </nav>
+        </nav>}
       </div>
     </header>
   );

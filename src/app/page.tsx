@@ -5,11 +5,10 @@ import { CalendarDays, MapPin, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { heroContent } from "@/lib/site-content";
-import { publicAssetPath } from "@/lib/utils";
+import { cn, publicAssetPath } from "@/lib/utils";
 import { PartnerLogoGrid } from "@/components/partner-logo-grid";
-
-
 import { getSupabaseAdminClient } from "@/lib/supabase-admin";
+import { getYoutubeLiveHeroState } from "@/lib/youtube-live";
 
 export const revalidate = 0; // 항상 최신 설정을 불러오도록 캐시 비활성화
 
@@ -21,40 +20,46 @@ export default async function HomePage() {
     .eq("id", "youtube_live")
     .single();
 
-  let isLiveActive = false;
-  let finalYoutubeUrl = "";
-
-  // @ts-ignore
-  if (setting?.is_active && setting?.youtube_url) {
-    isLiveActive = true;
-    // @ts-ignore
-    let url = setting.youtube_url;
-    
-    // 일반 유튜브 주소, youtu.be 단축 주소, 라이브 주소에서 영상 ID 추출
-    const watchMatch = url.match(/(?:v=|youtu\.be\/|youtube\.com\/live\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
-    
-    if (watchMatch && watchMatch[1]) {
-      // 추출한 영상 ID로 올바른 embed 주소 생성
-      finalYoutubeUrl = `https://www.youtube.com/embed/${watchMatch[1]}?autoplay=1&mute=1&rel=0`;
-    } else {
-      // 매칭되지 않는 경우 (이미 파라미터가 포함된 embed 주소일 수도 있음)
-      finalYoutubeUrl = `${url}${url.includes('?') ? '&' : '?'}autoplay=1&mute=1`;
-    }
-  }
+  const liveSetting = setting as unknown as {
+    is_active?: boolean | null;
+    youtube_url?: string | null;
+  } | null;
+  const liveHero = getYoutubeLiveHeroState({
+    isActive: Boolean(liveSetting?.is_active),
+    youtubeUrl: liveSetting?.youtube_url,
+  });
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden font-sans bg-white dark:bg-slate-950">
       {/* 1. Immersive Hero Section or YouTube Live */}
-      {isLiveActive ? (
-        <section className="relative flex min-h-[calc(100svh-116px)] w-full items-start justify-center bg-slate-950 px-3 py-8 md:h-[85vh] md:min-h-[600px] md:px-8 md:pt-10">
-          <div className="relative aspect-video w-full max-w-6xl overflow-hidden rounded-xl shadow-[0_0_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 md:rounded-2xl">
-            <iframe 
-              src={finalYoutubeUrl}
-              className="absolute top-0 left-0 w-full h-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            />
-          </div>
+      {liveHero.mode !== "off" ? (
+        <section className="relative flex min-h-[calc(100svh-59px)] w-full items-center justify-center bg-slate-950 px-3 py-6 sm:min-h-[calc(100svh-69px)] md:px-8 md:py-8">
+          {liveHero.mode === "video" ? (
+            <div className="relative aspect-video w-full max-w-[min(86rem,140vh)] shrink-0 overflow-hidden rounded-xl bg-black shadow-[0_0_50px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 md:rounded-2xl">
+              <iframe
+                src={liveHero.embedUrl}
+                title="2026 해양주간 온라인 컨퍼런스 라이브"
+                className="absolute inset-0 h-full w-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ) : (
+            <div className="flex min-h-[min(62vh,640px)] w-full max-w-7xl flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] px-5 py-12 text-center shadow-[0_0_50px_-16px_rgba(0,0,0,0.85)] sm:min-h-[min(64vh,680px)] md:rounded-2xl md:px-10">
+              <Badge
+                variant="outline"
+                className="mb-5 rounded-full border-sky-300/30 bg-sky-300/10 px-4 py-1.5 text-xs font-bold text-sky-100 md:text-sm"
+              >
+                ONLINE CONFERENCE
+              </Badge>
+              <p className="text-[clamp(1.7rem,6vw,3.75rem)] font-black leading-tight text-white">
+                {liveHero.message}
+              </p>
+              <p className="mt-5 text-sm font-medium leading-7 text-sky-100/80 md:text-lg">
+                라이브 링크가 준비되면 이 화면에서 바로 시청하실 수 있습니다.
+              </p>
+            </div>
+          )}
         </section>
       ) : (
       <section className="relative flex min-h-[calc(100svh-116px)] w-full max-w-full items-center justify-center overflow-hidden py-9 sm:py-12 md:h-[calc(100vh-160px)] md:min-h-[550px] md:py-0">
@@ -149,7 +154,12 @@ export default async function HomePage() {
       </section>
       )}
 
-      <section className="relative z-20 -mt-6 w-full max-w-full overflow-x-hidden bg-white px-4 pb-14 pt-8 dark:bg-slate-950 sm:px-5 md:-mt-8 md:px-4 md:pb-20 lg:px-0 xl:px-4">
+      <section
+        className={cn(
+          "relative z-20 w-full max-w-full overflow-x-hidden bg-white px-4 pb-14 pt-8 dark:bg-slate-950 sm:px-5 md:px-4 md:pb-20 lg:px-0 xl:px-4",
+          liveHero.mode === "off" && "-mt-6 md:-mt-8",
+        )}
+      >
         <div className="mx-auto w-full max-w-[1800px] space-y-6 text-center md:space-y-10">
           <div className="flex flex-col items-center gap-2 md:gap-3">
             <Badge
